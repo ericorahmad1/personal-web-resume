@@ -11433,3 +11433,95 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+
+/* ===========================================================================
+   Print stylesheet — clean, ink-friendly one-pager when users Save as PDF
+   =========================================================================== */
+@media print {
+  /* Reset Bootstrap dark sidebar — print white background only */
+  body,
+  body#page-top,
+  .bg-primary,
+  nav.navbar {
+    background: #fff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide the side navigation entirely in print */
+  nav#sideNav,
+  .navbar,
+  .navbar-toggler,
+  .social-icons {
+    display: none !important;
+  }
+
+  /* Reset main container offset (Bootstrap pushes it right of the sidebar) */
+  .container-fluid,
+  .container-fluid.p-0 {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Each section becomes a self-contained block; reduce padding for print */
+  section.resume-section {
+    padding: 1rem 0 !important;
+    min-height: 0 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .resume-section-content {
+    max-width: 100% !important;
+  }
+
+  /* Headings — smaller and inkable */
+  h1 { font-size: 24pt !important; color: #000 !important; }
+  h2 { font-size: 16pt !important; color: #000 !important; border-bottom: 1px solid #000; padding-bottom: 4pt; }
+  h3 { font-size: 12pt !important; color: #000 !important; }
+  .subheading { font-size: 10pt !important; color: #333 !important; }
+  body { font-size: 10pt; line-height: 1.4; }
+
+  /* Brand orange shows through for text emphasis only */
+  .text-primary { color: #bd5d38 !important; }
+  .text-warning { color: #555 !important; }
+
+  /* Make hyperlinks readable on paper — show URL after the text */
+  a, a:visited {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
+  /* Skip URL display for in-page anchors and mailto */
+  a[href^="#"]::after,
+  a[href^="mailto:"]::after {
+    content: "";
+  }
+
+  /* Fitting more content per page */
+  .mb-5 { margin-bottom: 1rem !important; }
+  .mb-4 { margin-bottom: 0.75rem !important; }
+  .mb-3 { margin-bottom: 0.5rem !important; }
+
+  /* Remove animations & transitions in print */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 1.5cm 1.5cm;
+    size: A4;
+  }
+}

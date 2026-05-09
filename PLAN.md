@@ -1,8 +1,92 @@
 # Personal Web Resume — Analysis & Improvement Plan
 
-> Snapshot date: 2026-05-09
+> Snapshot date: 2026-05-09 (initial)
+> Last updated: 2026-05-09 (session 1 — items #1–#5 completed; Phase 1 modernization started)
 > Owner: Erico Rahmad Darmanto (`ericorahmad1@gmail.com`)
 > Repo: https://github.com/ericorahmad1/personal-web-resume
+
+## 🔖 Modernization checkpoint (Phase 1 + 2 + i18n approved 2026-05-09)
+
+Full plan stored at `~/.claude/plans/tingly-foraging-widget.md` with 16 commit-sized tasks.
+
+**Done so far this session (uncommitted in working tree):**
+- ✅ `robots.txt` — bots allowed; private/ blocked; AI training crawlers (GPTBot, ClaudeBot, CCBot, Google-Extended, PerplexityBot, anthropic-ai) opt-out
+- ✅ `sitemap.xml` — single URL with hreflang scaffold (will expand when `/id/` ships)
+- ✅ `index.html` — added `<meta name="robots">` with `max-image-preview:large`, `<meta name="color-scheme">`, sitemap alternate link
+- ✅ `css/styles.css` — print stylesheet (`@media print`) for clean A4 PDF export
+
+**Stopped at:** end of Phase 1 SEO basics. Next 12 commits pending.
+
+**Next session pickup order** (from full plan, recommended sequence):
+1. `chore(deps): bootstrap 5.1.3 → 5.3.8 + refresh SRI` (commit 1)
+2. `perf(images): AVIF/WebP profile photo via <picture>` (commit 2)
+3. `perf(icons): replace Font Awesome CDN with local SVG sprite` (commit 3)
+4. `feat(seo): custom OG card image` (commit 5)
+5. `feat(perf): self-host Inter Variable; drop Google Fonts` (commit 6)
+6. `chore: replace orphan package-lock with proper package.json + build script` (commit 8)
+7. `feat: extract content to resume.json (JSON Resume schema)` (commit 9)
+8. `feat(i18n): add Indonesian /id/ page with hreflang` (commit 10)
+9. `feat(theme): dark mode toggle` (commit 11)
+10. `feat(ux): IntersectionObserver section reveal` (commit 12)
+11. `feat(ux): variable font + fluid clamp() typography` (commit 13)
+12. `feat(nav): offcanvas mobile navigation` (commit 14)
+13. `feat(seo): richer Schema.org` (commit 15)
+14. `chore(ci): linting + Lighthouse CI` (commit 16)
+
+
+
+---
+
+## 0. Progress (as of 2026-05-09)
+
+### ✅ Done in session 1
+
+Two commits on `origin/main`:
+- **`cfa72bf`** — chore: cleanup, SEO meta, security hardening, and docs
+- **`e1e590c`** — content: replace stale resume data with PDF-sourced 2025/2026 record
+
+Items from the priority table below: **#1, #2, #3, #4, #5 — all ✅**.
+
+### 🌐 Live URLs
+
+| Target | URL | Auto-deploy |
+|---|---|---|
+| **GitHub Pages (primary)** | https://ericorahmad1.github.io/personal-web-resume/ | ✅ on push to `main` |
+| **Netlify (mirror)** | `erico-resume-5f9292.netlify.app` (badge in `app.netlify.com`) | ✅ on push to `main` |
+
+> ⚠️ Same content on both → potential duplicate-content SEO. Pick one as canonical or add `<link rel="canonical">` redirect at the non-primary side. Currently `index.html` canonical points at GH Pages.
+
+### 📦 Done outside the original 9-item plan
+
+These were extra hardening / scope-creep that turned out worthwhile:
+
+- **Subresource Integrity** (`integrity="sha384-..."`) on Bootstrap JS CDN
+- **Content Security Policy** meta tag with allowlist (jsdelivr, fontawesome, Google Fonts)
+- `referrer="strict-origin-when-cross-origin"` + `X-Content-Type-Options: nosniff`
+- **JSON-LD Person schema** with `address` (Denpasar, Bali) + `sameAs` (5 social + Lynk)
+- **Lynk portfolio** added to social icons
+- **Certifications** section (CAPv2, CNSP, CSCUv3, CND, Google Cybersec Cert, CyberOps, TOEIC)
+- **Organizational Experience** section (SlashRoot CTF 2.0/3.0/4.0, UKM KSL)
+- Relevance audit when migrating from old HTML → preserved SMK TI Bali Global, MySQL/database skill, anime/sci-fi/aspiring-chef interests
+- `private/` folder + `*.pdf` gitignored (user dropped 2 PDF CVs there for content extraction)
+- `CLAUDE.md` (guidance for future Claude Code sessions)
+- `.gitignore` properly named + expanded (was `.gitignoree` typo with `node_modules/` tracked — 223 files cleaned up)
+- README rewrite (was 1 line)
+
+### ☐ Remaining (open for future sessions)
+
+- **#6** Extract resume data → `resume.json` (JSON Resume schema)
+- **#7** Add Projects/Portfolio section + "Download CV (PDF)" button
+- **#8** Migrate to Astro + PurgeCSS (build pipeline)
+- **#9** i18n EN/ID
+
+### 🔓 Open decisions for next session
+
+1. **Canonical URL strategy** — pick GH Pages OR Netlify as primary; currently both serve identical content from `main` (duplicate-content risk). Either remove one deploy or add `<meta name="robots" content="noindex">` on the secondary.
+2. **`package-lock.json` orphan** — delete it (no `package.json`) OR materialize a real `package.json` matching the lockfile (Bootstrap 5.1.3 + startbootstrap-resume 7.0.4). Recommendation: delete unless we adopt a build pipeline.
+3. **Projects/Portfolio section vs Astro migration order** — adding Projects to current static `index.html` is ~4h; doing it after migrating to Astro is much cleaner but blocks on a 1-day refactor. User to decide which goes first.
+4. **Bootstrap upgrade** — 5.1.3 → 5.3.8 is recommended (no CVEs in 5.1.3 but 4 years out of date). Risk: SRI hash will need updating, and a few class names changed in 5.3.x (color modes / dark mode token).
+5. **Font Awesome** — currently loads full `all.js` from CDN; subset to ~20 icons used would cut payload significantly. Migrate to FA6/7 in the same pass.
 
 ---
 
