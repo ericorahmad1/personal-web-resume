@@ -3,24 +3,78 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Web Personal Resume" />
+
+        <!-- Content Security Policy: restricts resource loading to known origins.
+             'unsafe-inline' on script-src is required for the JSON-LD block below
+             (static site, no user input → low XSS surface). Tighten with hashes if needed. -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://use.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://use.fontawesome.com https://*.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://use.fontawesome.com https://*.fontawesome.com; img-src 'self' data:; connect-src 'self' https://use.fontawesome.com https://*.fontawesome.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+        <!-- Primary meta -->
+        <title>Erico Rahmad Darmanto — QA Engineer Resume</title>
+        <meta name="description" content="Online resume of Erico Rahmad Darmanto — Quality Assurance Engineer based in Bali, Indonesia. Manual & automation testing, cyber security enthusiast." />
         <meta name="author" content="Erico Rahmad Darmanto" />
-        <title>Resume - Erico Rahmad Darmanto</title>
+        <meta name="keywords" content="Erico Rahmad Darmanto, QA Engineer, Quality Assurance, Software Tester, Selenium, Appium, Bali, Cyber Security, Penetration Testing" />
+        <meta name="theme-color" content="#bd5d38" />
+        <link rel="canonical" href="https://ericorahmad1.github.io/personal-web-resume/" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="profile" />
+        <meta property="og:title" content="Erico Rahmad Darmanto — QA Engineer Resume" />
+        <meta property="og:description" content="Online resume of Erico Rahmad Darmanto — Quality Assurance Engineer based in Bali, Indonesia." />
+        <meta property="og:image" content="https://ericorahmad1.github.io/personal-web-resume/assets/img/erico.jpg" />
+        <meta property="og:url" content="https://ericorahmad1.github.io/personal-web-resume/" />
+        <meta property="profile:first_name" content="Erico" />
+        <meta property="profile:last_name" content="Rahmad Darmanto" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Erico Rahmad Darmanto — QA Engineer Resume" />
+        <meta name="twitter:description" content="QA Engineer based in Bali, Indonesia. Manual & automation testing, cyber security enthusiast." />
+        <meta name="twitter:image" content="https://ericorahmad1.github.io/personal-web-resume/assets/img/erico.jpg" />
+        <meta name="twitter:creator" content="@0xn0thing" />
+
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+        <!-- Preconnect to external origins for faster font / icon load -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://use.fontawesome.com" crossorigin />
+
         <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700&display=swap" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i&display=swap" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
+        <!-- JSON-LD structured data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Erico Rahmad Darmanto",
+            "jobTitle": "Quality Assurance Engineer",
+            "email": "mailto:ericorahmad1@gmail.com",
+            "url": "https://ericorahmad1.github.io/personal-web-resume/",
+            "image": "https://ericorahmad1.github.io/personal-web-resume/assets/img/erico.jpg",
+            "sameAs": [
+                "https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/",
+                "https://github.com/ericorahmad1",
+                "https://www.twitter.com/0xn0thing",
+                "https://instagram.com/ericorahmad"
+            ]
+        }
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">Erico Rahmad Darmanto</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/erico.jpg" alt="" /></span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/erico.jpg" alt="Erico Rahmad Darmanto" /></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -48,12 +102,26 @@
                          <!-- · · · -->
                         <a href="mailto:ericorahmad1@gmail.com">ericorahmad1@gmail.com</a>
                     </div>
-                    <p class="lead mb-5">I am student at STIKOM Bali & HELP University | Jr Software Quality Assurance.</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target=blank><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/ericorahmad1" target=blank><i class="fab fa-github" target=blank></i></a>
-                        <a class="social-icon" href="https://www.twitter.com/0xn0thing" target=blank><i class="fab fa-twitter"></i></a>
-                        <a class="social-icon" href="https://instagram.com/ericorahmad" target=blank><i class="fab fa-instagram"></i></a>
+                    <p class="lead mb-5">I'm a Quality Assurance Engineer. Graduate of college at Institut Teknologi dan Bisnis STIKOM Bali International Class & HELP University with Dual Degree programs S.Kom & BIT (Bachelor of Information Technology): professional working QA Engineer & Tester, Cyber Security Enthusiasm, Love Linux and Network Security.
+During my college, I was always active in various IT events certainly being more specific about information security. Strong professional with a Bachelor's in Computer Systems & Information Technology from Institut Teknologi and Bisnis STIKOM Bali & HELP University. </p>
+                    <ol class="list-inline">
+                        <li>- Familiar with Manual & Automation testing Web and Mobile Applications </li>
+                        <li>- Developing Test Strategies, Test Plans, and Test Cases </li>
+                        <li>- Maintaining and enhancing a QA process and adhering to it </li>
+                        <li>- Collaborating within cross-functional and international agile teams </li>
+                        <li>- Testing, debugging, re-testing, and coordinating with Software Engineers </li>
+                        <li>- Validating software as ready for shipping. </li>
+                        <li>- Familiar with Java, Selenium, Appium, Katalon, Postman, Github, Android, JMeter, JavaScript, TestNG, and Maven. </li>
+                        <li>- Knowledge of relational databases such as MySQL. </li>
+                        <li>- Knowledge of security testing and Cyber Security. </li>
+                    </ol>
+                    <br>   
+                        <div class="social-icons">
+                        <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </section>
@@ -90,7 +158,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Web Application Programmer</h3>
                             <div class="subheading mb-3">Studio Kami Mandiri</div>
-                            <p>Internship - Web building PHP app using Web Framework Code Igniter. Project Reservation Hotel for Public and INternal Management Employee </p>
+                            <p>Internship - Web building PHP app using Web Framework CodeIgniter. Project: Hotel Reservation system for public and internal management employees.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div>
                     </div>
@@ -103,7 +171,7 @@
                     <h2 class="mb-5">Education</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Institute Teknologi & Bisnis STIKOM Bali &</h3>
+                            <h3 class="mb-0">Institut Teknologi &amp; Bisnis STIKOM Bali &amp; HELP University</h3>
                             <div class="subheading mb-3">Bachelor of Information Technology</div>
                             <div>Computer System - Web Development Track</div>
                             
@@ -172,7 +240,7 @@
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Validating software as ready to shipping.
+                            Validating software as ready for shipping.
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-check"></i></span>
@@ -238,8 +306,12 @@
                 </div>
             </section>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JS (with Subresource Integrity hash) -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+            defer></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
