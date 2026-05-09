@@ -18,3 +18,7 @@ npm-debug.log*
 # Local env
 .env
 .env.local
+
+# Private / sensitive content (CV PDFs, drafts, personal data)
+private/
+*.pdf
