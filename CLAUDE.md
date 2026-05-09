@@ -33,4 +33,10 @@ External resources loaded from CDN at runtime: **Bootstrap 5.1.3 JS bundle**, **
 
 ## Project planning
 
-`PLAN.md` at the repo root contains the current improvement backlog (typo fixes, SEO meta, content updates 2021→2026, possible Astro migration, etc.) with a priority-ordered table. Consult it before proposing larger refactors so suggestions stay aligned.
+`PLAN.md` at the repo root contains the current improvement backlog and a "🔖 Modernization checkpoint" section listing exactly which commits in the multi-session plan are done. Consult it before proposing larger refactors.
+
+The full execution plan lives in the user's plan dir at `~/.claude/plans/tingly-foraging-widget.md` (Phase 1 + Phase 2 + EN/ID i18n, 16 commit-sized steps, approved 2026-05-09).
+
+### Resumption trigger
+
+When the user says **"lanjutkan progres"** (or "lanjut progress" / "continue progress"), resume the modernization plan at the next un-done commit listed in PLAN.md's checkpoint section. Do NOT re-plan or re-ask the catalog questions — decisions are locked in: Phase 1+2 + EN/ID i18n, dual deploy retained, custom domain deferred, GH Pages canonical.
