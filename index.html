@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
     <head>
+        <!-- Apply persisted theme synchronously to prevent flash-of-unstyled-content (FOUC).
+             Runs before any CSS so the correct color scheme is set on first paint. -->
+        <script>
+            (function () {
+                try {
+                    var stored = localStorage.getItem('theme');
+                    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    var theme = stored || (prefersDark ? 'dark' : 'light');
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                } catch (e) { /* private mode / SSR */ }
+            })();
+        </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -112,6 +124,10 @@
                 </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <button id="theme-toggle" type="button" class="btn theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+                <svg class="icon icon-sun" aria-hidden="true"><use href="assets/icons.svg#icon-sun"/></svg>
+                <svg class="icon icon-moon" aria-hidden="true"><use href="assets/icons.svg#icon-moon"/></svg>
+            </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>

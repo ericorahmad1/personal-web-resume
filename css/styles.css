@@ -129,6 +129,57 @@ p.lead {
 }
 
 /* ---------------------------------------------------------------------------
+   Theme toggle button (top-right of navbar / sidebar)
+   --------------------------------------------------------------------------- */
+.theme-toggle {
+    --size: 2.25rem;
+    width: var(--size);
+    height: var(--size);
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.theme-toggle .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* Sun shows in dark mode (offer to switch to light), moon shows in light mode */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-bs-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-bs-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* Pin to top-right on mobile (next to navbar-toggler), corner of sidebar on desktop */
+.theme-toggle {
+    margin-left: auto;
+}
+
+@media (min-width: 992px) {
+    nav#sideNav .theme-toggle {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 5;
+    }
+}
+
+/* ---------------------------------------------------------------------------
    Side navigation (#sideNav)
    --------------------------------------------------------------------------- */
 #sideNav {
@@ -223,6 +274,27 @@ p.lead {
 
 [data-bs-theme="dark"] .social-icons .social-icon {
     background-color: #343a40;
+}
+
+/* ---------------------------------------------------------------------------
+   Dark mode body adjustments
+   - Slightly muted background instead of pure black for readability
+   --------------------------------------------------------------------------- */
+[data-bs-theme="dark"] body {
+    background-color: #181a1d;
+}
+
+[data-bs-theme="dark"] hr {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .text-warning {
+    color: #f0b237 !important;
+}
+
+/* The orange sidebar deepens in dark mode for less retina burn */
+[data-bs-theme="dark"] nav#sideNav {
+    background-color: #8a4128 !important;
 }
 
 /* Skill icon row */

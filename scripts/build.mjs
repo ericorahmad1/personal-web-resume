@@ -116,6 +116,8 @@ const ICONS = [
     { id: 'bug', registry: 'lucide', slug: 'bug' },
     { id: 'certificate', registry: 'lucide', slug: 'award' },
     { id: 'trophy', registry: 'lucide', slug: 'trophy' },
+    { id: 'sun', registry: 'lucide', slug: 'sun' },
+    { id: 'moon', registry: 'lucide', slug: 'moon' },
 ];
 
 function urlFor({ registry, slug }) {
