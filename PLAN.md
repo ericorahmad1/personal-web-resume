@@ -1,7 +1,7 @@
 # Personal Web Resume — Analysis & Improvement Plan
 
 > Snapshot date: 2026-05-09 (initial)
-> Last updated: 2026-05-10 (session 2 — Phase 1 commits 1-3 + build pipeline shipped)
+> Last updated: 2026-05-10 (session 3 — visual/UX bundle: OG card, font, dark mode, reveals)
 > Owner: Erico Rahmad Darmanto (`ericorahmad1@gmail.com`)
 > Repo: https://github.com/ericorahmad1/personal-web-resume
 
@@ -15,25 +15,27 @@ Full plan stored at `~/.claude/plans/tingly-foraging-widget.md` with 16 commit-s
 - ✅ `index.html` — `<meta name="robots">`, `color-scheme`, sitemap alternate link
 - ✅ `css/styles.css` — print stylesheet (`@media print`) for A4 PDF export
 
-**Session 2 done (2026-05-10):**
+**Session 2 done (2026-05-10 morning):**
 - ✅ Commit `071086f` — proper `package.json` + `scripts/build.mjs` (sharp, htmlhint, stylelint); replaces orphan lockfile
 - ✅ Commit `5208826` — Bootstrap 5.1.3 → 5.3.8 (CDN + SRI); `css/styles.css` shrunk from 11,434 lines to 322 lines (97% smaller); `data-bs-theme` token wired
 - ✅ Commit `28845eb` — AVIF + WebP profile photo via `<picture>`; 85% smaller than JPEG
 - ✅ Commit `1429a85` — Font Awesome CDN replaced with local SVG sprite (26 icons from Simple Icons + Lucide); dropped `use.fontawesome.com` from CSP
 
-**Stopped at:** end of Phase 1 commits 1–3 (out of 7) + build pipeline scaffolding.
+**Session 3 done (2026-05-10 afternoon):**
+- ✅ Commit `afe797d` — Custom OG card image (1200×630, 52.5 KB) generated via `scripts/build.mjs buildOgImage()`; OG/Twitter meta updated
+- ✅ Commit `b373252` — Self-hosted Inter Variable woff2 (48 KB Latin); dropped Google Fonts (Saira / Muli); fluid typography via `clamp()`; tightened CSP; preload hint
+- ✅ Commit `f323ddb` — Dark mode toggle (sun/moon icons added to sprite, 28 total); inline FOUC script; localStorage + prefers-color-scheme; aria-pressed
+- ✅ Commit `e307d43` — IntersectionObserver section reveals (12px translateY + opacity over 0.55s); `prefers-reduced-motion` aware
+
+**Stopped at:** end of visual/UX bundle. 6 commits remaining.
 
 **Next session pickup order** (remaining commits):
-1. `feat(seo): custom OG card image` (commit 5) — design 1200×630 branded card; update OG/Twitter meta
-2. `feat(perf): self-host Inter Variable; drop Google Fonts` (commit 6)
-3. `feat: extract content to resume.json (JSON Resume schema)` (commit 9)
-4. `feat(i18n): add Indonesian /id/ page with hreflang` (commit 10)
-5. `feat(theme): dark mode toggle` (commit 11) — Bootstrap 5.3 `data-bs-theme` already wired in commit `5208826`, just needs the toggle button + JS + localStorage
-6. `feat(ux): IntersectionObserver section reveal` (commit 12)
-7. `feat(ux): variable font + fluid clamp() typography` (commit 13) — pairs with commit 6
-8. `feat(nav): offcanvas mobile navigation` (commit 14)
-9. `feat(seo): richer Schema.org` (commit 15) — add WebSite, BreadcrumbList, per-job Role
-10. `chore(ci): linting + Lighthouse CI` (commit 16)
+1. `feat: extract content to resume.json (JSON Resume schema)` (commit 9)
+2. `feat(i18n): add Indonesian /id/ page with hreflang` (commit 10)
+3. `feat(nav): offcanvas mobile navigation` (commit 14)
+4. `feat(seo): richer Schema.org` (commit 15) — add WebSite, BreadcrumbList, per-job Role
+5. `chore(ci): linting + Lighthouse CI` (commit 16)
+6. (defer / optional) commit 13's "variable font + fluid clamp() typography" was already shipped together with commit 6 in `b373252`; can drop from queue
 
 **Run the build script** to regenerate icon sprite or images:
 ```bash
