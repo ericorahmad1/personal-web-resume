@@ -1,0 +1,195 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+    "basics": {
+        "name": "Erico Rahmad Darmanto",
+        "label": "QA / Security Engineer",
+        "image": "https://ericorahmad1.github.io/personal-web-resume/assets/img/erico.jpg",
+        "email": "ericorahmad1@gmail.com",
+        "url": "https://ericorahmad1.github.io/personal-web-resume/",
+        "summary": "QA / Security Engineer with a dual-degree background (S.Kom from Institut Teknologi & Bisnis STIKOM Bali and BIT from HELP University, Kuala Lumpur). I split my time between automation & manual quality engineering and offensive security — from Cypress / Selenium / Playwright suites to VAPT engagements, security code review, and incident response. Active in the Indonesian cyber-security community since 2015 — CTF problem setter, masterclass organizer, and ex-chairman of SlashRoot CTF 2.0.",
+        "location": {
+            "city": "Denpasar",
+            "region": "Bali",
+            "countryCode": "ID"
+        },
+        "profiles": [
+            { "network": "LinkedIn", "username": "erico-rahmad-darmanto-3aab01126", "url": "https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" },
+            { "network": "GitHub", "username": "ericorahmad1", "url": "https://github.com/ericorahmad1" },
+            { "network": "Twitter", "username": "0xn0thing", "url": "https://www.twitter.com/0xn0thing" },
+            { "network": "Instagram", "username": "ericorahmad", "url": "https://instagram.com/ericorahmad" },
+            { "network": "TikTok", "username": "ryuji_kazawa", "url": "https://tiktok.com/@ryuji_kazawa" },
+            { "network": "Lynk Portfolio", "username": "ericorahmad", "url": "https://lynk.id/ericorahmad/page/portofolio" }
+        ]
+    },
+    "work": [
+        {
+            "name": "PT Inixindo Yogyakarta",
+            "position": "Freelance IT Instructor",
+            "startDate": "2025-11",
+            "endDate": "2025-12",
+            "summary": "Designed and delivered IT training sessions covering programming, cybersecurity, and related domains. Prepared course materials and guided participants through hands-on labs."
+        },
+        {
+            "name": "PT Ekosistem Pasar Digital (e-Padi)",
+            "position": "Freelance QA Engineer — LojaMi",
+            "startDate": "2025-10",
+            "endDate": "2025-12",
+            "summary": "Owned the quality of the LojaMi application across SIT, UAT, and Trial Operation phases. Performed functional, exploratory, regression, and bug-fix retesting; surfaced critical defects affecting the main business flow before go-live.",
+            "highlights": [
+                "Conducted System Integration Testing (SIT) across backend & frontend",
+                "Executed UAT with stakeholders for feature readiness",
+                "Supported Trial Operation phase, validating pre-production stability",
+                "Documented and reported bugs via structured test management tools"
+            ]
+        },
+        {
+            "name": "PT Sawah Cyber Security",
+            "position": "Penetration Tester / Cyber Security Specialist",
+            "startDate": "2025-02",
+            "endDate": "2025-09",
+            "summary": "Identified vulnerabilities in IT infrastructure and web applications via simulated real-world attacks; delivered VAPT reports for clients across multiple industries. Handled incident response, led Sawah Cyber Security CTF 2025 as technical team and cryptography problem setter, organized ethical-hacking masterclasses, and built Cypress automation for the company website.",
+            "highlights": [
+                "VAPT engagements across multiple client industries",
+                "Incident response for web defacement cases",
+                "Problem setter (cryptography) for Sawah Cyber Security CTF 2025",
+                "Cypress E2E automation for SCS website",
+                "Security code review using GitLab Scanner"
+            ]
+        },
+        {
+            "name": "PT Clean Medic Indus",
+            "position": "QA Engineer — B3 medical-waste app",
+            "startDate": "2022-09",
+            "endDate": "2024-09",
+            "summary": "Owned full QA campaigns across web portal and mobile (Android / iOS) for the CLEAN MEDIC platform managing B3 medical-waste workflows. Designed test plans, automation scripts (Selenium / Cypress / Postman), regression cycles, and quality metrics — achieving >90% functionality test coverage."
+        },
+        {
+            "name": "Traveloka",
+            "position": "QA Engineer",
+            "startDate": "2022-05",
+            "endDate": "2022-08",
+            "summary": "Analyzed product requirements, planned test strategies and test cases, and developed automation testing code to improve usability across Traveloka's travel-platform features."
+        },
+        {
+            "name": "Mitrais",
+            "position": "Software Tester",
+            "startDate": "2020-04",
+            "endDate": "2021-04",
+            "summary": "Developed test strategies, plans, and cases. Maintained QA processes and collaborated within cross-functional, international Agile teams — testing, debugging, retesting, and validating software readiness for shipping."
+        },
+        {
+            "name": "Mitrais",
+            "position": "Junior Software Tester Trainee",
+            "startDate": "2020-02",
+            "endDate": "2020-04",
+            "summary": "Selected as a Junior Tester via Mitrais' bootcamp QA Tester program; foundational training in test strategies, automation, and Agile collaboration."
+        },
+        {
+            "name": "PT Studio Kami Mandiri",
+            "position": "Web Developer (Internship)",
+            "startDate": "2018-06",
+            "endDate": "2018-08",
+            "summary": "Built a PHP web app using the CodeIgniter framework — a hotel reservation system for both public users and internal management staff."
+        }
+    ],
+    "volunteer": [
+        {
+            "organization": "SlashRoot CTF 2.0",
+            "position": "Chairman & Organizing Committee",
+            "startDate": "2017-04",
+            "endDate": "2017-07",
+            "summary": "Led the SlashRoot CTF 2.0 national event at DILO Denpasar — the only annual CTF held in Bali, open to students nationwide."
+        },
+        {
+            "organization": "SlashRoot CTF 3.0",
+            "position": "Sponsorship Coordinator",
+            "startDate": "2018-04",
+            "endDate": "2018-07",
+            "summary": "Owned sponsor & partnership negotiations and on-site sponsor experience for the 3rd edition of the national CTF in Jimbaran, Bali."
+        },
+        {
+            "organization": "SlashRoot CTF 4.0",
+            "position": "Sponsorship Coordinator",
+            "startDate": "2019-07",
+            "endDate": "2019-10",
+            "summary": "Repeated the role for the 4th edition — sponsor outreach, negotiation, partnership, and team collaboration."
+        },
+        {
+            "organization": "UKM KSL (Kelompok Studi Linux), STMIK STIKOM Bali",
+            "position": "Member",
+            "startDate": "2015-02",
+            "endDate": "2016-08",
+            "summary": "Student study group focused on Linux and offensive security. Participated in CTF competitions, app-development contests, and community knowledge sharing."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Institut Teknologi & Bisnis STIKOM Bali",
+            "url": "https://stikom-bali.ac.id/",
+            "area": "Computer System (S.Kom)",
+            "studyType": "Bachelor",
+            "startDate": "2015-07",
+            "endDate": "2022-05",
+            "score": "2.93/4.00",
+            "location": "Denpasar, Indonesia"
+        },
+        {
+            "institution": "HELP University",
+            "url": "https://www.help.edu.my/",
+            "area": "Information Technology (BIT)",
+            "studyType": "Bachelor",
+            "startDate": "2015-03",
+            "endDate": "2022-05",
+            "score": "2.93/4.00",
+            "location": "Kuala Lumpur, Malaysia"
+        },
+        {
+            "institution": "SMK TI Bali Global Senior High School",
+            "area": "Software Engineering",
+            "studyType": "Vocational",
+            "startDate": "2013",
+            "endDate": "2015",
+            "location": "Denpasar, Bali"
+        }
+    ],
+    "awards": [
+        { "title": "Top 10 Finalist — Glints × Hackathon 'Ngantor'", "date": "2021", "awarder": "Glints" },
+        { "title": "Top 100 Finalist — Born to Protect", "date": "2018", "awarder": "Xynexis & Kominfo" },
+        { "title": "4th Place — Gatot Kaca Cyber Army Capture The Flag", "date": "2018", "awarder": "Universitas AMIKOM Yogyakarta" },
+        { "title": "2nd Place — IT Forensics, FASTTEKNO", "date": "2016", "awarder": "STMIK STIKOM Bali" },
+        { "title": "Top 10 Finalist — COMPFEST CTF", "date": "2016", "awarder": "Fasilkom Universitas Indonesia" },
+        { "title": "Top 10 — Indonesian Cyber Army", "date": "2015", "awarder": "STMIK STIKOM Bali" },
+        { "title": "Honor Reward — Best Cryptographer, CodeBali CTF", "date": "2015", "awarder": "CodeBali CTF" }
+    ],
+    "certificates": [
+        { "name": "Certified AppSec Practitioner (CAPv2)", "date": "2025", "issuer": "The SecOps Group" },
+        { "name": "Google Cybersecurity Professional Certificate", "date": "2024", "issuer": "Google / Coursera" },
+        { "name": "Certified Network Security Practitioner (CNSP)", "date": "2024", "issuer": "The SecOps Group" },
+        { "name": "Certified Secure Computer User V3 (CSCUv3)", "date": "2024", "issuer": "EC-Council" },
+        { "name": "TOEIC Listening & Reading", "date": "2024", "issuer": "LPBA — Lembaga Pendidikan Bali Asia" },
+        { "name": "Certified Network Defender (CND)", "date": "2021", "issuer": "EC-Council" },
+        { "name": "Cisco CyberOps Associate", "date": "2021", "issuer": "Cisco" }
+    ],
+    "skills": [
+        { "name": "Quality Assurance & Test Automation", "level": "Advanced", "keywords": ["Cypress", "Selenium", "Playwright", "Postman", "JMeter", "Test Plans", "Test Cases", "Regression Testing", "Manual Testing", "Bug Reports"] },
+        { "name": "Cyber Security & Penetration Testing", "level": "Intermediate", "keywords": ["VAPT", "Penetration Testing", "OWASP", "Vulnerability Assessment", "Network Security", "Security Code Review", "GitLab Scanner", "Incident Response"] },
+        { "name": "Programming Languages", "keywords": ["JavaScript", "Python", "Java"] },
+        { "name": "Tools & Environments", "keywords": ["Jira", "Notion", "Git", "GitLab", "Kali Linux", "Ubuntu", "Windows", "Android", "iOS"] },
+        { "name": "Data & APIs", "keywords": ["MySQL", "REST API testing", "Postman collections"] }
+    ],
+    "languages": [
+        { "language": "English", "fluency": "Professional working" },
+        { "language": "Indonesian", "fluency": "Native" }
+    ],
+    "interests": [
+        { "name": "Cyber Security & CTF", "keywords": ["Cryptography", "Web Exploitation", "Forensics", "Problem setting"] },
+        { "name": "Outdoors", "keywords": ["Jogging", "Martial Arts", "Badminton", "Kayaking", "Travelling"] },
+        { "name": "Indoors", "keywords": ["Gaming", "Streaming", "Sci-fi & fantasy", "Anime", "Aspiring chef"] }
+    ],
+    "meta": {
+        "version": "1.0.0",
+        "lastModified": "2026-05-10T00:00:00Z",
+        "canonical": "https://ericorahmad1.github.io/personal-web-resume/resume.json",
+        "theme": "elegant"
+    }
+}
