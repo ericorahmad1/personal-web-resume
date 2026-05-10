@@ -200,6 +200,78 @@ p.lead {
 }
 
 /* ---------------------------------------------------------------------------
+   SVG icon system (replaces Font Awesome)
+   - Icons are referenced via <svg class="icon"><use href="assets/icons.svg#icon-x"/></svg>
+   - Size scales with current font-size (1em); fill/stroke uses currentColor so
+     text-primary / text-warning utilities work transparently.
+   --------------------------------------------------------------------------- */
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0;
+    flex-shrink: 0;
+}
+
+/* Lucide icons render as strokes by default */
+.icon use[href*="#icon-check"],
+.icon use[href*="#icon-link"],
+.icon use[href*="#icon-vial"],
+.icon use[href*="#icon-clipboard"],
+.icon use[href*="#icon-shield"],
+.icon use[href*="#icon-database"],
+.icon use[href*="#icon-terminal"],
+.icon use[href*="#icon-bug"],
+.icon use[href*="#icon-certificate"],
+.icon use[href*="#icon-trophy"],
+.icon use[href*="#icon-linkedin"] {
+    /* Lucide ships with stroke="currentColor" already, so this is a safety net */
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+/* Bigger icons for the dev/skills row */
+.dev-icons .icon {
+    width: 1em;
+    height: 1em;
+}
+
+.dev-icons li {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Icon-prefixed lists (replaces Font Awesome's .fa-ul / .fa-li) */
+.icon-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.icon-list > li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.icon-list > li > .icon {
+    flex: 0 0 auto;
+    margin-top: 0.25em;
+}
+
+/* Social-icon SVGs sized like the original FA glyphs */
+.social-icons .social-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+}
+
+/* ---------------------------------------------------------------------------
    Resume sections — full-height blocks separated by the inline <hr>
    --------------------------------------------------------------------------- */
 section.resume-section {

@@ -7,7 +7,7 @@
         <!-- Content Security Policy: restricts resource loading to known origins.
              'unsafe-inline' on script-src is required for the JSON-LD block below
              (static site, no user input → low XSS surface). Tighten with hashes if needed. -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://use.fontawesome.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com https://use.fontawesome.com https://*.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://use.fontawesome.com https://*.fontawesome.com; img-src 'self' data:; connect-src 'self' https://use.fontawesome.com https://*.fontawesome.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 
@@ -41,14 +41,14 @@
 
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
 
-        <!-- Preconnect to external origins for faster font / icon load -->
+        <!-- Preconnect to external origins for faster font load -->
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="preconnect" href="https://use.fontawesome.com" crossorigin />
 
-        <!-- Font Awesome icons (free version)-->
-        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Icons: served as a single local SVG sprite (built by scripts/build.mjs);
+             no Font Awesome runtime, no third-party CDN dependency for icons. -->
+
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700&display=swap" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i&display=swap" rel="stylesheet" type="text/css" />
@@ -137,21 +137,21 @@
                     </div>
                     <p class="lead mb-4">QA / Security Engineer with a dual-degree background (S.Kom from Institut Teknologi &amp; Bisnis STIKOM Bali and BIT from HELP University, Kuala Lumpur). I split my time between automation &amp; manual quality engineering and offensive security &mdash; from Cypress / Selenium / Playwright suites to VAPT engagements, security code review, and incident response.</p>
                     <p class="mb-5">Active in the Indonesian cyber-security community since 2015 &mdash; CTF problem setter, masterclass organizer, and ex-chairman of <em>SlashRoot CTF 2.0</em>. I love Linux, network security, and turning vague requirements into evidence-based test reports.</p>
-                    <ul class="fa-ul mb-5">
-                        <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Automation testing with <strong>Cypress, Selenium, Playwright</strong> &mdash; functional &amp; end-to-end</li>
-                        <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Manual, exploratory, regression &amp; UAT/SIT testing across web and mobile (Android / iOS)</li>
-                        <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Penetration testing &amp; <strong>VAPT</strong> for client environments; OWASP-based methodology</li>
-                        <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Security code review (GitLab scanners) and incident response (e.g., web defacement)</li>
-                        <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>CTF problem setter (cryptography category) and masterclass organizer</li>
-                        <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Cross-functional collaboration in international Agile teams</li>
+                    <ul class="icon-list mb-5">
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Automation testing with <strong>Cypress, Selenium, Playwright</strong> &mdash; functional &amp; end-to-end</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Manual, exploratory, regression &amp; UAT/SIT testing across web and mobile (Android / iOS)</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Penetration testing &amp; <strong>VAPT</strong> for client environments; OWASP-based methodology</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Security code review (GitLab scanners) and incident response (e.g., web defacement)</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>CTF problem setter (cryptography category) and masterclass organizer</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Cross-functional collaboration in international Agile teams</li>
                     </ul>
                     <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a class="social-icon" href="https://lynk.id/ericorahmad/page/portofolio" target="_blank" rel="noopener noreferrer" aria-label="Lynk Portfolio"><i class="fas fa-link"></i></a>
+                        <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-linkedin"/></svg></a>
+                        <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-github"/></svg></a>
+                        <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-twitter"/></svg></a>
+                        <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-instagram"/></svg></a>
+                        <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-tiktok"/></svg></a>
+                        <a class="social-icon" href="https://lynk.id/ericorahmad/page/portofolio" target="_blank" rel="noopener noreferrer" aria-label="Lynk Portfolio"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-link"/></svg></a>
                     </div>
                 </div>
             </section>
@@ -278,38 +278,38 @@
 
                     <div class="subheading mb-3">Programming Languages &amp; Tools</div>
                     <ul class="list-inline dev-icons">
-                        <li class="list-inline-item" title="JavaScript"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item" title="Python"><i class="fab fa-python"></i></li>
-                        <li class="list-inline-item" title="Java"><i class="fab fa-java"></i></li>
-                        <li class="list-inline-item" title="HTML5"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item" title="CSS3"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item" title="Node.js"><i class="fab fa-node-js"></i></li>
-                        <li class="list-inline-item" title="Linux"><i class="fab fa-linux"></i></li>
-                        <li class="list-inline-item" title="Git"><i class="fab fa-git-alt"></i></li>
-                        <li class="list-inline-item" title="GitLab"><i class="fab fa-gitlab"></i></li>
-                        <li class="list-inline-item" title="Jira"><i class="fab fa-jira"></i></li>
-                        <li class="list-inline-item" title="npm"><i class="fab fa-npm"></i></li>
-                        <li class="list-inline-item" title="Bug tracking"><i class="fa fa-bug"></i></li>
+                        <li class="list-inline-item" title="JavaScript"><svg class="icon" aria-label="JavaScript"><use href="assets/icons.svg#icon-javascript"/></svg></li>
+                        <li class="list-inline-item" title="Python"><svg class="icon" aria-label="Python"><use href="assets/icons.svg#icon-python"/></svg></li>
+                        <li class="list-inline-item" title="Java"><svg class="icon" aria-label="Java"><use href="assets/icons.svg#icon-java"/></svg></li>
+                        <li class="list-inline-item" title="HTML5"><svg class="icon" aria-label="HTML5"><use href="assets/icons.svg#icon-html5"/></svg></li>
+                        <li class="list-inline-item" title="CSS3"><svg class="icon" aria-label="CSS3"><use href="assets/icons.svg#icon-css3"/></svg></li>
+                        <li class="list-inline-item" title="Node.js"><svg class="icon" aria-label="Node.js"><use href="assets/icons.svg#icon-nodejs"/></svg></li>
+                        <li class="list-inline-item" title="Linux"><svg class="icon" aria-label="Linux"><use href="assets/icons.svg#icon-linux"/></svg></li>
+                        <li class="list-inline-item" title="Git"><svg class="icon" aria-label="Git"><use href="assets/icons.svg#icon-git"/></svg></li>
+                        <li class="list-inline-item" title="GitLab"><svg class="icon" aria-label="GitLab"><use href="assets/icons.svg#icon-gitlab"/></svg></li>
+                        <li class="list-inline-item" title="Jira"><svg class="icon" aria-label="Jira"><use href="assets/icons.svg#icon-jira"/></svg></li>
+                        <li class="list-inline-item" title="npm"><svg class="icon" aria-label="npm"><use href="assets/icons.svg#icon-npm"/></svg></li>
+                        <li class="list-inline-item" title="Bug tracking"><svg class="icon" aria-label="Bug tracking"><use href="assets/icons.svg#icon-bug"/></svg></li>
                     </ul>
 
                     <div class="subheading mb-3">Testing &amp; Security Stack</div>
-                    <ul class="fa-ul mb-4">
-                        <li><span class="fa-li"><i class="fas fa-vial text-primary"></i></span><strong>Automation:</strong> Cypress, Selenium, Playwright, Postman, JMeter</li>
-                        <li><span class="fa-li"><i class="fas fa-clipboard-check text-primary"></i></span><strong>Test management:</strong> Jira, Notion, Test Plans &amp; Cases, Bug Reports</li>
-                        <li><span class="fa-li"><i class="fas fa-shield-alt text-primary"></i></span><strong>Security:</strong> OWASP, VAPT, Penetration Testing, Vulnerability Assessment, Network Security, Security Code Review (GitLab Scanner), Incident Response</li>
-                        <li><span class="fa-li"><i class="fas fa-database text-primary"></i></span><strong>Data &amp; APIs:</strong> Relational databases (MySQL), REST API testing, Postman collections</li>
-                        <li><span class="fa-li"><i class="fas fa-terminal text-primary"></i></span><strong>Environments:</strong> Kali Linux, Ubuntu, Windows, Web &amp; Mobile (Android / iOS) testing</li>
+                    <ul class="icon-list mb-4">
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-vial"/></svg><strong>Automation:</strong> Cypress, Selenium, Playwright, Postman, JMeter</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-clipboard-check"/></svg><strong>Test management:</strong> Jira, Notion, Test Plans &amp; Cases, Bug Reports</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-shield"/></svg><strong>Security:</strong> OWASP, VAPT, Penetration Testing, Vulnerability Assessment, Network Security, Security Code Review (GitLab Scanner), Incident Response</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-database"/></svg><strong>Data &amp; APIs:</strong> Relational databases (MySQL), REST API testing, Postman collections</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-terminal"/></svg><strong>Environments:</strong> Kali Linux, Ubuntu, Windows, Web &amp; Mobile (Android / iOS) testing</li>
                     </ul>
 
                     <div class="subheading mb-3">Workflow</div>
-                    <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Develop test strategies, test plans, and test cases &mdash; manual &amp; automated</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>End-to-end, regression, sanity, exploratory, SIT, and UAT testing</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Cross-browser, cross-platform, web &amp; mobile applications (Android / iOS)</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Vulnerability assessment &amp; penetration testing for client environments</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Security code review and clear, evidence-based vulnerability reporting</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Cross-functional collaboration in international Agile / Scrum teams</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Bug triage, severity analysis, and stakeholder communication</li>
+                    <ul class="icon-list mb-0">
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Develop test strategies, test plans, and test cases &mdash; manual &amp; automated</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>End-to-end, regression, sanity, exploratory, SIT, and UAT testing</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Cross-browser, cross-platform, web &amp; mobile applications (Android / iOS)</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Vulnerability assessment &amp; penetration testing for client environments</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Security code review and clear, evidence-based vulnerability reporting</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Cross-functional collaboration in international Agile / Scrum teams</li>
+                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Bug triage, severity analysis, and stakeholder communication</li>
                     </ul>
                 </div>
             </section>
@@ -318,33 +318,33 @@
             <section class="resume-section" id="certifications">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Certifications</h2>
-                    <ul class="fa-ul mb-0">
+                    <ul class="icon-list mb-0">
                         <li>
-                            <span class="fa-li"><i class="fas fa-certificate text-primary"></i></span>
+                            <svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>
                             <strong>The SecOps &mdash; CAPv2</strong> &middot; Certified AppSec Practitioner <em>(2025)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-certificate text-primary"></i></span>
+                            <svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>
                             <strong>Google Cybersecurity Professional Certificate</strong> &middot; Coursera <em>(2024)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-certificate text-primary"></i></span>
+                            <svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>
                             <strong>The SecOps &mdash; CNSP</strong> &middot; Certified Network Security Practitioner <em>(2024)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-certificate text-primary"></i></span>
+                            <svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>
                             <strong>EC-Council &mdash; CSCUv3</strong> &middot; Certified Secure Computer User V3 <em>(2024)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-certificate text-primary"></i></span>
+                            <svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>
                             <strong>LPBA &mdash; TOEIC</strong> Listening &amp; Reading <em>(2024)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-certificate text-primary"></i></span>
+                            <svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>
                             <strong>EC-Council &mdash; CND</strong> &middot; Certified Network Defender <em>(2021 &middot; refreshed 2023)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-certificate text-primary"></i></span>
+                            <svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>
                             <strong>Cisco &mdash; CyberOps Associate</strong> <em>(2021)</em>
                         </li>
                     </ul>
@@ -408,33 +408,33 @@
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Awards</h2>
-                    <ul class="fa-ul mb-0">
+                    <ul class="icon-list mb-0">
                         <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            <svg class="icon text-warning" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>
                             <strong>Finalist &middot; Top 10</strong> &mdash; Glints &times; Hackathon &ldquo;Ngantor&rdquo;: The Future of Job Search and Career Development <em>(2021)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            <svg class="icon text-warning" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>
                             <strong>Finalist &middot; Top 100</strong> &mdash; Born to Protect, Xynexis &amp; Kominfo <em>(2018)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            <svg class="icon text-warning" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>
                             <strong>4<sup>th</sup> Place</strong> &mdash; Gatot Kaca Cyber Army Capture The Flag, Universitas AMIKOM Yogyakarta <em>(2018)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            <svg class="icon text-warning" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>
                             <strong>2<sup>nd</sup> Place</strong> &mdash; IT Forensics, FASTTEKNO &middot; STMIK STIKOM Bali <em>(2016)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            <svg class="icon text-warning" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>
                             <strong>Top 10 Finalist</strong> &mdash; COMPFEST CTF, Fasilkom Universitas Indonesia <em>(2016)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            <svg class="icon text-warning" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>
                             <strong>Top 10</strong> &mdash; Indonesian Cyber Army, STMIK STIKOM Bali <em>(2015)</em>
                         </li>
                         <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            <svg class="icon text-warning" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>
                             <strong>Honor Reward &mdash; Best Cryptographer</strong> &middot; CodeBali CTF <em>(2015)</em>
                         </li>
                     </ul>
