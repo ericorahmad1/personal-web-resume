@@ -288,6 +288,7 @@
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Career</span>
                     <h2 class="mb-5">Experience</h2>
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -366,6 +367,7 @@
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Studies</span>
                     <h2 class="mb-5">Education</h2>
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -401,10 +403,10 @@
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Skills</h2>
+                    <span class="section-eyebrow">Toolbelt</span>
+                    <h2 class="mb-5">Skills &amp; stack</h2>
 
-                    <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-                    <ul class="list-inline dev-icons">
+                    <ul class="list-inline tool-logos">
                         <li class="list-inline-item" title="JavaScript"><svg class="icon" aria-label="JavaScript"><use href="assets/icons.svg#icon-javascript"/></svg></li>
                         <li class="list-inline-item" title="Python"><svg class="icon" aria-label="Python"><use href="assets/icons.svg#icon-python"/></svg></li>
                         <li class="list-inline-item" title="Java"><svg class="icon" aria-label="Java"><use href="assets/icons.svg#icon-java"/></svg></li>
@@ -419,30 +421,61 @@
                         <li class="list-inline-item" title="Bug tracking"><svg class="icon" aria-label="Bug tracking"><use href="assets/icons.svg#icon-bug"/></svg></li>
                     </ul>
 
-                    <div class="subheading mb-3">Testing &amp; Security Stack</div>
-                    <ul class="icon-list mb-4">
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-vial"/></svg><strong>Automation:</strong> Cypress, Selenium, Playwright, Postman, JMeter</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-clipboard-check"/></svg><strong>Test management:</strong> Jira, Notion, Test Plans &amp; Cases, Bug Reports</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-shield"/></svg><strong>Security:</strong> OWASP, VAPT, Penetration Testing, Vulnerability Assessment, Network Security, Security Code Review (GitLab Scanner), Incident Response</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-database"/></svg><strong>Data &amp; APIs:</strong> Relational databases (MySQL), REST API testing, Postman collections</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-terminal"/></svg><strong>Environments:</strong> Kali Linux, Ubuntu, Windows, Web &amp; Mobile (Android / iOS) testing</li>
-                    </ul>
+                    <div class="skills-grid">
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-vial"/></svg></span>
+                            <h3>Automation</h3>
+                            <ul class="skill-list">
+                                <li>Cypress</li><li>Selenium</li><li>Playwright</li><li>Postman</li><li>JMeter</li>
+                            </ul>
+                        </article>
 
-                    <div class="subheading mb-3">Workflow</div>
-                    <ul class="icon-list mb-0">
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Develop test strategies, test plans, and test cases &mdash; manual &amp; automated</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>End-to-end, regression, sanity, exploratory, SIT, and UAT testing</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Cross-browser, cross-platform, web &amp; mobile applications (Android / iOS)</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Vulnerability assessment &amp; penetration testing for client environments</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Security code review and clear, evidence-based vulnerability reporting</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Cross-functional collaboration in international Agile / Scrum teams</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Bug triage, severity analysis, and stakeholder communication</li>
-                    </ul>
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-clipboard-check"/></svg></span>
+                            <h3>Test management</h3>
+                            <ul class="skill-list">
+                                <li>Jira</li><li>Notion</li><li>Test Plans</li><li>Test Cases</li><li>Bug Reports</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-shield"/></svg></span>
+                            <h3>Security</h3>
+                            <ul class="skill-list">
+                                <li>OWASP</li><li>VAPT</li><li>Penetration Testing</li><li>Network Security</li><li>Code Review</li><li>Incident Response</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-database"/></svg></span>
+                            <h3>Data &amp; APIs</h3>
+                            <ul class="skill-list">
+                                <li>MySQL</li><li>REST</li><li>Postman</li><li>Collections</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-terminal"/></svg></span>
+                            <h3>Environments</h3>
+                            <ul class="skill-list">
+                                <li>Kali Linux</li><li>Ubuntu</li><li>Windows</li><li>Android</li><li>iOS</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg></span>
+                            <h3>Workflow</h3>
+                            <ul class="skill-list">
+                                <li>Agile / Scrum</li><li>Cross-functional</li><li>Regression</li><li>SIT / UAT</li>
+                            </ul>
+                        </article>
+                    </div>
                 </div>
             </section>
             <!-- Certifications-->
             <section class="resume-section" id="certifications">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Credentials</span>
                     <h2 class="mb-5">Certifications</h2>
                     <ul class="icon-list mb-0">
                         <li>
@@ -479,6 +512,7 @@
             <!-- Organizational Experience-->
             <section class="resume-section" id="organizational">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Community</span>
                     <h2 class="mb-5">Organizational Experience</h2>
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -521,6 +555,7 @@
             <!-- Interests-->
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Beyond work</span>
                     <h2 class="mb-5">Interests</h2>
                     <p>Outside the screen: jogging, martial arts, badminton, travelling, and the occasional kayaking session around Bali.</p>
                     <p>Indoors I'm a gamer and streamer, follow a fair share of sci-fi and fantasy movies and anime, and consider myself an aspiring home chef. I also keep an eye on the cyber-security scene and the latest automation-testing tools as they ship.</p>
@@ -530,6 +565,7 @@
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Recognition</span>
                     <h2 class="mb-5">Awards</h2>
                     <ul class="icon-list mb-0">
                         <li>

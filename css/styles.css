@@ -844,6 +844,198 @@ section.resume-section h2 {
     }
 }
 
+/* ---------------------------------------------------------------------------
+   Timeline entry cards — Experience, Education, Organizational sections.
+   Inherit the .d-flex utility from Bootstrap; we just add card styling.
+   --------------------------------------------------------------------------- */
+section.resume-section .resume-section-content > .d-flex.justify-content-between {
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-4) !important;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    position: relative;
+}
+
+section.resume-section .resume-section-content > .d-flex.justify-content-between:hover {
+    transform: translateY(-3px);
+    border-color: rgba(189, 93, 56, 0.25);
+    box-shadow: var(--shadow-md);
+}
+
+section.resume-section .resume-section-content > .d-flex.justify-content-between h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-2) !important;
+    text-transform: none;
+    color: var(--bs-body-color);
+}
+
+section.resume-section .resume-section-content > .d-flex.justify-content-between .subheading {
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--brand-primary);
+    margin-bottom: var(--space-3) !important;
+}
+
+[data-bs-theme="dark"] section.resume-section .resume-section-content > .d-flex.justify-content-between .subheading {
+    color: var(--brand-primary-light);
+}
+
+section.resume-section .resume-section-content > .d-flex.justify-content-between p {
+    margin-bottom: 0;
+    color: var(--bs-body-color);
+    opacity: 0.85;
+    line-height: 1.65;
+}
+
+/* Date pill on the right */
+section.resume-section .resume-section-content > .d-flex.justify-content-between .flex-shrink-0 .text-primary {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: var(--gradient-soft);
+    border: 1px solid rgba(189, 93, 56, 0.2);
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brand-primary) !important;
+    white-space: nowrap;
+}
+
+[data-bs-theme="dark"] section.resume-section .resume-section-content > .d-flex.justify-content-between .flex-shrink-0 .text-primary {
+    background: rgba(212, 138, 110, 0.1);
+    border-color: rgba(212, 138, 110, 0.3);
+    color: var(--brand-primary-light) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Skills — bento-style grid
+   --------------------------------------------------------------------------- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.skill-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(189, 93, 56, 0.25);
+    box-shadow: var(--shadow-md);
+}
+
+.skill-card .skill-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-soft);
+    color: var(--brand-primary);
+}
+
+.skill-card .skill-icon .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+[data-bs-theme="dark"] .skill-card .skill-icon {
+    background: rgba(212, 138, 110, 0.12);
+    color: var(--brand-primary-light);
+}
+
+.skill-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: var(--bs-body-color);
+}
+
+.skill-card .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.skill-card .skill-list li {
+    padding: 0.2rem 0.65rem;
+    background: var(--surface-3);
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    color: var(--bs-body-color);
+    border: 1px solid var(--border-subtle);
+}
+
+[data-bs-theme="dark"] .skill-card .skill-list li {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Logo grid for the Programming Languages & Tools row inside Skills */
+.tool-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: center;
+    padding: var(--space-5);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-6);
+}
+
+.tool-logos .icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--bs-body-color);
+    opacity: 0.6;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+}
+
+.tool-logos li {
+    cursor: default;
+}
+
+.tool-logos li:hover .icon {
+    opacity: 1;
+    transform: scale(1.15);
+    color: var(--brand-primary);
+}
+
 /* ===========================================================================
    Print stylesheet — clean, ink-friendly one-pager when users Save as PDF
    =========================================================================== */
