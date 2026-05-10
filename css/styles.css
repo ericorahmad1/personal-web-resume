@@ -1,14 +1,217 @@
 @charset "UTF-8";
 /*!
- * Start Bootstrap - Resume v7.0.4 (https://startbootstrap.com/theme/resume)
- * Copyright 2013-2021 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
+ * Originally based on Start Bootstrap - Resume v7.0.4
+ *   (https://startbootstrap.com/theme/resume) — © 2013-2021 Start Bootstrap (MIT)
  *
- * Refactored 2026-05-10:
- *   - Bootstrap (now 5.3.8) is loaded from CDN, no longer bundled here
- *   - Inter Variable is self-hosted; Google Fonts dropped
- *   - Fluid typography via clamp(); Saira / Muli removed
+ * 2026-05-10 — refactor pass:
+ *   - Bootstrap 5.3.8 from CDN, no longer bundled
+ *   - Self-hosted Inter Variable; Google Fonts dropped
+ *   - Fluid typography (clamp) replaces Saira / Muli
+ *
+ * 2026-05-10 — modernization redesign:
+ *   - Sticky top navbar replaces fixed left sidebar
+ *   - Hero section with gradient ring photo + CTAs
+ *   - Glassmorphic card-based sections with hover lift
+ *   - Bootstrap Carousel for Certifications and Awards
+ *   - Design system: tokens for colors, spacing, radius, shadow, gradient
  */
+
+/* ===========================================================================
+   DESIGN TOKENS — single source of truth for spacing, color, shadow, radius.
+   Override per theme in [data-bs-theme="dark"] further below.
+   =========================================================================== */
+:root {
+    /* Brand */
+    --brand-primary: #bd5d38;
+    --brand-primary-light: #d48a6e;
+    --brand-primary-dark: #8a4128;
+    --brand-accent: #f0b237;
+
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, #bd5d38 0%, #8a4128 100%);
+    --gradient-warm: linear-gradient(135deg, #bd5d38 0%, #f0b237 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(189, 93, 56, 0.08) 0%, rgba(212, 138, 110, 0.04) 100%);
+    --gradient-mesh: radial-gradient(ellipse at top left, rgba(189, 93, 56, 0.12) 0%, transparent 50%),
+                     radial-gradient(ellipse at bottom right, rgba(240, 178, 55, 0.08) 0%, transparent 50%);
+
+    /* Spacing scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-8: 3rem;
+    --space-10: 4rem;
+    --space-12: 6rem;
+    --space-16: 8rem;
+
+    /* Border radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-pill: 999px;
+
+    /* Shadows — layered for depth */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.08);
+    --shadow-brand: 0 10px 30px rgba(189, 93, 56, 0.18), 0 4px 8px rgba(189, 93, 56, 0.08);
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-bg-strong: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-blur: blur(20px) saturate(180%);
+
+    /* Surfaces */
+    --surface-1: #ffffff;
+    --surface-2: #faf7f5;
+    --surface-3: #f3eee9;
+    --border-subtle: rgba(0, 0, 0, 0.08);
+
+    /* Animation */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-bs-theme="dark"] {
+    --glass-bg: rgba(24, 26, 29, 0.65);
+    --glass-bg-strong: rgba(24, 26, 29, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --surface-1: #1c1f23;
+    --surface-2: #181a1d;
+    --surface-3: #14161a;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+    --shadow-brand: 0 10px 30px rgba(212, 138, 110, 0.15), 0 4px 8px rgba(212, 138, 110, 0.1);
+}
+
+/* ===========================================================================
+   UTILITY CLASSES — composable, used across components
+   =========================================================================== */
+
+/* Glassmorphic surface */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+}
+
+/* Modern card — soft surface with hover lift */
+.card-modern {
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(189, 93, 56, 0.25);
+}
+
+/* Subtle gradient border accent on hover */
+.card-modern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-warm);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+}
+
+.card-modern:hover::before {
+    opacity: 1;
+}
+
+/* Pill badges */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    background: var(--gradient-soft);
+    border: 1px solid rgba(189, 93, 56, 0.2);
+    border-radius: var(--radius-pill);
+    color: var(--brand-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+[data-bs-theme="dark"] .badge-pill {
+    background: rgba(212, 138, 110, 0.1);
+    border-color: rgba(212, 138, 110, 0.3);
+    color: var(--brand-primary-light);
+}
+
+/* Modern button — gradient + lift */
+.btn-modern {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--gradient-brand);
+    color: #fff;
+    border: 0;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: var(--shadow-brand);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.btn-modern:hover,
+.btn-modern:focus-visible {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl), 0 0 0 3px rgba(189, 93, 56, 0.2);
+}
+
+.btn-modern.btn-secondary {
+    background: transparent;
+    color: var(--brand-primary);
+    border: 1.5px solid var(--brand-primary);
+    box-shadow: none;
+}
+
+.btn-modern.btn-secondary:hover {
+    background: var(--brand-primary);
+    color: #fff;
+    box-shadow: var(--shadow-brand);
+}
+
+[data-bs-theme="dark"] .btn-modern.btn-secondary {
+    color: var(--brand-primary-light);
+    border-color: var(--brand-primary-light);
+}
+
+[data-bs-theme="dark"] .btn-modern.btn-secondary:hover {
+    background: var(--brand-primary-light);
+    color: #1c1f23;
+}
 
 /* ---------------------------------------------------------------------------
    Inter Variable — single self-hosted woff2 covering all weights 100-900.
