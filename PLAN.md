@@ -1,7 +1,7 @@
 # Personal Web Resume — Analysis & Improvement Plan
 
 > Snapshot date: 2026-05-09 (initial)
-> Last updated: 2026-05-10 (session 3 — visual/UX bundle: OG card, font, dark mode, reveals)
+> Last updated: 2026-05-10 (session 4 — Phase 1 + Phase 2 + i18n COMPLETE)
 > Owner: Erico Rahmad Darmanto (`ericorahmad1@gmail.com`)
 > Repo: https://github.com/ericorahmad1/personal-web-resume
 
@@ -27,15 +27,25 @@ Full plan stored at `~/.claude/plans/tingly-foraging-widget.md` with 16 commit-s
 - ✅ Commit `f323ddb` — Dark mode toggle (sun/moon icons added to sprite, 28 total); inline FOUC script; localStorage + prefers-color-scheme; aria-pressed
 - ✅ Commit `e307d43` — IntersectionObserver section reveals (12px translateY + opacity over 0.55s); `prefers-reduced-motion` aware
 
-**Stopped at:** end of visual/UX bundle. 6 commits remaining.
+**Session 4 done (2026-05-10 evening) — completes Phase 1+2+i18n:**
+- ✅ Commit `a74af30` — Offcanvas mobile navigation (Bootstrap 5.3 `offcanvas-lg`); orange-themed drawer; keyboard accessible
+- ✅ Commit `9b846f4` — Richer Schema.org `@graph` (Person + WebSite + WebPage + BreadcrumbList); Person enriched with alumniOf, knowsAbout, knowsLanguage, hasCredential
+- ✅ Commit `f1dd0d1` — Publish `resume.json` (JSON Resume schema v1) at root; `<link rel="alternate" type="application/json">` so machines/AI can discover it
+- ✅ Commit `ebff94d` — Indonesian `/id/` page hand-translated; `hreflang` alternates en/id/x-default; sitemap.xml extended; language switcher in nav
+- ✅ Commit `1f73b52` — GitHub Actions CI (htmlhint + stylelint + Lighthouse on live URLs); .htmlhintrc + .stylelintrc.json + .lighthouserc.json configs
 
-**Next session pickup order** (remaining commits):
-1. `feat: extract content to resume.json (JSON Resume schema)` (commit 9)
-2. `feat(i18n): add Indonesian /id/ page with hreflang` (commit 10)
-3. `feat(nav): offcanvas mobile navigation` (commit 14)
-4. `feat(seo): richer Schema.org` (commit 15) — add WebSite, BreadcrumbList, per-job Role
-5. `chore(ci): linting + Lighthouse CI` (commit 16)
-6. (defer / optional) commit 13's "variable font + fluid clamp() typography" was already shipped together with commit 6 in `b373252`; can drop from queue
+**🎉 PHASE 1 + PHASE 2 + i18n PLAN COMPLETE — all 16 originally-planned commits shipped.**
+
+### What's still open (deferred / optional)
+
+| Item | Status | Note |
+|---|---|---|
+| Custom domain (Track S5) | ⏸️ Deferred | User will provide later; canonical/OG URLs need updating then |
+| Resolve dual deploy canonical (Track S6) | 🟡 Mitigated | Both deploys serve identical canonical pointing to GH Pages; no SEO loss |
+| Dropping `package-lock.json` orphan | ✅ Done in session 2 | `package.json` now proper |
+| HTML rendered from `resume.json` via Mustache | ⏸️ Deferred | resume.json is published as artifact; HTML still hand-edited. Migration to template would require full Astro-style rewrite (Track D in original ideas catalog) |
+| Astro migration (Track D) | ⏸️ Deferred | Possible future evolution |
+| Blog / writeups (S7) | ⏸️ Deferred | Needs writing time + Astro |
 
 **Run the build script** to regenerate icon sprite or images:
 ```bash
