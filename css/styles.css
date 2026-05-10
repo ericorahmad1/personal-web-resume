@@ -1278,6 +1278,65 @@ section.resume-section .resume-section-content > .d-flex.justify-content-between
     color: var(--brand-primary);
 }
 
+/* ---------------------------------------------------------------------------
+   Final polish — dark mode adjustments for new components, mobile tweaks
+   --------------------------------------------------------------------------- */
+
+/* Dark mode card surfaces */
+[data-bs-theme="dark"] section.resume-section .resume-section-content > .d-flex.justify-content-between,
+[data-bs-theme="dark"] .skill-card,
+[data-bs-theme="dark"] .cert-card,
+[data-bs-theme="dark"] .award-card,
+[data-bs-theme="dark"] .tool-logos {
+    background: var(--surface-1);
+    border-color: var(--border-subtle);
+}
+
+[data-bs-theme="dark"] .card-carousel-controls button {
+    background: var(--surface-1);
+    border-color: var(--border-subtle);
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .hero-photo .photo-badge {
+    background: var(--surface-1);
+    border-color: var(--border-subtle);
+    color: var(--bs-body-color);
+}
+
+/* Mobile tweaks for hero photo badges (avoid overflow on tiny viewports) */
+@media (max-width: 600px) {
+    .hero-photo .photo-badge.b1 { right: -4%; font-size: 0.78rem; padding: var(--space-1) var(--space-3); }
+    .hero-photo .photo-badge.b2 { left: -6%; font-size: 0.78rem; padding: var(--space-1) var(--space-3); }
+    .hero { padding-top: var(--space-10); padding-bottom: var(--space-8); }
+    .hero-meta { gap: var(--space-3); }
+}
+
+/* Ensure the offcanvas drawer reads well on the new glass nav */
+@media (max-width: 991.98px) {
+    #navbarResponsive.offcanvas {
+        background-color: var(--surface-1);
+        color: var(--bs-body-color);
+    }
+
+    #navbarResponsive .offcanvas-header {
+        border-bottom-color: var(--border-subtle);
+    }
+
+    #navbarResponsive .offcanvas-header .btn-close {
+        filter: none;
+    }
+
+    [data-bs-theme="dark"] #navbarResponsive .offcanvas-header .btn-close {
+        filter: invert(1);
+    }
+
+    #navbarResponsive .nav-link {
+        border-bottom-color: var(--border-subtle);
+        color: var(--bs-body-color);
+    }
+}
+
 /* ===========================================================================
    Print stylesheet — clean, ink-friendly one-pager when users Save as PDF
    =========================================================================== */
