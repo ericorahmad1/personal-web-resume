@@ -1,0 +1,30 @@
+{
+  "name": "personal-web-resume",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal resume website for Erico Rahmad Darmanto — QA / Security Engineer",
+  "homepage": "https://ericorahmad1.github.io/personal-web-resume/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericorahmad1/personal-web-resume.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:images": "node scripts/build.mjs --images-only",
+    "lint:html": "htmlhint \"*.html\" \"id/*.html\"",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint": "npm run lint:html && npm run lint:css",
+    "serve": "npx serve . -l 8000"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1.4",
+    "sharp": "^0.33.5",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
