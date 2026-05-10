@@ -287,22 +287,21 @@ p.lead { font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem); }
 }
 
 /* ---------------------------------------------------------------------------
-   Layout — sidebar nav + offset content area
+   Page layout — sticky top nav (no more sidebar offset)
    --------------------------------------------------------------------------- */
 body {
-    padding-top: 3.375rem;
-    color: #6c757d;
-}
-
-@media (min-width: 992px) {
-    body {
-        padding-top: 0;
-        padding-left: 17rem;
-    }
+    padding-top: 4rem;
+    color: #495057;
+    background: var(--surface-2);
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 [data-bs-theme="dark"] body {
-    color: #adb5bd;
+    color: #c9ccd1;
+    background: var(--surface-2);
+    background-image: var(--gradient-mesh);
 }
 
 /* Headings — uppercase house style for the entire theme */
@@ -332,7 +331,7 @@ p.lead {
 }
 
 /* ---------------------------------------------------------------------------
-   Theme toggle button (top-right of navbar / sidebar)
+   Theme toggle button (in the right cluster of the top navbar)
    --------------------------------------------------------------------------- */
 .theme-toggle {
     --size: 2.25rem;
@@ -343,19 +342,20 @@ p.lead {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid var(--border-subtle);
     border-radius: 50%;
-    background: transparent;
-    color: #fff;
+    background: var(--surface-1);
+    color: var(--bs-body-color);
     cursor: pointer;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-    color: #fff;
+    transform: scale(1.08);
+    background: var(--gradient-soft);
+    border-color: rgba(189, 93, 56, 0.4);
+    color: var(--brand-primary);
 }
 
 .theme-toggle .icon {
@@ -368,20 +368,6 @@ p.lead {
 .theme-toggle .icon-moon { display: block; }
 [data-bs-theme="dark"] .theme-toggle .icon-sun { display: block; }
 [data-bs-theme="dark"] .theme-toggle .icon-moon { display: none; }
-
-/* Pin to top-right on mobile (next to navbar-toggler), corner of sidebar on desktop */
-.theme-toggle {
-    margin-left: auto;
-}
-
-@media (min-width: 992px) {
-    nav#sideNav .theme-toggle {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        z-index: 5;
-    }
-}
 
 /* Language switcher row separator at the bottom of the nav */
 .nav-language {
@@ -433,69 +419,96 @@ p.lead {
 }
 
 /* ---------------------------------------------------------------------------
-   Side navigation (#sideNav)
+   Sticky top navigation (#sideNav id retained for ScrollSpy backwards compat)
+   - Glassmorphic background that intensifies on scroll
+   - Brand left, links center, theme toggle + lang switcher right
    --------------------------------------------------------------------------- */
 #sideNav {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--space-3) var(--space-5);
+    transition: padding var(--transition-base), box-shadow var(--transition-base);
+}
+
+#sideNav.is-scrolled {
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+    box-shadow: var(--shadow-md);
+}
+
+#sideNav .navbar-brand {
+    font-weight: 800;
+    color: var(--brand-primary);
+    letter-spacing: -0.01em;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+[data-bs-theme="dark"] #sideNav .navbar-brand {
+    color: var(--brand-primary-light);
+}
+
+#sideNav .navbar-brand .brand-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--gradient-warm);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: var(--shadow-brand);
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
-    font-weight: 800;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
+    color: var(--bs-body-color);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+    position: relative;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover,
+#sideNav .navbar-nav .nav-item .nav-link:focus-visible {
+    color: var(--brand-primary);
+    background: var(--gradient-soft);
+}
+
+[data-bs-theme="dark"] #sideNav .navbar-nav .nav-item .nav-link:hover,
+[data-bs-theme="dark"] #sideNav .navbar-nav .nav-item .nav-link:focus-visible {
+    color: var(--brand-primary-light);
+    background: rgba(212, 138, 110, 0.1);
+}
+
+/* ScrollSpy active state */
+#sideNav .navbar-nav .nav-item .nav-link.active {
+    color: var(--brand-primary);
+    background: var(--gradient-soft);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] #sideNav .navbar-nav .nav-item .nav-link.active {
+    color: var(--brand-primary-light);
+    background: rgba(212, 138, 110, 0.12);
+}
+
+#sideNav .navbar-toggler {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-1) var(--space-2);
 }
 
 #sideNav .navbar-toggler:focus {
-    outline-color: #d48a6e;
-}
-
-@media (min-width: 992px) {
-    #sideNav {
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        width: 17rem;
-        height: 100vh;
-    }
-
-    #sideNav .navbar-brand {
-        display: flex;
-        margin: auto auto 0;
-        padding: 0.5rem;
-    }
-
-    #sideNav .navbar-brand .img-profile {
-        max-width: 10rem;
-        max-height: 10rem;
-        border: 0.5rem solid rgba(255, 255, 255, 0.2);
-    }
-
-    #sideNav .navbar-collapse {
-        display: flex;
-        align-items: flex-start;
-        flex-grow: 0;
-        width: 100%;
-        margin-bottom: auto;
-    }
-
-    #sideNav .navbar-collapse .navbar-nav {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #sideNav .navbar-collapse .navbar-nav .nav-item {
-        display: block;
-    }
-
-    #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
-        display: block;
-    }
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+    box-shadow: none;
 }
 
 /* ---------------------------------------------------------------------------
@@ -628,47 +641,206 @@ p.lead {
 }
 
 /* ---------------------------------------------------------------------------
-   Resume sections — full-height blocks separated by the inline <hr>
+   Hero section (replaces the old "About" sidebar panel)
    --------------------------------------------------------------------------- */
-section.resume-section {
+.hero {
+    position: relative;
+    padding: var(--space-12) var(--space-5) var(--space-10);
+    min-height: 80vh;
     display: flex;
     align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    max-width: 75rem;
+    overflow: hidden;
 }
 
-/* Section reveal — sections start translated 12px down + faded; the JS
-   IntersectionObserver adds .is-visible as each section scrolls into view.
-   Skipped automatically for prefers-reduced-motion users (the JS adds
-   .is-visible up-front in that case). */
-@media (prefers-reduced-motion: no-preference) {
-    section.resume-section:not(.is-visible) {
-        opacity: 0;
-        transform: translateY(12px);
-    }
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 100%;
+}
 
-    section.resume-section {
-        transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+@media (min-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1.4fr 1fr;
     }
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gradient-soft);
+    border: 1px solid rgba(189, 93, 56, 0.2);
+    border-radius: var(--radius-pill);
+    color: var(--brand-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-5);
+}
+
+[data-bs-theme="dark"] .hero-eyebrow {
+    background: rgba(212, 138, 110, 0.1);
+    border-color: rgba(212, 138, 110, 0.3);
+    color: var(--brand-primary-light);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw + 1rem, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-4);
+    text-transform: none;
+}
+
+.hero-title .accent {
+    background: var(--gradient-warm);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.05rem, 0.4vw + 1rem, 1.3rem);
+    color: var(--bs-body-color);
+    opacity: 0.85;
+    max-width: 36rem;
+    margin-bottom: var(--space-6);
+    line-height: 1.65;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+    font-size: 0.9rem;
+    color: var(--bs-body-color);
+    opacity: 0.75;
+}
+
+.hero-meta .icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: var(--space-1);
+    vertical-align: -0.15em;
+}
+
+/* Profile photo with gradient ring */
+.hero-photo {
+    position: relative;
+    justify-self: center;
+    width: clamp(14rem, 30vw, 22rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background: var(--gradient-warm);
+    box-shadow: var(--shadow-xl), var(--shadow-brand);
+    transition: transform var(--transition-slow);
+}
+
+.hero-photo:hover {
+    transform: rotate(-2deg) scale(1.02);
+}
+
+.hero-photo picture,
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    background: var(--surface-1);
+}
+
+/* Floating stats badges around the photo */
+.hero-photo .photo-badge {
+    position: absolute;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--bs-body-color);
+}
+
+.hero-photo .photo-badge.b1 { top: 8%;  right: -8%; }
+.hero-photo .photo-badge.b2 { bottom: 8%; left: -10%; }
+
+.hero-photo .photo-badge .icon {
+    width: 1.05rem;
+    height: 1.05rem;
+    color: var(--brand-primary);
+}
+
+/* ---------------------------------------------------------------------------
+   Generic resume sections — natural-flow layout (no more 100vh, no flexbox).
+   --------------------------------------------------------------------------- */
+section.resume-section {
+    padding: var(--space-10) var(--space-5);
+    max-width: 80rem;
+    margin: 0 auto;
 }
 
 section.resume-section .resume-section-content {
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     section.resume-section {
-        min-height: 100vh;
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
     }
 }
 
-@media (min-width: 992px) {
+/* Section title — small uppercase eyebrow, then big heading */
+.section-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-primary);
+    margin-bottom: var(--space-3);
+}
+
+[data-bs-theme="dark"] .section-eyebrow {
+    color: var(--brand-primary-light);
+}
+
+section.resume-section h2 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-8);
+    text-transform: none;
+}
+
+/* Section reveal — fade up as it enters viewport */
+@media (prefers-reduced-motion: no-preference) {
+    section.resume-section:not(.is-visible) {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
     section.resume-section {
-        padding-left: 3rem;
-        padding-right: 3rem;
+        transition: opacity 0.55s ease-out, transform 0.55s ease-out;
     }
 }
 

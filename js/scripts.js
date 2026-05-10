@@ -10,14 +10,26 @@
 
 window.addEventListener('DOMContentLoaded', () => {
     // -----------------------------------------------------------------------
-    // Bootstrap ScrollSpy on the side nav
+    // Bootstrap ScrollSpy on the top nav
     // -----------------------------------------------------------------------
     const sideNav = document.body.querySelector('#sideNav');
     if (sideNav) {
         new bootstrap.ScrollSpy(document.body, {
             target: '#sideNav',
-            offset: 74,
+            offset: 80,
         });
+    }
+
+    // -----------------------------------------------------------------------
+    // Navbar shrink-on-scroll — adds .is-scrolled class for tighter padding
+    // and a soft shadow once the user scrolls past the hero fold.
+    // -----------------------------------------------------------------------
+    if (sideNav) {
+        const updateScrolled = () => {
+            sideNav.classList.toggle('is-scrolled', window.scrollY > 24);
+        };
+        updateScrolled();
+        window.addEventListener('scroll', updateScrolled, { passive: true });
     }
 
     // -----------------------------------------------------------------------

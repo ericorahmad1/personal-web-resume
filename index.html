@@ -180,87 +180,111 @@
         </script>
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Erico Rahmad Darmanto</span>
-                <span class="d-none d-lg-block">
-                    <picture>
-                        <source srcset="assets/img/erico.avif" type="image/avif" />
-                        <source srcset="assets/img/erico.webp" type="image/webp" />
-                        <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                             src="assets/img/erico.jpg"
-                             alt="Erico Rahmad Darmanto"
-                             width="160"
-                             height="160"
-                             loading="eager"
-                             fetchpriority="high"
-                             decoding="async" />
-                    </picture>
-                </span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <button id="theme-toggle" type="button" class="btn theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
-                <svg class="icon icon-sun" aria-hidden="true"><use href="assets/icons.svg#icon-sun"/></svg>
-                <svg class="icon icon-moon" aria-hidden="true"><use href="assets/icons.svg#icon-moon"/></svg>
-            </button>
+        <!-- Sticky top navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top" id="sideNav">
+            <div class="container-fluid px-md-4">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                    <span class="brand-mark" aria-hidden="true">E</span>
+                    <span>Erico Rahmad Darmanto</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-            <!-- Responsive offcanvas: full sidebar at >= lg, slides in from right below lg -->
-            <div class="offcanvas offcanvas-end offcanvas-lg navbar-collapse" tabindex="-1" id="navbarResponsive" aria-labelledby="navbarResponsiveLabel">
-                <div class="offcanvas-header d-lg-none">
-                    <h5 class="offcanvas-title h6 mb-0" id="navbarResponsiveLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#navbarResponsive" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Certifications</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organizational">Organizational</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
-                        <li class="nav-item nav-language"><a class="nav-link" href="id/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
-                    </ul>
+                <!-- Offcanvas drawer below lg, inline above -->
+                <div class="offcanvas offcanvas-end offcanvas-lg navbar-collapse" tabindex="-1" id="navbarResponsive" aria-labelledby="navbarResponsiveLabel">
+                    <div class="offcanvas-header d-lg-none">
+                        <h5 class="offcanvas-title h6 mb-0" id="navbarResponsiveLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#navbarResponsive" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav mx-lg-auto">
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Certifications</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organizational">Organizational</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
+                            <a class="nav-link nav-language" href="id/" hreflang="id" lang="id" title="Bahasa Indonesia">ID</a>
+                            <button id="theme-toggle" type="button" class="btn theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+                                <svg class="icon icon-sun" aria-hidden="true"><use href="assets/icons.svg#icon-sun"/></svg>
+                                <svg class="icon icon-moon" aria-hidden="true"><use href="assets/icons.svg#icon-moon"/></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
         <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        <span class="text-primary">Erico</span>
-                        Rahmad
-                        Darmanto
-                    </h1>
-                    <div class="subheading mb-3">QA / Security Engineer · Denpasar, Bali</div>
-                    <div class="mb-5">
-                        <a href="mailto:ericorahmad1@gmail.com">ericorahmad1@gmail.com</a>
+        <main class="container-fluid p-0">
+
+            <!-- Hero -->
+            <section class="hero" id="about">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <span class="hero-eyebrow">
+                            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-shield"/></svg>
+                            Available for new opportunities
+                        </span>
+                        <h1 class="hero-title">
+                            Hi, I'm <span class="accent">Erico</span>.<br />
+                            QA &amp; Security Engineer.
+                        </h1>
+                        <p class="hero-subtitle">
+                            Dual-degree S.Kom &amp; BIT (STIKOM Bali / HELP University). I split my time between automation testing &mdash; Cypress, Selenium, Playwright &mdash; and offensive security: VAPT, security code review, and incident response. Long-time CTF player and cryptography problem setter.
+                        </p>
+                        <div class="hero-actions">
+                            <a class="btn-modern" href="mailto:ericorahmad1@gmail.com">
+                                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-link"/></svg>
+                                Get in touch
+                            </a>
+                            <a class="btn-modern btn-secondary" href="resume.json" hreflang="en" type="application/json">
+                                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-clipboard-check"/></svg>
+                                View resume.json
+                            </a>
+                        </div>
+                        <div class="hero-meta">
+                            <span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-link"/></svg>Denpasar, Bali &middot; Indonesia</span>
+                            <span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-certificate"/></svg>7 certifications</span>
+                            <span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-trophy"/></svg>7 awards since 2015</span>
+                        </div>
+
+                        <div class="social-icons mt-5">
+                            <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-linkedin"/></svg></a>
+                            <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-github"/></svg></a>
+                            <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-twitter"/></svg></a>
+                            <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-instagram"/></svg></a>
+                            <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-tiktok"/></svg></a>
+                            <a class="social-icon" href="https://lynk.id/ericorahmad/page/portofolio" target="_blank" rel="noopener noreferrer" aria-label="Lynk Portfolio"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-link"/></svg></a>
+                        </div>
                     </div>
-                    <p class="lead mb-4">QA / Security Engineer with a dual-degree background (S.Kom from Institut Teknologi &amp; Bisnis STIKOM Bali and BIT from HELP University, Kuala Lumpur). I split my time between automation &amp; manual quality engineering and offensive security &mdash; from Cypress / Selenium / Playwright suites to VAPT engagements, security code review, and incident response.</p>
-                    <p class="mb-5">Active in the Indonesian cyber-security community since 2015 &mdash; CTF problem setter, masterclass organizer, and ex-chairman of <em>SlashRoot CTF 2.0</em>. I love Linux, network security, and turning vague requirements into evidence-based test reports.</p>
-                    <ul class="icon-list mb-5">
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Automation testing with <strong>Cypress, Selenium, Playwright</strong> &mdash; functional &amp; end-to-end</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Manual, exploratory, regression &amp; UAT/SIT testing across web and mobile (Android / iOS)</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Penetration testing &amp; <strong>VAPT</strong> for client environments; OWASP-based methodology</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Security code review (GitLab scanners) and incident response (e.g., web defacement)</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>CTF problem setter (cryptography category) and masterclass organizer</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="assets/icons.svg#icon-check"/></svg>Cross-functional collaboration in international Agile teams</li>
-                    </ul>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-linkedin"/></svg></a>
-                        <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-github"/></svg></a>
-                        <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-twitter"/></svg></a>
-                        <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-instagram"/></svg></a>
-                        <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-tiktok"/></svg></a>
-                        <a class="social-icon" href="https://lynk.id/ericorahmad/page/portofolio" target="_blank" rel="noopener noreferrer" aria-label="Lynk Portfolio"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-link"/></svg></a>
+
+                    <div class="hero-visual">
+                        <div class="hero-photo">
+                            <picture>
+                                <source srcset="assets/img/erico.avif" type="image/avif" />
+                                <source srcset="assets/img/erico.webp" type="image/webp" />
+                                <img src="assets/img/erico.jpg"
+                                     alt="Erico Rahmad Darmanto"
+                                     width="320"
+                                     height="320"
+                                     loading="eager"
+                                     fetchpriority="high"
+                                     decoding="async" />
+                            </picture>
+                            <span class="photo-badge b1">
+                                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-shield"/></svg>
+                                Pentester
+                            </span>
+                            <span class="photo-badge b2">
+                                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-vial"/></svg>
+                                QA Engineer
+                            </span>
+                        </div>
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
@@ -339,7 +363,6 @@
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
@@ -375,7 +398,6 @@
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
@@ -418,7 +440,6 @@
                     </ul>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Certifications-->
             <section class="resume-section" id="certifications">
                 <div class="resume-section-content">
@@ -455,7 +476,6 @@
                     </ul>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Organizational Experience-->
             <section class="resume-section" id="organizational">
                 <div class="resume-section-content">
@@ -498,7 +518,6 @@
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Interests-->
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
@@ -508,7 +527,6 @@
                     <p class="mb-0">I'm a long-time CTF player &mdash; cryptography, web exploitation, and forensics &mdash; and I enjoy designing challenges as much as solving them.</p>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
@@ -545,7 +563,7 @@
                     </ul>
                 </div>
             </section>
-        </div>
+        </main>
         <!-- Bootstrap 5.3.8 JS bundle (with Subresource Integrity hash) -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
