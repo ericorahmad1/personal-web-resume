@@ -5,6 +5,7 @@
  *
  * Extended 2026-05-10:
  *   - Dark mode toggle (data-bs-theme + localStorage + prefers-color-scheme)
+ *   - IntersectionObserver-driven section reveals (respects prefers-reduced-motion)
  */
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -63,5 +64,29 @@ window.addEventListener('DOMContentLoaded', () => {
                 setTheme(e.matches ? 'dark' : 'light');
             }
         });
+    }
+
+    // -----------------------------------------------------------------------
+    // Section reveal via IntersectionObserver (respects prefers-reduced-motion)
+    // -----------------------------------------------------------------------
+    const sections = document.querySelectorAll('.resume-section');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (sections.length && !reduceMotion && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -50px 0px' },
+        );
+        sections.forEach((s) => io.observe(s));
+    } else {
+        // Reduced-motion users (and old browsers) get content visible immediately
+        sections.forEach((s) => s.classList.add('is-visible'));
     }
 });

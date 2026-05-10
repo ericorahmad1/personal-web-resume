@@ -387,6 +387,21 @@ section.resume-section {
     max-width: 75rem;
 }
 
+/* Section reveal — sections start translated 12px down + faded; the JS
+   IntersectionObserver adds .is-visible as each section scrolls into view.
+   Skipped automatically for prefers-reduced-motion users (the JS adds
+   .is-visible up-front in that case). */
+@media (prefers-reduced-motion: no-preference) {
+    section.resume-section:not(.is-visible) {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    section.resume-section {
+        transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+    }
+}
+
 section.resume-section .resume-section-content {
     width: 100%;
 }
