@@ -63,6 +63,15 @@ After the original 16-commit plan completed, user asked for a major visual moder
 - **Projects/Portfolio section** with carousel (user pre-approved 6 projects from PDF: Sawah CTF 2025, SCS One, Cypress E2E for SCS site, LojaMi QA, CLEAN MEDIC B3, SlashRoot CTF 2.0). Skipped this session per scope choice.
 - **ID page (`id/index.html`)** sync with new redesign — still on old sidebar layout. Will diverge until next session handles it.
 
+## ✅ Session 6 (2026-05-10 evening) — Projects + ID page sync
+
+**Completes both deferred items from session 5.**
+
+- ✅ Commit `a2d0c44` — Projects section with carousel: 6 cards (Sawah CTF 2025, SCS One, Cypress E2E SCS, LojaMi, CLEAN MEDIC, SlashRoot CTF 2.0); new `.project-card` style with gradient header strip, role/period, tech stack pills; `data-autoplay='7000'`; nav now has Projects link; `resume.json` gains a `projects[]` array (JSON Resume schema)
+- ✅ Commit `2af3f91` — Sync session-5 redesign to `/id/` page: rebuilt from current EN page, asset paths rewritten with `../`, all visible copy translated (nav, hero, eyebrows, work descriptions, project cards, organizational, interests, awards), `<html lang='id'>` and `og:locale='id_ID'`, language switcher EN/ID
+
+**Status:** EN and ID pages both on the modern hero/cards/carousel layout, in feature parity (8 sections each: Tentang/About → Pengalaman/Experience → Pendidikan/Education → Keahlian/Skills → Proyek/Projects → Sertifikasi/Certifications → Organisasi/Organizational → Minat/Interests → Prestasi/Awards).
+
 **Run the build script** to regenerate icon sprite or images:
 ```bash
 npm install         # one-time
