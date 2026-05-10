@@ -21,16 +21,20 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // -----------------------------------------------------------------------
-    // Collapse the responsive navbar after a link is clicked on mobile
+    // Close the offcanvas mobile nav after a link is tapped
+    //   - Bootstrap 5.3 responsive offcanvas (offcanvas-lg) only renders the
+    //     drawer below the lg breakpoint; above it the same element stays as
+    //     a normal sidebar, so hide() is a no-op on desktop.
     // -----------------------------------------------------------------------
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    document.querySelectorAll('#navbarResponsive .nav-link').forEach((link) => {
-        link.addEventListener('click', () => {
-            if (navbarToggler && window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
+    const offcanvasEl = document.getElementById('navbarResponsive');
+    if (offcanvasEl) {
+        document.querySelectorAll('#navbarResponsive .nav-link').forEach((link) => {
+            link.addEventListener('click', () => {
+                const instance = bootstrap.Offcanvas.getInstance(offcanvasEl);
+                if (instance) instance.hide();
+            });
         });
-    });
+    }
 
     // -----------------------------------------------------------------------
     // Dark mode toggle

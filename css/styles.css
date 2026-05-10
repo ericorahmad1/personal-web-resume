@@ -180,6 +180,37 @@ p.lead {
 }
 
 /* ---------------------------------------------------------------------------
+   Mobile offcanvas drawer (Bootstrap 5.3 offcanvas-lg)
+   - Below lg breakpoint, the nav becomes a slide-in drawer from the right.
+   - Match the orange navbar so the transition feels seamless.
+   --------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    #navbarResponsive.offcanvas {
+        background-color: var(--bs-primary);
+        color: #fff;
+        max-width: 320px;
+        width: 80vw;
+    }
+
+    #navbarResponsive .offcanvas-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    #navbarResponsive .offcanvas-header .btn-close {
+        filter: invert(1) brightness(2);
+    }
+
+    #navbarResponsive .nav-link {
+        padding: 0.85rem 0.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    #navbarResponsive .nav-link:last-child {
+        border-bottom: 0;
+    }
+}
+
+/* ---------------------------------------------------------------------------
    Side navigation (#sideNav)
    --------------------------------------------------------------------------- */
 #sideNav {
