@@ -47,6 +47,22 @@ Full plan stored at `~/.claude/plans/tingly-foraging-widget.md` with 16 commit-s
 | Astro migration (Track D) | ⏸️ Deferred | Possible future evolution |
 | Blog / writeups (S7) | ⏸️ Deferred | Needs writing time + Astro |
 
+## 🎨 Session 5 (2026-05-10 evening) — Modern redesign
+
+After the original 16-commit plan completed, user asked for a major visual modernization. Approved scope: "Sesi besar 2" (Foundation + Cards + 2 Carousels). Decisions: Hero+scrollable layout, Bootstrap+custom CSS hybrid, carousels for Certifications + Awards + (deferred) Projects.
+
+**Commits shipped (all on `main`):**
+- ✅ `883ba0b` — Design tokens (CSS variables for spacing/radius/shadow/gradient/glass) + utility classes (`.glass`, `.card-modern`, `.badge-pill`, `.btn-modern`)
+- ✅ `43834a9` — Sticky top nav replaces sidebar; Hero section replaces About (gradient ring photo, big animated headline with gradient-clipped accent, eyebrow pill, 3 CTAs, meta row, social icons)
+- ✅ `4e63205` — Card-ified Experience/Education/Organizational entries; bento skills grid (6 cards: Automation/Test management/Security/Data&APIs/Environments/Workflow); tool-logos hover row; section eyebrows
+- ✅ `924df2b` — Certifications horizontal-scroll carousel (7 cards, autoplay 5s, prev/next chevrons, scroll-snap)
+- ✅ `b8e5ce1` — Awards carousel (golden trophy variant, autoplay 6s, amber halo gradient)
+- ✅ `92b115b` — Polish: dark-mode tweaks for new components + mobile photo-badge positioning fix + offcanvas drawer styling for new glass nav
+
+**Deferred to a future session:**
+- **Projects/Portfolio section** with carousel (user pre-approved 6 projects from PDF: Sawah CTF 2025, SCS One, Cypress E2E for SCS site, LojaMi QA, CLEAN MEDIC B3, SlashRoot CTF 2.0). Skipped this session per scope choice.
+- **ID page (`id/index.html`)** sync with new redesign — still on old sidebar layout. Will diverge until next session handles it.
+
 **Run the build script** to regenerate icon sprite or images:
 ```bash
 npm install         # one-time
