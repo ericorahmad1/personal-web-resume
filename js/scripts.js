@@ -149,6 +149,78 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // -----------------------------------------------------------------------
+    // Contact form — AJAX submission to Formspree (no page reload)
+    //   - Honeypot field auto-blocks bots (Formspree's _gotcha convention)
+    //   - On success: swap form to a success card; on error: inline message
+    //   - Submit button shows a "sending…" state
+    // -----------------------------------------------------------------------
+    document.querySelectorAll('[data-contact-form]').forEach((form) => {
+        const status = form.querySelector('[data-form-status]');
+        const submit = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (status) { status.textContent = ''; status.removeAttribute('data-state'); }
+
+            // Bail if Formspree isn't configured yet (placeholder still in action URL)
+            if (form.action.includes('FORMSPREE_FORM_ID')) {
+                if (status) {
+                    status.textContent = 'Form not configured yet — falls back to mailto:ericorahmad1@gmail.com';
+                    status.setAttribute('data-state', 'error');
+                }
+                window.location.href = 'mailto:ericorahmad1@gmail.com'
+                    + '?subject=' + encodeURIComponent(form.querySelector('[name="subject"]').value || 'Hello Erico')
+                    + '&body=' + encodeURIComponent(form.querySelector('[name="message"]').value || '');
+                return;
+            }
+
+            const originalLabel = submit ? submit.innerHTML : '';
+            if (submit) {
+                submit.disabled = true;
+                submit.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending…';
+            }
+
+            try {
+                const data = new FormData(form);
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { Accept: 'application/json' },
+                });
+                if (res.ok) {
+                    form.classList.add('is-success');
+                    form.reset();
+                } else {
+                    const json = await res.json().catch(() => ({}));
+                    if (status) {
+                        status.textContent = (json.errors && json.errors.map((x) => x.message).join(', ')) || 'Something went wrong. Try again or email me directly.';
+                        status.setAttribute('data-state', 'error');
+                    }
+                }
+            } catch (err) {
+                if (status) {
+                    status.textContent = 'Network error. Check your connection or email me directly.';
+                    status.setAttribute('data-state', 'error');
+                }
+            } finally {
+                if (submit) {
+                    submit.disabled = false;
+                    submit.innerHTML = originalLabel;
+                }
+            }
+        });
+
+        // Reset success state when the modal is reopened
+        const modal = form.closest('.modal');
+        if (modal) {
+            modal.addEventListener('hidden.bs.modal', () => {
+                form.classList.remove('is-success');
+                if (status) { status.textContent = ''; status.removeAttribute('data-state'); }
+            });
+        }
+    });
+
+    // -----------------------------------------------------------------------
     // Section reveal via IntersectionObserver (respects prefers-reduced-motion)
     // -----------------------------------------------------------------------
     const sections = document.querySelectorAll('.resume-section');

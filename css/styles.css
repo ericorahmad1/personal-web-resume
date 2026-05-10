@@ -1570,6 +1570,189 @@ section.resume-section .resume-section-content > .d-flex.justify-content-between
     }
 }
 
+/* ---------------------------------------------------------------------------
+   Contact modal — Bootstrap modal styled to match the modern design system
+   --------------------------------------------------------------------------- */
+.contact-modal .modal-content {
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+}
+
+.contact-modal .modal-header {
+    background: var(--gradient-soft);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+[data-bs-theme="dark"] .contact-modal .modal-header {
+    background: rgba(212, 138, 110, 0.08);
+}
+
+.contact-modal .modal-header .modal-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    background: var(--gradient-warm);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-brand);
+    flex-shrink: 0;
+}
+
+.contact-modal .modal-header .modal-icon .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.contact-modal .modal-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-transform: none;
+}
+
+.contact-modal .modal-subtitle {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.contact-modal .modal-body {
+    padding: var(--space-6);
+}
+
+.contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 600px) {
+    .contact-form .form-row.two-col {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--bs-body-color);
+    letter-spacing: 0.01em;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--bs-body-color);
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: var(--surface-1);
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(189, 93, 56, 0.15);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 6rem;
+}
+
+/* Honeypot — visually + accessibly hidden, but bots still see it */
+.contact-form .form-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.contact-form .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+}
+
+.contact-form .form-status {
+    flex: 1;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.contact-form .form-status[data-state="success"] { color: #2f8a4f; }
+.contact-form .form-status[data-state="error"]   { color: #c53030; }
+
+[data-bs-theme="dark"] .contact-form .form-status[data-state="success"] { color: #5cd584; }
+[data-bs-theme="dark"] .contact-form .form-status[data-state="error"]   { color: #ff6b6b; }
+
+.contact-form button[type="submit"] {
+    flex-shrink: 0;
+}
+
+/* When the form succeeds, swap to a success card */
+.contact-form.is-success > * { display: none; }
+.contact-form.is-success .form-success { display: block; }
+
+.contact-form .form-success {
+    display: none;
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+}
+
+.contact-form .form-success .success-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: var(--gradient-warm);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    box-shadow: var(--shadow-brand);
+}
+
+.contact-form .form-success .success-icon .icon {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.contact-form .form-success h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    text-transform: none;
+}
+
+.contact-form .form-success p {
+    color: var(--bs-body-color);
+    opacity: 0.75;
+    margin: 0;
+}
+
 /* ===========================================================================
    Print stylesheet — clean, ink-friendly one-pager when users Save as PDF
    =========================================================================== */

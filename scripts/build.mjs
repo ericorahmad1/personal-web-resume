@@ -120,6 +120,10 @@ const ICONS = [
     { id: 'moon', registry: 'lucide', slug: 'moon' },
     { id: 'chevron-left', registry: 'lucide', slug: 'chevron-left' },
     { id: 'chevron-right', registry: 'lucide', slug: 'chevron-right' },
+    { id: 'mail', registry: 'lucide', slug: 'mail' },
+    { id: 'send', registry: 'lucide', slug: 'send' },
+    { id: 'check-circle', registry: 'lucide', slug: 'circle-check' },
+    { id: 'x', registry: 'lucide', slug: 'x' },
 ];
 
 function urlFor({ registry, slug }) {
