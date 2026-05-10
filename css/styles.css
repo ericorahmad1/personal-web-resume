@@ -1162,6 +1162,155 @@ section.resume-section .resume-section-content > .d-flex.justify-content-between
     color: var(--brand-primary-light);
 }
 
+/* ---------------------------------------------------------------------------
+   Project card — featured-work tile inside the Projects carousel
+   - Larger than cert/award cards: more body copy, tech stack pills, link
+   --------------------------------------------------------------------------- */
+.project-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 0;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(189, 93, 56, 0.3);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Top "header" strip with category badge over a soft gradient */
+.project-card .project-head {
+    background: var(--gradient-soft);
+    padding: var(--space-5) var(--space-5) var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+[data-bs-theme="dark"] .project-card .project-head {
+    background: rgba(212, 138, 110, 0.08);
+}
+
+.project-card .project-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    background: var(--gradient-warm);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-brand);
+    flex-shrink: 0;
+}
+
+.project-card .project-icon .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.project-card .project-cat {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand-primary);
+    margin: 0 0 var(--space-1);
+}
+
+[data-bs-theme="dark"] .project-card .project-cat {
+    color: var(--brand-primary-light);
+}
+
+.project-card .project-period {
+    font-size: 0.85rem;
+    color: var(--bs-body-color);
+    opacity: 0.7;
+    margin: 0;
+}
+
+.project-card .project-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+}
+
+.project-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: var(--bs-body-color);
+    line-height: 1.35;
+}
+
+.project-card .project-role {
+    font-size: 0.9rem;
+    color: var(--brand-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+[data-bs-theme="dark"] .project-card .project-role {
+    color: var(--brand-primary-light);
+}
+
+.project-card p {
+    margin: 0;
+    color: var(--bs-body-color);
+    opacity: 0.85;
+    line-height: 1.55;
+    font-size: 0.92rem;
+}
+
+.project-card .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: auto;
+    padding-top: var(--space-3);
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.project-card .project-stack li {
+    padding: 0.18rem 0.6rem;
+    background: var(--surface-3);
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    color: var(--bs-body-color);
+    border: 1px solid var(--border-subtle);
+}
+
+[data-bs-theme="dark"] .project-card .project-stack li {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Project carousel — wider cards (max 1-2 visible) than cert/award */
+#projects .card-carousel-track > * {
+    width: calc(100% - var(--space-2));
+    max-width: 28rem;
+}
+
+@media (min-width: 768px) {
+    #projects .card-carousel-track > * { width: calc(50% - var(--space-3)); max-width: none; }
+}
+
+@media (min-width: 1300px) {
+    #projects .card-carousel-track > * { width: calc(33.333% - var(--space-3)); }
+}
+
 /* Award card — variant of cert-card with golden trophy badge */
 .award-card {
     background: var(--surface-1);

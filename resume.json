@@ -177,6 +177,69 @@
         { "name": "Tools & Environments", "keywords": ["Jira", "Notion", "Git", "GitLab", "Kali Linux", "Ubuntu", "Windows", "Android", "iOS"] },
         { "name": "Data & APIs", "keywords": ["MySQL", "REST API testing", "Postman collections"] }
     ],
+    "projects": [
+        {
+            "name": "Sawah Cyber Security CTF 2025",
+            "description": "National-scale CTF event. Designed cryptography challenges and served as a problem setter; coordinated technical infrastructure and on-event scoring.",
+            "highlights": ["Cryptography problem setter", "Technical team", "On-event scoring"],
+            "keywords": ["Cryptography", "CTF", "Python", "Web Exploitation"],
+            "startDate": "2025-02",
+            "endDate": "2025-09",
+            "roles": ["Technical Team", "Problem Setter (Cryptography)"],
+            "entity": "PT Sawah Cyber Security",
+            "type": "ctf"
+        },
+        {
+            "name": "SCS One — Product Security Strategy",
+            "description": "Planned and improved product security strategies for SCS One. Defined threat model, security requirements, and review checkpoints.",
+            "keywords": ["Threat Modeling", "OWASP", "Code Review"],
+            "startDate": "2025-02",
+            "endDate": "2025-09",
+            "roles": ["Penetration Tester", "Cyber Security Specialist"],
+            "entity": "PT Sawah Cyber Security",
+            "type": "product-security"
+        },
+        {
+            "name": "Cypress E2E for Sawah Cyber Security website",
+            "description": "Built the end-to-end Cypress automation framework — functional regression, page-object patterns, and CI integration via GitLab.",
+            "keywords": ["Cypress", "JavaScript", "GitLab CI", "Page Object"],
+            "startDate": "2025-02",
+            "endDate": "2025-09",
+            "roles": ["QA / Automation Engineer"],
+            "entity": "PT Sawah Cyber Security",
+            "type": "qa-automation"
+        },
+        {
+            "name": "LojaMi (e-Padi) — QA Campaign",
+            "description": "Owned full quality across SIT, UAT, and Trial Operation for the LojaMi digital-billing platform; surfaced critical defects before go-live.",
+            "keywords": ["System Integration Testing", "UAT", "Trial Operation", "Bug Tracking"],
+            "startDate": "2025-10",
+            "endDate": "2025-12",
+            "roles": ["Freelance QA Engineer"],
+            "entity": "PT Ekosistem Pasar Digital",
+            "type": "qa"
+        },
+        {
+            "name": "CLEAN MEDIC — B3 medical-waste app",
+            "description": "Designed and ran the full QA framework for the CLEAN MEDIC platform; achieved >90% functionality test coverage across web and mobile clients.",
+            "keywords": ["Selenium", "Cypress", "Postman", "Android", "iOS"],
+            "startDate": "2022-09",
+            "endDate": "2024-09",
+            "roles": ["QA Engineer (Web + Android + iOS)"],
+            "entity": "PT Clean Medic Indus",
+            "type": "qa-framework"
+        },
+        {
+            "name": "SlashRoot CTF 2.0 — National Cyber-Security Competition",
+            "description": "Led the SlashRoot CTF 2.0 national event at DILO Denpasar — the only annual CTF held in Bali, open to students nationwide.",
+            "keywords": ["Event Leadership", "Sponsorship", "CTF Operations"],
+            "startDate": "2017-04",
+            "endDate": "2017-07",
+            "roles": ["Chairman", "Organizing Committee"],
+            "entity": "SlashRoot CTF",
+            "type": "community-ctf"
+        }
+    ],
     "languages": [
         { "language": "English", "fluency": "Professional working" },
         { "language": "Indonesian", "fluency": "Native" }
