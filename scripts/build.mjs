@@ -21,7 +21,7 @@
  */
 
 import sharp from 'sharp';
-import { existsSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, statSync, writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -31,6 +31,7 @@ const ROOT = resolve(__dirname, '..');
 const args = new Set(process.argv.slice(2));
 const imagesOnly = args.has('--images-only');
 const iconsOnly = args.has('--icons-only');
+const ogOnly = args.has('--og-only');
 
 // ---------------------------------------------------------------------------
 // Image optimization
@@ -173,6 +174,80 @@ async function buildIconSprite() {
 }
 
 // ---------------------------------------------------------------------------
+// Open Graph card image (1200x630 branded social share)
+// ---------------------------------------------------------------------------
+
+/**
+ * Render an SVG describing the OG card, then rasterize via sharp to PNG.
+ * The profile photo is embedded as a base64 data URL so the SVG is self-contained.
+ */
+async function buildOgImage() {
+    console.log('\n🖼️  Building OG card image (1200x630)');
+
+    const photoPath = resolve(ROOT, 'assets/img/erico.jpg');
+    if (!existsSync(photoPath)) {
+        console.warn('   ⚠ profile photo missing, skip OG card');
+        return;
+    }
+
+    // Pre-process the photo to a tidy 320x320 circle-ready PNG, then base64 it
+    const photoBuf = await sharp(photoPath)
+        .resize(320, 320, { fit: 'cover', position: 'center' })
+        .png()
+        .toBuffer();
+    const photoDataUrl = `data:image/png;base64,${photoBuf.toString('base64')}`;
+
+    const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#bd5d38"/>
+            <stop offset="100%" stop-color="#8a4128"/>
+        </linearGradient>
+        <clipPath id="circle">
+            <circle cx="950" cy="315" r="170"/>
+        </clipPath>
+        <filter id="ds" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.25"/>
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <rect width="1200" height="630" fill="url(#bg)"/>
+
+    <!-- Subtle pattern: angled stripes top-right -->
+    <g opacity="0.08" fill="#ffffff">
+        <polygon points="900,0 1200,0 1200,300"/>
+        <polygon points="1100,0 1200,0 1200,100"/>
+    </g>
+
+    <!-- Left: name + role -->
+    <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" fill="#ffffff">
+        <text x="80" y="220" font-size="32" font-weight="500" opacity="0.85" letter-spacing="3">QA / SECURITY ENGINEER</text>
+        <text x="80" y="320" font-size="76" font-weight="800" letter-spacing="-1">Erico Rahmad</text>
+        <text x="80" y="400" font-size="76" font-weight="800" letter-spacing="-1">Darmanto</text>
+
+        <line x1="80" y1="440" x2="180" y2="440" stroke="#ffffff" stroke-width="4" opacity="0.7"/>
+
+        <text x="80" y="495" font-size="28" font-weight="500" opacity="0.85">Penetration Testing &#8226; Cypress &#8226; Selenium &#8226; OWASP</text>
+        <text x="80" y="555" font-size="24" font-weight="400" opacity="0.7">Denpasar, Bali &#8212; ericorahmad1.github.io/personal-web-resume</text>
+    </g>
+
+    <!-- Right: circular profile photo with white ring -->
+    <g filter="url(#ds)">
+        <circle cx="950" cy="315" r="180" fill="#ffffff"/>
+        <image href="${photoDataUrl}" x="780" y="145" width="340" height="340" clip-path="url(#circle)" preserveAspectRatio="xMidYMid slice"/>
+    </g>
+</svg>`;
+
+    const outPath = resolve(ROOT, 'assets/img/og-image.png');
+    await sharp(Buffer.from(svg)).png({ quality: 90, compressionLevel: 9 }).toFile(outPath);
+
+    const bytes = statSync(outPath).size;
+    console.log(`   → assets/img/og-image.png (${humanBytes(bytes)})`);
+}
+
+// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
@@ -190,8 +265,13 @@ async function main() {
     const t0 = Date.now();
     console.log('🔨 personal-web-resume build');
 
-    if (!iconsOnly) await buildImages();
-    if (!imagesOnly) await buildIconSprite();
+    if (ogOnly) {
+        await buildOgImage();
+    } else {
+        if (!iconsOnly) await buildImages();
+        if (!imagesOnly) await buildIconSprite();
+        if (!iconsOnly && !imagesOnly) await buildOgImage();
+    }
 
     console.log(`\n✓ build done in ${Date.now() - t0}ms`);
 }
