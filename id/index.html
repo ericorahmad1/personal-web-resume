@@ -180,97 +180,123 @@
         </script>
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Erico Rahmad Darmanto</span>
-                <span class="d-none d-lg-block">
-                    <picture>
-                        <source srcset="../assets/img/erico.avif" type="image/avif" />
-                        <source srcset="../assets/img/erico.webp" type="image/webp" />
-                        <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                             src="../assets/img/erico.jpg"
-                             alt="Erico Rahmad Darmanto"
-                             width="160"
-                             height="160"
-                             loading="eager"
-                             fetchpriority="high"
-                             decoding="async" />
-                    </picture>
-                </span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-label="Buka menu navigasi"><span class="navbar-toggler-icon"></span></button>
-            <button id="theme-toggle" type="button" class="btn theme-toggle" aria-label="Ganti mode gelap" aria-pressed="false" title="Ganti mode gelap">
-                <svg class="icon icon-sun" aria-hidden="true"><use href="../assets/icons.svg#icon-sun"/></svg>
-                <svg class="icon icon-moon" aria-hidden="true"><use href="../assets/icons.svg#icon-moon"/></svg>
-            </button>
+        <!-- Sticky top navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top" id="sideNav">
+            <div class="container-fluid px-md-4">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                    <span class="brand-mark" aria-hidden="true">E</span>
+                    <span>Erico Rahmad Darmanto</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-label="Buka navigasi"><span class="navbar-toggler-icon"></span></button>
 
-            <!-- Responsive offcanvas: full sidebar at >= lg, slides in from right below lg -->
-            <div class="offcanvas offcanvas-end offcanvas-lg navbar-collapse" tabindex="-1" id="navbarResponsive" aria-labelledby="navbarResponsiveLabel">
-                <div class="offcanvas-header d-lg-none">
-                    <h5 class="offcanvas-title h6 mb-0" id="navbarResponsiveLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#navbarResponsive" aria-label="Tutup"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Tentang</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Pengalaman</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Pendidikan</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Keahlian</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Sertifikasi</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organizational">Organisasi</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Minat</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Prestasi</a></li>
-                        <li class="nav-item nav-language"><a class="nav-link" href="../" hreflang="en" lang="en">English</a></li>
-                    </ul>
+                <!-- Offcanvas drawer below lg, inline above -->
+                <div class="offcanvas offcanvas-end offcanvas-lg navbar-collapse" tabindex="-1" id="navbarResponsive" aria-labelledby="navbarResponsiveLabel">
+                    <div class="offcanvas-header d-lg-none">
+                        <h5 class="offcanvas-title h6 mb-0" id="navbarResponsiveLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#navbarResponsive" aria-label="Tutup"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav mx-lg-auto">
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Tentang</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Pengalaman</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Pendidikan</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Keahlian</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Proyek</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Sertifikasi</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organizational">Organisasi</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Prestasi</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
+                            <a class="nav-link nav-language" href="../" hreflang="en" lang="en" title="English">EN</a>
+                            <button id="theme-toggle" type="button" class="btn theme-toggle" aria-label="Ganti mode gelap" aria-pressed="false" title="Ganti mode gelap">
+                                <svg class="icon icon-sun" aria-hidden="true"><use href="../assets/icons.svg#icon-sun"/></svg>
+                                <svg class="icon icon-moon" aria-hidden="true"><use href="../assets/icons.svg#icon-moon"/></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
         <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        <span class="text-primary">Erico</span>
-                        Rahmad
-                        Darmanto
-                    </h1>
-                    <div class="subheading mb-3">QA / Security Engineer · Denpasar, Bali</div>
-                    <div class="mb-5">
-                        <a href="mailto:ericorahmad1@gmail.com">ericorahmad1@gmail.com</a>
+        <main class="container-fluid p-0">
+
+            <!-- Hero -->
+            <section class="hero" id="about">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <span class="hero-eyebrow">
+                            <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg>
+                            Terbuka untuk peluang baru
+                        </span>
+                        <h1 class="hero-title">
+                            Halo, saya <span class="accent">Erico</span>.<br />
+                            QA &amp; Security Engineer.
+                        </h1>
+                        <p class="hero-subtitle">
+                            Lulusan dual-degree S.Kom &amp; BIT (STIKOM Bali / HELP University). Saya membagi waktu antara automation testing &mdash; Cypress, Selenium, Playwright &mdash; dan offensive security: VAPT, security code review, dan incident response. Pemain CTF lama dan problem setter kriptografi.
+                        </p>
+                        <div class="hero-actions">
+                            <a class="btn-modern" href="mailto:ericorahmad1@gmail.com">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-link"/></svg>
+                                Hubungi saya
+                            </a>
+                            <a class="btn-modern btn-secondary" href="../resume.json" hreflang="en" type="application/json">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-clipboard-check"/></svg>
+                                Lihat resume.json
+                            </a>
+                        </div>
+                        <div class="hero-meta">
+                            <span><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-link"/></svg>Denpasar, Bali &middot; Indonesia</span>
+                            <span><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>7 sertifikasi</span>
+                            <span><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>7 prestasi sejak 2015</span>
+                        </div>
+
+                        <div class="social-icons mt-5">
+                            <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-linkedin"/></svg></a>
+                            <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-github"/></svg></a>
+                            <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-twitter"/></svg></a>
+                            <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-instagram"/></svg></a>
+                            <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-tiktok"/></svg></a>
+                            <a class="social-icon" href="https://lynk.id/ericorahmad/page/portofolio" target="_blank" rel="noopener noreferrer" aria-label="Lynk Portfolio"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-link"/></svg></a>
+                        </div>
                     </div>
-                    <p class="lead mb-4">QA / Security Engineer dengan latar belakang dual-degree (S.Kom dari Institut Teknologi &amp; Bisnis STIKOM Bali dan BIT dari HELP University, Kuala Lumpur). Saya membagi waktu antara automation &amp; manual quality engineering serta offensive security &mdash; mulai dari suite Cypress / Selenium / Playwright sampai engagement VAPT, security code review, dan incident response.</p>
-                    <p class="mb-5">Aktif di komunitas cyber security Indonesia sejak 2015 &mdash; problem setter CTF, organizer masterclass, dan mantan ketua <em>SlashRoot CTF 2.0</em>. Saya suka Linux, network security, dan mengubah requirement yang samar menjadi laporan test berbasis bukti.</p>
-                    <ul class="icon-list mb-5">
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Automation testing dengan <strong>Cypress, Selenium, Playwright</strong> &mdash; functional &amp; end-to-end</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Testing manual, eksploratori, regression &amp; UAT/SIT di web dan mobile (Android / iOS)</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Penetration testing &amp; <strong>VAPT</strong> untuk environment klien; metodologi berbasis OWASP</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Security code review (GitLab scanner) dan incident response (mis. web defacement)</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Problem setter CTF (kategori kriptografi) dan organizer masterclass</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Kolaborasi cross-functional dalam tim Agile internasional</li>
-                    </ul>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-linkedin"/></svg></a>
-                        <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-github"/></svg></a>
-                        <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-twitter"/></svg></a>
-                        <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-instagram"/></svg></a>
-                        <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-tiktok"/></svg></a>
-                        <a class="social-icon" href="https://lynk.id/ericorahmad/page/portofolio" target="_blank" rel="noopener noreferrer" aria-label="Lynk Portfolio"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-link"/></svg></a>
+
+                    <div class="hero-visual">
+                        <div class="hero-photo">
+                            <picture>
+                                <source srcset="../assets/img/erico.avif" type="image/avif" />
+                                <source srcset="../assets/img/erico.webp" type="image/webp" />
+                                <img src="../assets/img/erico.jpg"
+                                     alt="Erico Rahmad Darmanto"
+                                     width="320"
+                                     height="320"
+                                     loading="eager"
+                                     fetchpriority="high"
+                                     decoding="async" />
+                            </picture>
+                            <span class="photo-badge b1">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg>
+                                Pentester
+                            </span>
+                            <span class="photo-badge b2">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-vial"/></svg>
+                                QA Engineer
+                            </span>
+                        </div>
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Pengalaman Kerja</h2>
+                    <span class="section-eyebrow">Karier</span>
+                    <h2 class="mb-5">Pengalaman</h2>
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Freelance IT Instructor</h3>
                             <div class="subheading mb-3">PT Inixindo Yogyakarta</div>
-                            <p>Merancang dan menyampaikan sesi training IT dengan topik programming, cybersecurity, dan domain terkait. Menyiapkan materi pelajaran dan membimbing peserta melalui hands-on lab.</p>
+                            <p>Merancang dan menyampaikan sesi training IT mencakup programming, cybersecurity, dan domain terkait. Menyiapkan materi kelas dan membimbing peserta melalui hands-on lab.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Nov 2025 &ndash; Des 2025</span></div>
                     </div>
@@ -279,7 +305,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Freelance QA Engineer &mdash; LojaMi</h3>
                             <div class="subheading mb-3">PT Ekosistem Pasar Digital (e-Padi)</div>
-                            <p>Bertanggung jawab atas kualitas aplikasi LojaMi pada fase <strong>SIT, UAT, dan Trial Operation</strong>. Melakukan functional, exploratory, regression, dan retesting bug-fix; menemukan defect kritis yang mempengaruhi alur bisnis utama sebelum go-live.</p>
+                            <p>Bertanggung jawab atas kualitas aplikasi LojaMi pada fase <strong>SIT, UAT, dan Trial Operation</strong>. Melakukan testing fungsional, eksploratori, regression, dan retest perbaikan bug; menemukan defect kritis yang berdampak pada alur bisnis utama sebelum go-live.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Okt 2025 &ndash; Des 2025</span></div>
                     </div>
@@ -331,7 +357,7 @@
 
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Web Developer (Internship)</h3>
+                            <h3 class="mb-0">Web Developer (Magang)</h3>
                             <div class="subheading mb-3">PT Studio Kami Mandiri</div>
                             <p>Membangun aplikasi web PHP dengan framework CodeIgniter &mdash; sistem reservasi hotel untuk pengguna publik dan staf manajemen internal.</p>
                         </div>
@@ -339,10 +365,10 @@
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Studi</span>
                     <h2 class="mb-5">Pendidikan</h2>
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -375,14 +401,13 @@
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Keahlian</h2>
+                    <span class="section-eyebrow">Toolbelt</span>
+                    <h2 class="mb-5">Keahlian &amp; stack</h2>
 
-                    <div class="subheading mb-3">Bahasa Pemrograman &amp; Tools</div>
-                    <ul class="list-inline dev-icons">
+                    <ul class="list-inline tool-logos">
                         <li class="list-inline-item" title="JavaScript"><svg class="icon" aria-label="JavaScript"><use href="../assets/icons.svg#icon-javascript"/></svg></li>
                         <li class="list-inline-item" title="Python"><svg class="icon" aria-label="Python"><use href="../assets/icons.svg#icon-python"/></svg></li>
                         <li class="list-inline-item" title="Java"><svg class="icon" aria-label="Java"><use href="../assets/icons.svg#icon-java"/></svg></li>
@@ -397,75 +422,258 @@
                         <li class="list-inline-item" title="Bug tracking"><svg class="icon" aria-label="Bug tracking"><use href="../assets/icons.svg#icon-bug"/></svg></li>
                     </ul>
 
-                    <div class="subheading mb-3">Stack Testing &amp; Security</div>
-                    <ul class="icon-list mb-4">
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-vial"/></svg><strong>Automation:</strong> Cypress, Selenium, Playwright, Postman, JMeter</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-clipboard-check"/></svg><strong>Manajemen Test:</strong> Jira, Notion, Test Plan &amp; Case, Bug Report</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg><strong>Security:</strong> OWASP, VAPT, Penetration Testing, Vulnerability Assessment, Network Security, Security Code Review (GitLab Scanner), Incident Response</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-database"/></svg><strong>Data &amp; API:</strong> Database relasional (MySQL), testing REST API, koleksi Postman</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-terminal"/></svg><strong>Environment:</strong> Kali Linux, Ubuntu, Windows, testing Web &amp; Mobile (Android / iOS)</li>
-                    </ul>
+                    <div class="skills-grid">
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-vial"/></svg></span>
+                            <h3>Automation</h3>
+                            <ul class="skill-list">
+                                <li>Cypress</li><li>Selenium</li><li>Playwright</li><li>Postman</li><li>JMeter</li>
+                            </ul>
+                        </article>
 
-                    <div class="subheading mb-3">Cara Kerja</div>
-                    <ul class="icon-list mb-0">
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Mengembangkan strategi, rencana, dan kasus test &mdash; manual &amp; otomatis</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Testing end-to-end, regression, sanity, eksploratori, SIT, dan UAT</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Cross-browser, cross-platform, aplikasi web &amp; mobile (Android / iOS)</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Vulnerability assessment &amp; penetration testing untuk environment klien</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Security code review dan pelaporan kerentanan berbasis bukti yang jelas</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Kolaborasi cross-functional dalam tim Agile / Scrum internasional</li>
-                        <li><svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg>Bug triage, analisis tingkat severity, dan komunikasi dengan stakeholder</li>
-                    </ul>
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-clipboard-check"/></svg></span>
+                            <h3>Manajemen Test</h3>
+                            <ul class="skill-list">
+                                <li>Jira</li><li>Notion</li><li>Test Plan</li><li>Test Case</li><li>Bug Report</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg></span>
+                            <h3>Security</h3>
+                            <ul class="skill-list">
+                                <li>OWASP</li><li>VAPT</li><li>Penetration Testing</li><li>Network Security</li><li>Code Review</li><li>Incident Response</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-database"/></svg></span>
+                            <h3>Data &amp; API</h3>
+                            <ul class="skill-list">
+                                <li>MySQL</li><li>REST</li><li>Postman</li><li>Collections</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-terminal"/></svg></span>
+                            <h3>Environment</h3>
+                            <ul class="skill-list">
+                                <li>Kali Linux</li><li>Ubuntu</li><li>Windows</li><li>Android</li><li>iOS</li>
+                            </ul>
+                        </article>
+
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg></span>
+                            <h3>Cara Kerja</h3>
+                            <ul class="skill-list">
+                                <li>Agile / Scrum</li><li>Lintas fungsi</li><li>Regression</li><li>SIT / UAT</li>
+                            </ul>
+                        </article>
+                    </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Certifications-->
+            <!-- Projects-->
+            <section class="resume-section" id="projects">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">Karya pilihan</span>
+                    <h2 class="mb-5">Proyek</h2>
+
+                    <div class="card-carousel" data-carousel data-autoplay="7000" aria-label="Projects carousel">
+                        <div class="card-carousel-track">
+                            <article class="project-card">
+                                <header class="project-head">
+                                    <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg></span>
+                                    <div>
+                                        <p class="project-cat">CTF &middot; Kriptografi</p>
+                                        <p class="project-period">Feb 2025 &ndash; Sep 2025</p>
+                                    </div>
+                                </header>
+                                <div class="project-body">
+                                    <h3>Sawah Cyber Security CTF 2025</h3>
+                                    <p class="project-role">Tim Teknis &middot; Problem Setter (Kriptografi)</p>
+                                    <p>Merancang challenge kriptografi dan menjadi problem setter untuk kompetisi nasional Sawah Cyber Security CTF 2025. Mengkoordinasi infrastruktur teknis dan scoring saat event berlangsung.</p>
+                                    <ul class="project-stack">
+                                        <li>Kriptografi</li><li>CTF</li><li>Python</li><li>Web Exploitation</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="project-card">
+                                <header class="project-head">
+                                    <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg></span>
+                                    <div>
+                                        <p class="project-cat">Product Security</p>
+                                        <p class="project-period">Feb 2025 &ndash; Sep 2025</p>
+                                    </div>
+                                </header>
+                                <div class="project-body">
+                                    <h3>SCS One &mdash; Strategi Product Security</h3>
+                                    <p class="project-role">Penetration Tester / Cyber Security Specialist</p>
+                                    <p>Merencanakan dan menyempurnakan strategi product security untuk SCS One. Mendefinisikan threat model, persyaratan keamanan, dan checkpoint review untuk platform cyber-security.</p>
+                                    <ul class="project-stack">
+                                        <li>Threat Modeling</li><li>OWASP</li><li>Code Review</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="project-card">
+                                <header class="project-head">
+                                    <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-vial"/></svg></span>
+                                    <div>
+                                        <p class="project-cat">QA Automation</p>
+                                        <p class="project-period">Feb 2025 &ndash; Sep 2025</p>
+                                    </div>
+                                </header>
+                                <div class="project-body">
+                                    <h3>Cypress E2E untuk website Sawah Cyber Security</h3>
+                                    <p class="project-role">QA / Automation Engineer</p>
+                                    <p>Membangun framework automation Cypress end-to-end untuk website Sawah Cyber Security &mdash; regression fungsional, pola page-object, dan integrasi CI via GitLab.</p>
+                                    <ul class="project-stack">
+                                        <li>Cypress</li><li>JavaScript</li><li>GitLab CI</li><li>Page Object</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="project-card">
+                                <header class="project-head">
+                                    <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-clipboard-check"/></svg></span>
+                                    <div>
+                                        <p class="project-cat">QA &middot; SIT / UAT / TO</p>
+                                        <p class="project-period">Okt 2025 &ndash; Des 2025</p>
+                                    </div>
+                                </header>
+                                <div class="project-body">
+                                    <h3>LojaMi (e-Padi) &mdash; Kampanye QA</h3>
+                                    <p class="project-role">Freelance QA Engineer</p>
+                                    <p>Bertanggung jawab atas kualitas penuh di fase SIT, UAT, dan Trial Operation untuk platform digital-billing LojaMi. Menemukan defect kritis yang berdampak pada alur bisnis utama sebelum go-live.</p>
+                                    <ul class="project-stack">
+                                        <li>System Integration Testing</li><li>UAT</li><li>Trial Operation</li><li>Bug Tracking</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="project-card">
+                                <header class="project-head">
+                                    <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-database"/></svg></span>
+                                    <div>
+                                        <p class="project-cat">QA Framework &middot; Mobile + Web</p>
+                                        <p class="project-period">Sep 2022 &ndash; Sep 2024</p>
+                                    </div>
+                                </header>
+                                <div class="project-body">
+                                    <h3>CLEAN MEDIC &mdash; aplikasi limbah medis B3</h3>
+                                    <p class="project-role">QA Engineer (Web + Android + iOS)</p>
+                                    <p>Merancang dan menjalankan framework QA penuh untuk platform CLEAN MEDIC yang mengelola alur kerja limbah medis B3. Mencapai cakupan testing fungsional &gt;90% di web portal dan mobile.</p>
+                                    <ul class="project-stack">
+                                        <li>Selenium</li><li>Cypress</li><li>Postman</li><li>Android</li><li>iOS</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="project-card">
+                                <header class="project-head">
+                                    <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                    <div>
+                                        <p class="project-cat">Komunitas &middot; CTF Nasional</p>
+                                        <p class="project-period">Apr 2017 &ndash; Jul 2017</p>
+                                    </div>
+                                </header>
+                                <div class="project-body">
+                                    <h3>SlashRoot CTF 2.0 &mdash; Kompetisi Cyber Security Nasional</h3>
+                                    <p class="project-role">Ketua &amp; Panitia Pelaksana</p>
+                                    <p>Memimpin event nasional SlashRoot CTF 2.0 di DILO Denpasar &mdash; satu-satunya CTF tahunan yang diselenggarakan di Bali, terbuka untuk pelajar dan mahasiswa seluruh Indonesia. Mengkoordinasi tim panitia, outreach sponsor, dan pelaksanaan kompetisi.</p>
+                                    <ul class="project-stack">
+                                        <li>Event Leadership</li><li>Sponsorship</li><li>CTF Operations</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="card-carousel-controls">
+                            <button type="button" data-carousel-prev aria-label="Proyek sebelumnya">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-chevron-left"/></svg>
+                            </button>
+                            <button type="button" data-carousel-next aria-label="Proyek berikutnya">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-chevron-right"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="resume-section" id="certifications">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Kredensial</span>
                     <h2 class="mb-5">Sertifikasi</h2>
-                    <ul class="icon-list mb-0">
-                        <li>
-                            <svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>
-                            <strong>The SecOps &mdash; CAPv2</strong> &middot; Certified AppSec Practitioner <em>(2025)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>
-                            <strong>Google Cybersecurity Professional Certificate</strong> &middot; Coursera <em>(2024)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>
-                            <strong>The SecOps &mdash; CNSP</strong> &middot; Certified Network Security Practitioner <em>(2024)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>
-                            <strong>EC-Council &mdash; CSCUv3</strong> &middot; Certified Secure Computer User V3 <em>(2024)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>
-                            <strong>LPBA &mdash; TOEIC</strong> Listening &amp; Reading <em>(2024)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>
-                            <strong>EC-Council &mdash; CND</strong> &middot; Certified Network Defender <em>(2021 &middot; diperbarui 2023)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-primary" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg>
-                            <strong>Cisco &mdash; CyberOps Associate</strong> <em>(2021)</em>
-                        </li>
-                    </ul>
+
+                    <div class="card-carousel" data-carousel data-autoplay="5000" aria-label="Certifications carousel">
+                        <div class="card-carousel-track">
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>Certified AppSec Practitioner (CAPv2)</h3>
+                                <p class="cert-issuer">The SecOps Group</p>
+                                <span class="cert-year">2025</span>
+                            </article>
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>Google Cybersecurity Professional Certificate</h3>
+                                <p class="cert-issuer">Google &middot; Coursera</p>
+                                <span class="cert-year">2024</span>
+                            </article>
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>Certified Network Security Practitioner (CNSP)</h3>
+                                <p class="cert-issuer">The SecOps Group</p>
+                                <span class="cert-year">2024</span>
+                            </article>
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>Certified Secure Computer User v3 (CSCUv3)</h3>
+                                <p class="cert-issuer">EC-Council</p>
+                                <span class="cert-year">2024</span>
+                            </article>
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>TOEIC Listening &amp; Reading</h3>
+                                <p class="cert-issuer">LPBA &mdash; Lembaga Pendidikan Bali Asia</p>
+                                <span class="cert-year">2024</span>
+                            </article>
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>Certified Network Defender (CND)</h3>
+                                <p class="cert-issuer">EC-Council &middot; diperbarui 2023</p>
+                                <span class="cert-year">2021</span>
+                            </article>
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>Cisco CyberOps Associate</h3>
+                                <p class="cert-issuer">Cisco Networking Academy</p>
+                                <span class="cert-year">2021</span>
+                            </article>
+                        </div>
+                        <div class="card-carousel-controls">
+                            <button type="button" data-carousel-prev aria-label="Sertifikasi sebelumnya">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-chevron-left"/></svg>
+                            </button>
+                            <button type="button" data-carousel-next aria-label="Sertifikasi berikutnya">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-chevron-right"/></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Organizational Experience-->
             <section class="resume-section" id="organizational">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Komunitas</span>
                     <h2 class="mb-5">Pengalaman Organisasi</h2>
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Ketua &amp; Panitia Pelaksana</h3>
                             <div class="subheading mb-3">SlashRoot CTF 2.0 &mdash; Kompetisi Cyber Security Nasional</div>
-                            <p>Memimpin event nasional SlashRoot CTF 2.0 di DILO Denpasar &mdash; satu-satunya CTF tahunan yang diadakan di Bali, terbuka untuk pelajar/mahasiswa seluruh Indonesia. Mengkoordinasi tim panitia, outreach sponsor, dan pelaksanaan kompetisi.</p>
+                            <p>Memimpin event nasional SlashRoot CTF 2.0 di DILO Denpasar &mdash; satu-satunya CTF tahunan yang diselenggarakan di Bali, terbuka untuk pelajar/mahasiswa seluruh Indonesia. Mengkoordinasi tim panitia, outreach sponsor, dan pelaksanaan kompetisi.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Apr 2017 &ndash; Jul 2017</span></div>
                     </div>
@@ -474,7 +682,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Koordinator Sponsorship</h3>
                             <div class="subheading mb-3">SlashRoot CTF 3.0 &mdash; Jimbaran, Bali</div>
-                            <p>Bertanggung jawab atas negosiasi sponsor &amp; partnership dan pengalaman sponsor on-site untuk edisi ke-3 CTF nasional.</p>
+                            <p>Bertanggung jawab atas negosiasi sponsor &amp; partnership serta pengalaman sponsor on-site untuk edisi ke-3 CTF nasional.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Apr 2018 &ndash; Jul 2018</span></div>
                     </div>
@@ -498,54 +706,79 @@
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Interests-->
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Di luar kerja</span>
                     <h2 class="mb-5">Minat</h2>
                     <p>Di luar layar: jogging, beladiri, bulu tangkis, travelling, dan sesekali kayak keliling Bali.</p>
                     <p>Di dalam ruangan saya seorang gamer dan streamer, mengikuti banyak film sci-fi dan fantasy serta anime, dan menganggap diri sebagai aspiring home chef. Saya juga mengikuti perkembangan dunia cyber security dan tools automation testing terbaru.</p>
                     <p class="mb-0">Saya pemain CTF berpengalaman &mdash; kriptografi, web exploitation, dan forensics &mdash; dan saya menikmati merancang challenge sama seperti memecahkannya.</p>
                 </div>
             </section>
-            <hr class="m-0" />
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
+                    <span class="section-eyebrow">Apresiasi</span>
                     <h2 class="mb-5">Prestasi</h2>
-                    <ul class="icon-list mb-0">
-                        <li>
-                            <svg class="icon text-warning" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>
-                            <strong>Finalis &middot; Top 10</strong> &mdash; Glints &times; Hackathon &ldquo;Ngantor&rdquo;: The Future of Job Search and Career Development <em>(2021)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-warning" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>
-                            <strong>Finalis &middot; Top 100</strong> &mdash; Born to Protect, Xynexis &amp; Kominfo <em>(2018)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-warning" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>
-                            <strong>Juara 4</strong> &mdash; Gatot Kaca Cyber Army Capture The Flag, Universitas AMIKOM Yogyakarta <em>(2018)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-warning" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>
-                            <strong>Juara 2</strong> &mdash; IT Forensics, FASTTEKNO &middot; STMIK STIKOM Bali <em>(2016)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-warning" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>
-                            <strong>Top 10 Finalis</strong> &mdash; COMPFEST CTF, Fasilkom Universitas Indonesia <em>(2016)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-warning" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>
-                            <strong>Top 10</strong> &mdash; Indonesian Cyber Army, STMIK STIKOM Bali <em>(2015)</em>
-                        </li>
-                        <li>
-                            <svg class="icon text-warning" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg>
-                            <strong>Honor Reward &mdash; Best Cryptographer</strong> &middot; CodeBali CTF <em>(2015)</em>
-                        </li>
-                    </ul>
+
+                    <div class="card-carousel" data-carousel data-autoplay="6000" aria-label="Awards carousel">
+                        <div class="card-carousel-track">
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>Top 10 Finalis &mdash; Glints &times; Hackathon &ldquo;Ngantor&rdquo;</h3>
+                                <p class="award-host">The Future of Job Search and Career Development</p>
+                                <span class="award-year">2021</span>
+                            </article>
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>Top 100 Finalis &mdash; Born to Protect</h3>
+                                <p class="award-host">Xynexis &amp; Kominfo</p>
+                                <span class="award-year">2018</span>
+                            </article>
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>Juara 4 &mdash; Gatot Kaca Cyber Army CTF</h3>
+                                <p class="award-host">Universitas AMIKOM Yogyakarta</p>
+                                <span class="award-year">2018</span>
+                            </article>
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>Juara 2 &mdash; IT Forensics</h3>
+                                <p class="award-host">FASTTEKNO &middot; STMIK STIKOM Bali</p>
+                                <span class="award-year">2016</span>
+                            </article>
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>Top 10 Finalis &mdash; COMPFEST CTF</h3>
+                                <p class="award-host">Fasilkom Universitas Indonesia</p>
+                                <span class="award-year">2016</span>
+                            </article>
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>Top 10 &mdash; Indonesian Cyber Army</h3>
+                                <p class="award-host">STMIK STIKOM Bali</p>
+                                <span class="award-year">2015</span>
+                            </article>
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>Honor Reward &mdash; Best Cryptographer</h3>
+                                <p class="award-host">CodeBali CTF</p>
+                                <span class="award-year">2015</span>
+                            </article>
+                        </div>
+                        <div class="card-carousel-controls">
+                            <button type="button" data-carousel-prev aria-label="Prestasi sebelumnya">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-chevron-left"/></svg>
+                            </button>
+                            <button type="button" data-carousel-next aria-label="Prestasi berikutnya">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-chevron-right"/></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
-        </div>
+        </main>
         <!-- Bootstrap 5.3.8 JS bundle (with Subresource Integrity hash) -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
