@@ -118,6 +118,8 @@ const ICONS = [
     { id: 'trophy', registry: 'lucide', slug: 'trophy' },
     { id: 'sun', registry: 'lucide', slug: 'sun' },
     { id: 'moon', registry: 'lucide', slug: 'moon' },
+    { id: 'chevron-left', registry: 'lucide', slug: 'chevron-left' },
+    { id: 'chevron-right', registry: 'lucide', slug: 'chevron-right' },
 ];
 
 function urlFor({ registry, slug }) {

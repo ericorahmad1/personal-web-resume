@@ -83,6 +83,61 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // -----------------------------------------------------------------------
+    // Horizontal-scroll card carousels (Certifications, Awards, ...)
+    //   - Prev/Next buttons advance by track scroll-width / N visible cards
+    //   - Auto-advance every data-autoplay ms (default 5000); pause on hover,
+    //     focus-within, or when the user is interacting with the track
+    //   - Disables prev/next buttons at scroll extremes
+    // -----------------------------------------------------------------------
+    document.querySelectorAll('[data-carousel]').forEach((root) => {
+        const track = root.querySelector('.card-carousel-track');
+        const prev = root.querySelector('[data-carousel-prev]');
+        const next = root.querySelector('[data-carousel-next]');
+        if (!track) return;
+
+        const cardWidth = () => {
+            const first = track.firstElementChild;
+            if (!first) return 320;
+            const style = window.getComputedStyle(track);
+            const gap = parseFloat(style.columnGap || style.gap || '0');
+            return first.getBoundingClientRect().width + gap;
+        };
+
+        const updateButtons = () => {
+            const max = track.scrollWidth - track.clientWidth - 1;
+            if (prev) prev.disabled = track.scrollLeft <= 0;
+            if (next) next.disabled = track.scrollLeft >= max;
+        };
+
+        track.addEventListener('scroll', updateButtons, { passive: true });
+        window.addEventListener('resize', updateButtons);
+        updateButtons();
+
+        prev?.addEventListener('click', () => track.scrollBy({ left: -cardWidth(), behavior: 'smooth' }));
+        next?.addEventListener('click', () => track.scrollBy({ left:  cardWidth(), behavior: 'smooth' }));
+
+        // Autoplay
+        const intervalMs = parseInt(root.dataset.autoplay || '0', 10);
+        if (intervalMs > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            let paused = false;
+            root.addEventListener('mouseenter', () => (paused = true));
+            root.addEventListener('mouseleave', () => (paused = false));
+            root.addEventListener('focusin', () => (paused = true));
+            root.addEventListener('focusout', () => (paused = false));
+
+            setInterval(() => {
+                if (paused) return;
+                const max = track.scrollWidth - track.clientWidth - 1;
+                if (track.scrollLeft >= max) {
+                    track.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    track.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+                }
+            }, intervalMs);
+        }
+    });
+
+    // -----------------------------------------------------------------------
     // Section reveal via IntersectionObserver (respects prefers-reduced-motion)
     // -----------------------------------------------------------------------
     const sections = document.querySelectorAll('.resume-section');

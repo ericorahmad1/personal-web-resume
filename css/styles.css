@@ -1005,6 +1005,163 @@ section.resume-section .resume-section-content > .d-flex.justify-content-between
     background: rgba(255, 255, 255, 0.04);
 }
 
+/* ---------------------------------------------------------------------------
+   Horizontal-scroll card carousel (used by Certifications + Awards)
+   - CSS scroll-snap so swipe / scroll lands cleanly between cards
+   - Custom prev / next buttons control via JS scrollBy()
+   - Auto-advances every 5s; pauses on hover / focus
+   --------------------------------------------------------------------------- */
+.card-carousel {
+    position: relative;
+    margin-bottom: var(--space-4);
+}
+
+.card-carousel-track {
+    display: flex;
+    gap: var(--space-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: var(--space-2) var(--space-1) var(--space-5);
+    margin: calc(var(--space-2) * -1) 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--brand-primary) transparent;
+}
+
+.card-carousel-track::-webkit-scrollbar { height: 6px; }
+.card-carousel-track::-webkit-scrollbar-track { background: transparent; }
+.card-carousel-track::-webkit-scrollbar-thumb {
+    background: rgba(189, 93, 56, 0.35);
+    border-radius: var(--radius-pill);
+}
+
+.card-carousel-track > * {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    width: calc(100% - var(--space-2));
+    max-width: 22rem;
+}
+
+@media (min-width: 600px) {
+    .card-carousel-track > * { width: calc(50% - var(--space-3)); max-width: none; }
+}
+
+@media (min-width: 992px) {
+    .card-carousel-track > * { width: calc(33.333% - var(--space-3)); }
+}
+
+.card-carousel-controls {
+    display: flex;
+    gap: var(--space-2);
+    justify-content: flex-end;
+    margin-top: var(--space-2);
+}
+
+.card-carousel-controls button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-1);
+    color: var(--bs-body-color);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.card-carousel-controls button:hover,
+.card-carousel-controls button:focus-visible {
+    background: var(--gradient-soft);
+    border-color: rgba(189, 93, 56, 0.4);
+    color: var(--brand-primary);
+    transform: scale(1.06);
+}
+
+.card-carousel-controls button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.card-carousel-controls button .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* Cert card — individual element inside the carousel */
+.cert-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.cert-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(189, 93, 56, 0.25);
+    box-shadow: var(--shadow-md);
+}
+
+.cert-card .cert-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-md);
+    background: var(--gradient-warm);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-brand);
+}
+
+.cert-card .cert-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.cert-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: var(--bs-body-color);
+    line-height: 1.35;
+}
+
+.cert-card .cert-issuer {
+    font-size: 0.9rem;
+    color: var(--bs-body-color);
+    opacity: 0.7;
+    margin: 0;
+}
+
+.cert-card .cert-year {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: var(--space-1) var(--space-3);
+    background: var(--gradient-soft);
+    border: 1px solid rgba(189, 93, 56, 0.2);
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--brand-primary);
+}
+
+[data-bs-theme="dark"] .cert-card .cert-year {
+    background: rgba(212, 138, 110, 0.1);
+    border-color: rgba(212, 138, 110, 0.3);
+    color: var(--brand-primary-light);
+}
+
 /* Logo grid for the Programming Languages & Tools row inside Skills */
 .tool-logos {
     display: flex;
