@@ -56,21 +56,32 @@ window.addEventListener('DOMContentLoaded', () => {
     // -----------------------------------------------------------------------
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
+        // role="switch" → aria-checked is the canonical state attribute
         const setTheme = (theme) => {
             document.documentElement.setAttribute('data-bs-theme', theme);
-            themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+            themeToggle.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
             try {
                 localStorage.setItem('theme', theme);
             } catch (e) { /* private mode */ }
         };
 
-        // Initialise aria-pressed from whatever the inline script applied
+        // Initialise aria-checked from whatever the inline script applied
         const current = document.documentElement.getAttribute('data-bs-theme') || 'light';
-        themeToggle.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+        themeToggle.setAttribute('aria-checked', current === 'dark' ? 'true' : 'false');
 
         themeToggle.addEventListener('click', () => {
             const next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
             setTheme(next);
+        });
+
+        // Also support keyboard toggle via Enter/Space (browsers do this for buttons,
+        // but role="switch" specifically expects Space to toggle)
+        themeToggle.addEventListener('keydown', (e) => {
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                const next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                setTheme(next);
+            }
         });
 
         // Reflect system theme changes only when the user hasn't set a manual preference

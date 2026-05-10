@@ -206,11 +206,17 @@
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organizational">Organisasi</a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Prestasi</a></li>
                         </ul>
-                        <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
-                            <a class="nav-link nav-language" href="../" hreflang="en" lang="en" title="English">EN</a>
-                            <button id="theme-toggle" type="button" class="btn theme-toggle" aria-label="Ganti mode gelap" aria-pressed="false" title="Ganti mode gelap">
-                                <svg class="icon icon-sun" aria-hidden="true"><use href="../assets/icons.svg#icon-sun"/></svg>
-                                <svg class="icon icon-moon" aria-hidden="true"><use href="../assets/icons.svg#icon-moon"/></svg>
+                        <div class="d-flex align-items-center gap-3 ms-lg-3 mt-3 mt-lg-0">
+                            <div class="lang-switcher" role="group" aria-label="Language / Bahasa">
+                                <a class="lang-option" href="../" hreflang="en" lang="en" title="English">EN</a>
+                                <a class="lang-option is-active" href="#" hreflang="id" lang="id" aria-current="page" title="Bahasa Indonesia (saat ini)">ID</a>
+                            </div>
+                            <button id="theme-toggle" type="button" class="theme-switcher" role="switch" aria-checked="false" aria-label="Ganti mode gelap" title="Ganti mode gelap">
+                                <span class="theme-track">
+                                    <svg class="icon icon-sun" aria-hidden="true"><use href="../assets/icons.svg#icon-sun"/></svg>
+                                    <svg class="icon icon-moon" aria-hidden="true"><use href="../assets/icons.svg#icon-moon"/></svg>
+                                    <span class="theme-knob" aria-hidden="true"></span>
+                                </span>
                             </button>
                         </div>
                     </div>
