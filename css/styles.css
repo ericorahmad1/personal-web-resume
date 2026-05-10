@@ -15,7 +15,7 @@
    Source: https://www.npmjs.com/package/@fontsource-variable/inter (OFL).
    --------------------------------------------------------------------------- */
 @font-face {
-    font-family: 'Inter';
+    font-family: Inter;
     font-style: normal;
     font-display: swap;
     font-weight: 100 900;
@@ -133,6 +133,7 @@ p.lead {
    --------------------------------------------------------------------------- */
 .theme-toggle {
     --size: 2.25rem;
+
     width: var(--size);
     height: var(--size);
     padding: 0;

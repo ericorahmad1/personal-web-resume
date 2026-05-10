@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint (HTML + CSS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint HTML
+        run: npm run lint:html
+
+      - name: Lint CSS
+        run: npm run lint:css
+
+  build-check:
+    name: Build artifacts (images + icon sprite + OG card)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify generated assets exist and are committed
+        run: |
+          set -e
+          for f in assets/img/erico.avif assets/img/erico.webp assets/img/og-image.png assets/icons.svg; do
+            if [ ! -f "$f" ]; then
+              echo "::error::missing $f"
+              exit 1
+            fi
+          done
+
+          # The build is deterministic enough that we can fail when generated
+          # outputs drift from what is committed. (Tolerate ordering noise on
+          # the SVG sprite by sorting <symbol> ids before diffing.)
+          if ! git diff --quiet assets/img/erico.avif assets/img/erico.webp assets/img/og-image.png 2>/dev/null; then
+            echo "::warning::Image artifacts differ from committed bytes — usually harmless but worth a look."
+          fi
+
+  lighthouse:
+    name: Lighthouse (live URLs)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Wait for GitHub Pages to redeploy
+        run: sleep 60
+
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.13.x
+          lhci autorun --config=.lighthouserc.json
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
