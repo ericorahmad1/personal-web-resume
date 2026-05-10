@@ -179,6 +179,24 @@ p.lead {
     }
 }
 
+/* Language switcher row separator at the bottom of the nav */
+.nav-language {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.nav-language .nav-link {
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    opacity: 0.85;
+}
+
+.nav-language .nav-link:hover {
+    opacity: 1;
+}
+
 /* ---------------------------------------------------------------------------
    Mobile offcanvas drawer (Bootstrap 5.3 offcanvas-lg)
    - Below lg breakpoint, the nav becomes a slide-in drawer from the right.
