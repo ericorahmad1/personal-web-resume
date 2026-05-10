@@ -16,9 +16,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <!-- Content Security Policy: restricts resource loading to known origins.
-             'unsafe-inline' on script-src is required for the JSON-LD block below
-             (static site, no user input → low XSS surface). Tighten with hashes if needed. -->
+        <!-- Content Security Policy: restricts resource loading to known origins. -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io https://cloud.umami.is https://api-gateway.umami.dev; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -67,11 +65,7 @@
         <!-- Preconnect to Bootstrap CDN -->
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-        <!-- Icons: served as a single local SVG sprite (built by scripts/build.mjs);
-             no Font Awesome runtime, no third-party CDN dependency for icons. -->
-
-        <!-- Self-hosted Inter Variable (covers all weights 100-900 in one woff2);
-             preloaded for fastest LCP on the headline -->
+        <!-- Self-hosted Inter Variable -->
         <link rel="preload" href="../assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
 
         <!-- Bootstrap 5.3.8 CSS (CDN with Subresource Integrity) -->
@@ -80,15 +74,12 @@
             rel="stylesheet"
             integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
             crossorigin="anonymous" />
-        <!-- Theme overrides (this file no longer bundles Bootstrap; only ~270 lines) -->
         <link href="../css/styles.css" rel="stylesheet" />
 
-        <!-- Privacy-friendly analytics (Umami Cloud — no cookies, GDPR-friendly).
-             Replace UMAMI_WEBSITE_ID with your Umami site ID; see Readme.md.
-             The tag below is a no-op until configured. -->
+        <!-- Privacy-friendly analytics (Umami Cloud). Replace UMAMI_WEBSITE_ID; see Readme.md. -->
         <script async defer src="https://cloud.umami.is/script.js" data-website-id="UMAMI_WEBSITE_ID"></script>
 
-        <!-- JSON-LD structured data — @graph with Person + WebSite + WebPage + BreadcrumbList -->
+        <!-- JSON-LD structured data -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -111,30 +102,10 @@
                         "addressCountry": "ID"
                     },
                     "alumniOf": [
-                        {
-                            "@type": "CollegeOrUniversity",
-                            "name": "Institut Teknologi dan Bisnis STIKOM Bali",
-                            "address": { "@type": "PostalAddress", "addressLocality": "Denpasar", "addressCountry": "ID" }
-                        },
-                        {
-                            "@type": "CollegeOrUniversity",
-                            "name": "HELP University",
-                            "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" }
-                        }
+                        { "@type": "CollegeOrUniversity", "name": "Institut Teknologi dan Bisnis STIKOM Bali", "address": { "@type": "PostalAddress", "addressLocality": "Denpasar", "addressCountry": "ID" } },
+                        { "@type": "CollegeOrUniversity", "name": "HELP University", "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" } }
                     ],
-                    "knowsAbout": [
-                        "Quality Assurance",
-                        "Software Testing",
-                        "Penetration Testing",
-                        "Vulnerability Assessment",
-                        "Cypress",
-                        "Selenium",
-                        "Playwright",
-                        "OWASP",
-                        "Cyber Security",
-                        "Network Security",
-                        "Incident Response"
-                    ],
+                    "knowsAbout": ["Quality Assurance", "Software Testing", "Penetration Testing", "Vulnerability Assessment", "Cypress", "Selenium", "Playwright", "OWASP", "Cyber Security", "Network Security", "Incident Response"],
                     "knowsLanguage": [
                         { "@type": "Language", "name": "English", "alternateName": "en" },
                         { "@type": "Language", "name": "Indonesian", "alternateName": "id" }
@@ -194,7 +165,6 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-label="Buka navigasi"><span class="navbar-toggler-icon"></span></button>
 
-                <!-- Offcanvas drawer below lg, inline above -->
                 <div class="offcanvas offcanvas-end offcanvas-lg navbar-collapse" tabindex="-1" id="navbarResponsive" aria-labelledby="navbarResponsiveLabel">
                     <div class="offcanvas-header d-lg-none">
                         <h5 class="offcanvas-title h6 mb-0" id="navbarResponsiveLabel">Menu</h5>
@@ -228,7 +198,7 @@
                 </div>
             </div>
         </nav>
-        <!-- Page Content-->
+
         <main class="container-fluid p-0">
 
             <!-- Hero -->
@@ -297,12 +267,12 @@
                     </div>
                 </div>
             </section>
-            <!-- Experience-->
+
+            <!-- Experience -->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Karier</span>
                     <h2 class="mb-5">Pengalaman</h2>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Freelance IT Instructor</h3>
@@ -311,7 +281,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Nov 2025 &ndash; Des 2025</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Freelance QA Engineer &mdash; LojaMi</h3>
@@ -320,7 +289,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Okt 2025 &ndash; Des 2025</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Penetration Tester / Cyber Security Specialist</h3>
@@ -329,7 +297,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Feb 2025 &ndash; Sep 2025</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">QA Engineer</h3>
@@ -338,7 +305,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Sep 2022 &ndash; Sep 2024</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">QA Engineer</h3>
@@ -347,7 +313,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Mei 2022 &ndash; Agu 2022</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Software Tester</h3>
@@ -356,7 +321,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Apr 2020 &ndash; Apr 2021</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Junior Software Tester Trainee</h3>
@@ -365,8 +329,7 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Feb 2020 &ndash; Apr 2020</span></div>
                     </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Web Developer (Magang)</h3>
                             <div class="subheading mb-3">PT Studio Kami Mandiri</div>
@@ -376,12 +339,12 @@
                     </div>
                 </div>
             </section>
-            <!-- Education-->
+
+            <!-- Education -->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Studi</span>
                     <h2 class="mb-5">Pendidikan</h2>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Institut Teknologi &amp; Bisnis STIKOM Bali</h3>
@@ -391,7 +354,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Jul 2015 &ndash; Mei 2022</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">HELP University</h3>
@@ -401,18 +363,19 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Mar 2015 &ndash; Mei 2022</span></div>
                     </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">SMK TI Bali Global</h3>
                             <div class="subheading mb-3">Rekayasa Perangkat Lunak (SMK)</div>
                             <div>Denpasar, Bali</div>
+                            
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2013 &ndash; 2015</span></div>
                     </div>
                 </div>
             </section>
-            <!-- Skills-->
+
+            <!-- Skills -->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Toolbelt</span>
@@ -441,7 +404,6 @@
                                 <li>Cypress</li><li>Selenium</li><li>Playwright</li><li>Postman</li><li>JMeter</li>
                             </ul>
                         </article>
-
                         <article class="skill-card">
                             <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-clipboard-check"/></svg></span>
                             <h3>Manajemen Test</h3>
@@ -449,7 +411,6 @@
                                 <li>Jira</li><li>Notion</li><li>Test Plan</li><li>Test Case</li><li>Bug Report</li>
                             </ul>
                         </article>
-
                         <article class="skill-card">
                             <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg></span>
                             <h3>Security</h3>
@@ -457,7 +418,6 @@
                                 <li>OWASP</li><li>VAPT</li><li>Penetration Testing</li><li>Network Security</li><li>Code Review</li><li>Incident Response</li>
                             </ul>
                         </article>
-
                         <article class="skill-card">
                             <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-database"/></svg></span>
                             <h3>Data &amp; API</h3>
@@ -465,7 +425,6 @@
                                 <li>MySQL</li><li>REST</li><li>Postman</li><li>Collections</li>
                             </ul>
                         </article>
-
                         <article class="skill-card">
                             <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-terminal"/></svg></span>
                             <h3>Environment</h3>
@@ -473,7 +432,6 @@
                                 <li>Kali Linux</li><li>Ubuntu</li><li>Windows</li><li>Android</li><li>iOS</li>
                             </ul>
                         </article>
-
                         <article class="skill-card">
                             <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-check"/></svg></span>
                             <h3>Cara Kerja</h3>
@@ -484,14 +442,14 @@
                     </div>
                 </div>
             </section>
-            <!-- Certifications-->
-            <!-- Projects-->
+
+            <!-- Projects -->
             <section class="resume-section" id="projects">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Karya pilihan</span>
                     <h2 class="mb-5">Proyek</h2>
 
-                    <div class="card-carousel" data-carousel data-autoplay="7000" aria-label="Projects carousel">
+                    <div class="card-carousel" data-carousel data-autoplay="7000" aria-label="Carousel proyek">
                         <div class="card-carousel-track">
                             <article class="project-card">
                                 <header class="project-head">
@@ -510,7 +468,6 @@
                                     </ul>
                                 </div>
                             </article>
-
                             <article class="project-card">
                                 <header class="project-head">
                                     <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-shield"/></svg></span>
@@ -528,7 +485,6 @@
                                     </ul>
                                 </div>
                             </article>
-
                             <article class="project-card">
                                 <header class="project-head">
                                     <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-vial"/></svg></span>
@@ -546,7 +502,6 @@
                                     </ul>
                                 </div>
                             </article>
-
                             <article class="project-card">
                                 <header class="project-head">
                                     <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-clipboard-check"/></svg></span>
@@ -564,7 +519,6 @@
                                     </ul>
                                 </div>
                             </article>
-
                             <article class="project-card">
                                 <header class="project-head">
                                     <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-database"/></svg></span>
@@ -582,7 +536,6 @@
                                     </ul>
                                 </div>
                             </article>
-
                             <article class="project-card">
                                 <header class="project-head">
                                     <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
@@ -613,12 +566,13 @@
                 </div>
             </section>
 
+            <!-- Certifications -->
             <section class="resume-section" id="certifications">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Kredensial</span>
                     <h2 class="mb-5">Sertifikasi</h2>
 
-                    <div class="card-carousel" data-carousel data-autoplay="5000" aria-label="Certifications carousel">
+                    <div class="card-carousel" data-carousel data-autoplay="5000" aria-label="Carousel sertifikasi">
                         <div class="card-carousel-track">
                             <article class="cert-card">
                                 <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-certificate"/></svg></span>
@@ -674,12 +628,12 @@
                     </div>
                 </div>
             </section>
-            <!-- Organizational Experience-->
+
+            <!-- Organizational -->
             <section class="resume-section" id="organizational">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Komunitas</span>
                     <h2 class="mb-5">Pengalaman Organisasi</h2>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Ketua &amp; Panitia Pelaksana</h3>
@@ -688,7 +642,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Apr 2017 &ndash; Jul 2017</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Koordinator Sponsorship</h3>
@@ -697,7 +650,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Apr 2018 &ndash; Jul 2018</span></div>
                     </div>
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Koordinator Sponsorship</h3>
@@ -706,8 +658,7 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Jul 2019 &ndash; Okt 2019</span></div>
                     </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Anggota</h3>
                             <div class="subheading mb-3">UKM KSL (Kelompok Studi Linux) &mdash; STMIK STIKOM Bali</div>
@@ -717,23 +668,25 @@
                     </div>
                 </div>
             </section>
-            <!-- Interests-->
+
+            <!-- Interests -->
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Di luar kerja</span>
                     <h2 class="mb-5">Minat</h2>
                     <p>Di luar layar: jogging, beladiri, bulu tangkis, travelling, dan sesekali kayak keliling Bali.</p>
                     <p>Di dalam ruangan saya seorang gamer dan streamer, mengikuti banyak film sci-fi dan fantasy serta anime, dan menganggap diri sebagai aspiring home chef. Saya juga mengikuti perkembangan dunia cyber security dan tools automation testing terbaru.</p>
-                    <p class="mb-0">Saya pemain CTF berpengalaman &mdash; kriptografi, web exploitation, dan forensics &mdash; dan saya menikmati merancang challenge sama seperti memecahkannya.</p>
+                    <p>Saya pemain CTF berpengalaman &mdash; kriptografi, web exploitation, dan forensics &mdash; dan saya menikmati merancang challenge sama seperti memecahkannya.</p>
                 </div>
             </section>
-            <!-- Awards-->
+
+            <!-- Awards -->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
                     <span class="section-eyebrow">Apresiasi</span>
                     <h2 class="mb-5">Prestasi</h2>
 
-                    <div class="card-carousel" data-carousel data-autoplay="6000" aria-label="Awards carousel">
+                    <div class="card-carousel" data-carousel data-autoplay="6000" aria-label="Carousel prestasi">
                         <div class="card-carousel-track">
                             <article class="award-card">
                                 <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#icon-trophy"/></svg></span>
@@ -791,7 +744,7 @@
             </section>
         </main>
 
-        <!-- Contact form modal — submission via Formspree -->
+        <!-- Contact form modal -->
         <div class="modal fade contact-modal" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -854,13 +807,12 @@
             </div>
         </div>
 
-        <!-- Bootstrap 5.3.8 JS bundle (with Subresource Integrity hash) -->
+        <!-- Bootstrap 5.3.8 JS bundle -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"
             defer></script>
-        <!-- Core theme JS-->
         <script src="../js/scripts.js"></script>
     </body>
 </html>

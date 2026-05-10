@@ -21,6 +21,7 @@
  */
 
 import sharp from 'sharp';
+import Mustache from 'mustache';
 import { existsSync, statSync, writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,6 +33,7 @@ const args = new Set(process.argv.slice(2));
 const imagesOnly = args.has('--images-only');
 const iconsOnly = args.has('--icons-only');
 const ogOnly = args.has('--og-only');
+const pagesOnly = args.has('--pages-only');
 
 // ---------------------------------------------------------------------------
 // Image optimization
@@ -256,6 +258,55 @@ async function buildOgImage() {
 }
 
 // ---------------------------------------------------------------------------
+// HTML pages — render templates/page.mustache for each locale (EN + ID)
+// ---------------------------------------------------------------------------
+
+/**
+ * Mustache will HTML-escape variables by default; for fields that contain
+ * HTML we use {{{triple-stash}}} in the template. That lets us keep ampersand
+ * entities and <strong>/<em> tags inside locale data files.
+ */
+async function buildPages() {
+    console.log('\n📄 Rendering HTML pages from templates/page.mustache');
+
+    const templatePath = resolve(ROOT, 'templates/page.mustache');
+    if (!existsSync(templatePath)) {
+        console.warn('   ⚠ template not found, skip');
+        return;
+    }
+    const template = readFileSync(templatePath, 'utf8');
+
+    // Disable Mustache's HTML-escape: we trust all data (it's authored by us in
+    // data/site.*.json), and the default escape mangles paths and ampersands
+    // we want preserved (e.g. `&amp;` → `&amp;amp;`, `/` → `&#x2F;`).
+    // Use {{{tripleStash}}} only when the rendered content needs to be raw HTML
+    // (which still works under this no-op escape).
+    Mustache.escape = (text) => text;
+
+    const targets = [
+        { locale: 'en', dataFile: 'data/site.en.json', outFile: 'index.html' },
+        { locale: 'id', dataFile: 'data/site.id.json', outFile: 'id/index.html' },
+    ];
+
+    for (const target of targets) {
+        const data = JSON.parse(readFileSync(resolve(ROOT, target.dataFile), 'utf8'));
+        // Helper flags so the template can switch between EN-active / ID-active variants
+        data.is_en = target.locale === 'en';
+        data.is_id = target.locale === 'id';
+
+        const html = Mustache.render(template, data);
+
+        const outPath = resolve(ROOT, target.outFile);
+        const outDir = dirname(outPath);
+        if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
+        writeFileSync(outPath, html, 'utf8');
+
+        const bytes = statSync(outPath).size;
+        console.log(`   ✓ ${target.outFile.padEnd(20)} (${humanBytes(bytes)}, ${target.locale})`);
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
@@ -275,10 +326,17 @@ async function main() {
 
     if (ogOnly) {
         await buildOgImage();
+    } else if (pagesOnly) {
+        await buildPages();
+    } else if (iconsOnly) {
+        await buildIconSprite();
+    } else if (imagesOnly) {
+        await buildImages();
     } else {
-        if (!iconsOnly) await buildImages();
-        if (!imagesOnly) await buildIconSprite();
-        if (!iconsOnly && !imagesOnly) await buildOgImage();
+        await buildImages();
+        await buildIconSprite();
+        await buildOgImage();
+        await buildPages();
     }
 
     console.log(`\n✓ build done in ${Date.now() - t0}ms`);

@@ -16,6 +16,9 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:images": "node scripts/build.mjs --images-only",
+    "build:icons": "node scripts/build.mjs --icons-only",
+    "build:og": "node scripts/build.mjs --og-only",
+    "build:pages": "node scripts/build.mjs --pages-only",
     "lint:html": "htmlhint \"*.html\" \"id/*.html\"",
     "lint:css": "stylelint \"css/**/*.css\"",
     "lint": "npm run lint:html && npm run lint:css",
@@ -24,6 +27,7 @@
   "devDependencies": {
     "@fontsource-variable/inter": "^5.2.8",
     "htmlhint": "^1.1.4",
+    "mustache": "^4.2.0",
     "sharp": "^0.33.5",
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1"

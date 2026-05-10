@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" data-bs-theme="light">
+    <head>
+        <!-- Apply persisted theme synchronously to prevent flash-of-unstyled-content (FOUC).
+             Runs before any CSS so the correct color scheme is set on first paint. -->
+        <script>
+            (function () {
+                try {
+                    var stored = localStorage.getItem('theme');
+                    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    var theme = stored || (prefersDark ? 'dark' : 'light');
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                } catch (e) { /* private mode / SSR */ }
+            })();
+        </script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Content Security Policy: restricts resource loading to known origins. -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io https://cloud.umami.is https://api-gateway.umami.dev; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+        <!-- Primary meta -->
+        <title>{{title}}</title>
+        <meta name="description" content="{{description}}" />
+        <meta name="author" content="Erico Rahmad Darmanto" />
+        <meta name="keywords" content="Erico Rahmad Darmanto, QA Engineer, Security Engineer, Penetration Tester, VAPT, Cypress, Selenium, Playwright, Bali, Denpasar, Cyber Security, OWASP, Network Defender, CAPv2, CNSP" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="theme-color" content="#bd5d38" />
+        <meta name="color-scheme" content="light dark" />
+        <link rel="canonical" href="{{canonical}}" />
+        <link rel="alternate" hreflang="en" href="https://ericorahmad1.github.io/personal-web-resume/" />
+        <link rel="alternate" hreflang="id" href="https://ericorahmad1.github.io/personal-web-resume/id/" />
+        <link rel="alternate" hreflang="x-default" href="https://ericorahmad1.github.io/personal-web-resume/" />
+        <link rel="alternate" type="application/xml" title="Sitemap" href="https://ericorahmad1.github.io/personal-web-resume/sitemap.xml" />
+        <link rel="alternate" type="application/json" title="JSON Resume (machine-readable)" href="https://ericorahmad1.github.io/personal-web-resume/resume.json" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="profile" />
+        <meta property="og:locale" content="{{og_locale}}" />
+        <meta property="og:locale:alternate" content="{{og_locale_alt}}" />
+        <meta property="og:title" content="Erico Rahmad Darmanto — QA / Security Engineer" />
+        <meta property="og:description" content="{{og_description}}" />
+        <meta property="og:image" content="https://ericorahmad1.github.io/personal-web-resume/assets/img/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="{{og_image_alt}}" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:url" content="{{og_url}}" />
+        <meta property="profile:first_name" content="Erico" />
+        <meta property="profile:last_name" content="Rahmad Darmanto" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Erico Rahmad Darmanto — QA / Security Engineer" />
+        <meta name="twitter:description" content="{{og_description}}" />
+        <meta name="twitter:image" content="https://ericorahmad1.github.io/personal-web-resume/assets/img/og-image.png" />
+        <meta name="twitter:image:alt" content="{{og_image_alt}}" />
+        <meta name="twitter:creator" content="@0xn0thing" />
+
+        <link rel="icon" type="image/x-icon" href="{{asset_prefix}}assets/img/favicon.ico" />
+
+        <!-- Preconnect to Bootstrap CDN -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+        <!-- Self-hosted Inter Variable -->
+        <link rel="preload" href="{{asset_prefix}}assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+
+        <!-- Bootstrap 5.3.8 CSS (CDN with Subresource Integrity) -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous" />
+        <link href="{{asset_prefix}}css/styles.css" rel="stylesheet" />
+
+        <!-- Privacy-friendly analytics (Umami Cloud). Replace UMAMI_WEBSITE_ID; see Readme.md. -->
+        <script async defer src="https://cloud.umami.is/script.js" data-website-id="UMAMI_WEBSITE_ID"></script>
+
+        <!-- JSON-LD structured data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Person",
+                    "@id": "https://ericorahmad1.github.io/personal-web-resume/#person",
+                    "name": "Erico Rahmad Darmanto",
+                    "givenName": "Erico",
+                    "familyName": "Rahmad Darmanto",
+                    "jobTitle": "QA / Security Engineer",
+                    "description": "Quality Assurance Engineer and Cyber Security Specialist with a dual degree from Institut Teknologi & Bisnis STIKOM Bali and HELP University. Experience in penetration testing, VAPT, automation testing, and incident response.",
+                    "email": "mailto:ericorahmad1@gmail.com",
+                    "url": "https://ericorahmad1.github.io/personal-web-resume/",
+                    "image": "https://ericorahmad1.github.io/personal-web-resume/assets/img/og-image.png",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Denpasar",
+                        "addressRegion": "Bali",
+                        "addressCountry": "ID"
+                    },
+                    "alumniOf": [
+                        { "@type": "CollegeOrUniversity", "name": "Institut Teknologi dan Bisnis STIKOM Bali", "address": { "@type": "PostalAddress", "addressLocality": "Denpasar", "addressCountry": "ID" } },
+                        { "@type": "CollegeOrUniversity", "name": "HELP University", "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" } }
+                    ],
+                    "knowsAbout": ["Quality Assurance", "Software Testing", "Penetration Testing", "Vulnerability Assessment", "Cypress", "Selenium", "Playwright", "OWASP", "Cyber Security", "Network Security", "Incident Response"],
+                    "knowsLanguage": [
+                        { "@type": "Language", "name": "English", "alternateName": "en" },
+                        { "@type": "Language", "name": "Indonesian", "alternateName": "id" }
+                    ],
+                    "hasCredential": [
+                        { "@type": "EducationalOccupationalCredential", "name": "Certified AppSec Practitioner (CAPv2)", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "The SecOps Group" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Google Cybersecurity Professional Certificate", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Google / Coursera" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Certified Network Security Practitioner (CNSP)", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "The SecOps Group" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Certified Network Defender (CND)", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "EC-Council" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Cisco CyberOps Associate", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Cisco" } }
+                    ],
+                    "sameAs": [
+                        "https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/",
+                        "https://github.com/ericorahmad1",
+                        "https://www.twitter.com/0xn0thing",
+                        "https://instagram.com/ericorahmad",
+                        "https://lynk.id/ericorahmad/page/portofolio"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://ericorahmad1.github.io/personal-web-resume/#website",
+                    "url": "https://ericorahmad1.github.io/personal-web-resume/",
+                    "name": "Erico Rahmad Darmanto — Resume",
+                    "description": "Online resume of Erico Rahmad Darmanto — QA / Security Engineer based in Denpasar, Bali.",
+                    "inLanguage": "en",
+                    "publisher": { "@id": "https://ericorahmad1.github.io/personal-web-resume/#person" }
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": "{{webpage_id}}",
+                    "url": "{{webpage_url}}",
+                    "name": "Erico Rahmad Darmanto — QA / Security Engineer",
+                    "isPartOf": { "@id": "https://ericorahmad1.github.io/personal-web-resume/#website" },
+                    "about": { "@id": "https://ericorahmad1.github.io/personal-web-resume/#person" },
+                    "primaryImageOfPage": "https://ericorahmad1.github.io/personal-web-resume/assets/img/og-image.png",
+                    "inLanguage": "{{lang}}"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ericorahmad1.github.io/personal-web-resume/" },
+                        { "@type": "ListItem", "position": 2, "name": "Resume", "item": "https://ericorahmad1.github.io/personal-web-resume/#about" }
+                    ]
+                }
+            ]
+        }
+        </script>
+    </head>
+    <body id="page-top">
+        <!-- Sticky top navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top" id="sideNav">
+            <div class="container-fluid px-md-4">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                    <span class="brand-mark" aria-hidden="true">E</span>
+                    <span>Erico Rahmad Darmanto</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-label="{{nav_aria_label}}"><span class="navbar-toggler-icon"></span></button>
+
+                <div class="offcanvas offcanvas-end offcanvas-lg navbar-collapse" tabindex="-1" id="navbarResponsive" aria-labelledby="navbarResponsiveLabel">
+                    <div class="offcanvas-header d-lg-none">
+                        <h5 class="offcanvas-title h6 mb-0" id="navbarResponsiveLabel">{{menu_label}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#navbarResponsive" aria-label="{{close_label}}"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav mx-lg-auto">
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">{{nav_about}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">{{nav_experience}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">{{nav_education}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">{{nav_skills}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">{{nav_projects}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">{{nav_certifications}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organizational">{{nav_organizational}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">{{nav_awards}}</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center gap-3 ms-lg-3 mt-3 mt-lg-0">
+                            <div class="lang-switcher" role="group" aria-label="{{lang_aria_label}}">
+                                {{#is_en}}
+                                <a class="lang-option is-active" href="#" hreflang="en" lang="en" aria-current="page" title="English (current)">EN</a>
+                                <a class="lang-option" href="id/" hreflang="id" lang="id" title="Bahasa Indonesia">ID</a>
+                                {{/is_en}}
+                                {{#is_id}}
+                                <a class="lang-option" href="../" hreflang="en" lang="en" title="English">EN</a>
+                                <a class="lang-option is-active" href="#" hreflang="id" lang="id" aria-current="page" title="Bahasa Indonesia (saat ini)">ID</a>
+                                {{/is_id}}
+                            </div>
+                            <button id="theme-toggle" type="button" class="theme-switcher" role="switch" aria-checked="false" aria-label="{{theme_aria_label}}" title="{{theme_title}}">
+                                <span class="theme-track">
+                                    <svg class="icon icon-sun" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-sun"/></svg>
+                                    <svg class="icon icon-moon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-moon"/></svg>
+                                    <span class="theme-knob" aria-hidden="true"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container-fluid p-0">
+
+            <!-- Hero -->
+            <section class="hero" id="about">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <span class="hero-eyebrow">
+                            <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-shield"/></svg>
+                            {{hero_eyebrow}}
+                        </span>
+                        <h1 class="hero-title">
+                            {{{hero_title_pre}}}<span class="accent">{{hero_title_accent}}</span>{{hero_title_post}}<br />
+                            {{{hero_title_line2}}}
+                        </h1>
+                        <p class="hero-subtitle">
+                            {{{hero_subtitle}}}
+                        </p>
+                        <div class="hero-actions">
+                            <button type="button" class="btn-modern" data-bs-toggle="modal" data-bs-target="#contactModal">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-mail"/></svg>
+                                {{hero_cta_contact}}
+                            </button>
+                            <a class="btn-modern btn-secondary" href="{{asset_prefix}}resume.json" hreflang="en" type="application/json">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-clipboard-check"/></svg>
+                                {{hero_cta_resume_json}}
+                            </a>
+                        </div>
+                        <div class="hero-meta">
+                            <span><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-link"/></svg>{{{hero_meta_location}}}</span>
+                            <span><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-certificate"/></svg>{{hero_meta_certs}}</span>
+                            <span><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-trophy"/></svg>{{hero_meta_awards}}</span>
+                        </div>
+
+                        <div class="social-icons mt-5">
+                            <a class="social-icon" href="https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-linkedin"/></svg></a>
+                            <a class="social-icon" href="https://github.com/ericorahmad1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-github"/></svg></a>
+                            <a class="social-icon" href="https://www.twitter.com/0xn0thing" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-twitter"/></svg></a>
+                            <a class="social-icon" href="https://instagram.com/ericorahmad" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-instagram"/></svg></a>
+                            <a class="social-icon" href="https://tiktok.com/@ryuji_kazawa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-tiktok"/></svg></a>
+                            <a class="social-icon" href="https://lynk.id/ericorahmad/page/portofolio" target="_blank" rel="noopener noreferrer" aria-label="Lynk Portfolio"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-link"/></svg></a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-photo">
+                            <picture>
+                                <source srcset="{{asset_prefix}}assets/img/erico.avif" type="image/avif" />
+                                <source srcset="{{asset_prefix}}assets/img/erico.webp" type="image/webp" />
+                                <img src="{{asset_prefix}}assets/img/erico.jpg"
+                                     alt="Erico Rahmad Darmanto"
+                                     width="320"
+                                     height="320"
+                                     loading="eager"
+                                     fetchpriority="high"
+                                     decoding="async" />
+                            </picture>
+                            <span class="photo-badge b1">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-shield"/></svg>
+                                {{hero_badge_pentester}}
+                            </span>
+                            <span class="photo-badge b2">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-vial"/></svg>
+                                {{hero_badge_qa}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_experience}}</span>
+                    <h2 class="mb-5">{{{h2_experience}}}</h2>
+                    {{#experience}}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">{{{role}}}</h3>
+                            <div class="subheading mb-3">{{{company}}}</div>
+                            <p>{{{summary}}}</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">{{{period}}}</span></div>
+                    </div>
+                    {{/experience}}
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_education}}</span>
+                    <h2 class="mb-5">{{{h2_education}}}</h2>
+                    {{#education}}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">{{{school}}}</h3>
+                            <div class="subheading mb-3">{{{program}}}</div>
+                            <div>{{{extra}}}</div>
+                            {{#score}}<p class="mb-0"><em>{{score}}</em></p>{{/score}}
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">{{{period}}}</span></div>
+                    </div>
+                    {{/education}}
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_skills}}</span>
+                    <h2 class="mb-5">{{{h2_skills}}}</h2>
+
+                    <ul class="list-inline tool-logos">
+                        <li class="list-inline-item" title="JavaScript"><svg class="icon" aria-label="JavaScript"><use href="{{asset_prefix}}assets/icons.svg#icon-javascript"/></svg></li>
+                        <li class="list-inline-item" title="Python"><svg class="icon" aria-label="Python"><use href="{{asset_prefix}}assets/icons.svg#icon-python"/></svg></li>
+                        <li class="list-inline-item" title="Java"><svg class="icon" aria-label="Java"><use href="{{asset_prefix}}assets/icons.svg#icon-java"/></svg></li>
+                        <li class="list-inline-item" title="HTML5"><svg class="icon" aria-label="HTML5"><use href="{{asset_prefix}}assets/icons.svg#icon-html5"/></svg></li>
+                        <li class="list-inline-item" title="CSS3"><svg class="icon" aria-label="CSS3"><use href="{{asset_prefix}}assets/icons.svg#icon-css3"/></svg></li>
+                        <li class="list-inline-item" title="Node.js"><svg class="icon" aria-label="Node.js"><use href="{{asset_prefix}}assets/icons.svg#icon-nodejs"/></svg></li>
+                        <li class="list-inline-item" title="Linux"><svg class="icon" aria-label="Linux"><use href="{{asset_prefix}}assets/icons.svg#icon-linux"/></svg></li>
+                        <li class="list-inline-item" title="Git"><svg class="icon" aria-label="Git"><use href="{{asset_prefix}}assets/icons.svg#icon-git"/></svg></li>
+                        <li class="list-inline-item" title="GitLab"><svg class="icon" aria-label="GitLab"><use href="{{asset_prefix}}assets/icons.svg#icon-gitlab"/></svg></li>
+                        <li class="list-inline-item" title="Jira"><svg class="icon" aria-label="Jira"><use href="{{asset_prefix}}assets/icons.svg#icon-jira"/></svg></li>
+                        <li class="list-inline-item" title="npm"><svg class="icon" aria-label="npm"><use href="{{asset_prefix}}assets/icons.svg#icon-npm"/></svg></li>
+                        <li class="list-inline-item" title="Bug tracking"><svg class="icon" aria-label="Bug tracking"><use href="{{asset_prefix}}assets/icons.svg#icon-bug"/></svg></li>
+                    </ul>
+
+                    <div class="skills-grid">
+                        {{#skills_cards}}
+                        <article class="skill-card">
+                            <span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-{{icon}}"/></svg></span>
+                            <h3>{{{title}}}</h3>
+                            <ul class="skill-list">
+                                {{#items}}<li>{{.}}</li>{{/items}}
+                            </ul>
+                        </article>
+                        {{/skills_cards}}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="resume-section" id="projects">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_projects}}</span>
+                    <h2 class="mb-5">{{{h2_projects}}}</h2>
+
+                    <div class="card-carousel" data-carousel data-autoplay="7000" aria-label="{{carousel_aria_projects}}">
+                        <div class="card-carousel-track">
+                            {{#projects}}
+                            <article class="project-card">
+                                <header class="project-head">
+                                    <span class="project-icon"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-{{icon}}"/></svg></span>
+                                    <div>
+                                        <p class="project-cat">{{{cat}}}</p>
+                                        <p class="project-period">{{{period}}}</p>
+                                    </div>
+                                </header>
+                                <div class="project-body">
+                                    <h3>{{{title}}}</h3>
+                                    <p class="project-role">{{{role}}}</p>
+                                    <p>{{{desc}}}</p>
+                                    <ul class="project-stack">
+                                        {{#stack}}<li>{{.}}</li>{{/stack}}
+                                    </ul>
+                                </div>
+                            </article>
+                            {{/projects}}
+                        </div>
+                        <div class="card-carousel-controls">
+                            <button type="button" data-carousel-prev aria-label="{{carousel_prev_projects}}">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-chevron-left"/></svg>
+                            </button>
+                            <button type="button" data-carousel-next aria-label="{{carousel_next_projects}}">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-chevron-right"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section class="resume-section" id="certifications">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_certifications}}</span>
+                    <h2 class="mb-5">{{{h2_certifications}}}</h2>
+
+                    <div class="card-carousel" data-carousel data-autoplay="5000" aria-label="{{carousel_aria_certs}}">
+                        <div class="card-carousel-track">
+                            {{#certifications}}
+                            <article class="cert-card">
+                                <span class="cert-icon"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-certificate"/></svg></span>
+                                <h3>{{{title}}}</h3>
+                                <p class="cert-issuer">{{{issuer}}}</p>
+                                <span class="cert-year">{{year}}</span>
+                            </article>
+                            {{/certifications}}
+                        </div>
+                        <div class="card-carousel-controls">
+                            <button type="button" data-carousel-prev aria-label="{{carousel_prev_certs}}">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-chevron-left"/></svg>
+                            </button>
+                            <button type="button" data-carousel-next aria-label="{{carousel_next_certs}}">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-chevron-right"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Organizational -->
+            <section class="resume-section" id="organizational">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_organizational}}</span>
+                    <h2 class="mb-5">{{{h2_organizational}}}</h2>
+                    {{#organizational}}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">{{{role}}}</h3>
+                            <div class="subheading mb-3">{{{org}}}</div>
+                            <p>{{{summary}}}</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">{{{period}}}</span></div>
+                    </div>
+                    {{/organizational}}
+                </div>
+            </section>
+
+            <!-- Interests -->
+            <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_interests}}</span>
+                    <h2 class="mb-5">{{{h2_interests}}}</h2>
+                    {{#interests}}
+                    <p>{{{.}}}</p>
+                    {{/interests}}
+                </div>
+            </section>
+
+            <!-- Awards -->
+            <section class="resume-section" id="awards">
+                <div class="resume-section-content">
+                    <span class="section-eyebrow">{{eyebrow_awards}}</span>
+                    <h2 class="mb-5">{{{h2_awards}}}</h2>
+
+                    <div class="card-carousel" data-carousel data-autoplay="6000" aria-label="{{carousel_aria_awards}}">
+                        <div class="card-carousel-track">
+                            {{#awards}}
+                            <article class="award-card">
+                                <span class="award-icon"><svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-trophy"/></svg></span>
+                                <h3>{{{title}}}</h3>
+                                <p class="award-host">{{{host}}}</p>
+                                <span class="award-year">{{year}}</span>
+                            </article>
+                            {{/awards}}
+                        </div>
+                        <div class="card-carousel-controls">
+                            <button type="button" data-carousel-prev aria-label="{{carousel_prev_awards}}">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-chevron-left"/></svg>
+                            </button>
+                            <button type="button" data-carousel-next aria-label="{{carousel_next_awards}}">
+                                <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-chevron-right"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Contact form modal -->
+        <div class="modal fade contact-modal" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-icon" aria-hidden="true">
+                            <svg class="icon"><use href="{{asset_prefix}}assets/icons.svg#icon-mail"/></svg>
+                        </span>
+                        <div class="flex-grow-1">
+                            <h2 class="modal-title h5" id="contactModalLabel">{{modal_title}}</h2>
+                            <p class="modal-subtitle">{{modal_subtitle}}</p>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{modal_close}}"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="contact-form" data-contact-form action="https://formspree.io/f/FORMSPREE_FORM_ID" method="POST" novalidate>
+                            <div class="form-row two-col">
+                                <div>
+                                    <label for="contact-name">{{modal_label_name}}</label>
+                                    <input type="text" id="contact-name" name="name" required autocomplete="name" placeholder="{{modal_ph_name}}" />
+                                </div>
+                                <div>
+                                    <label for="contact-email">{{modal_label_email}}</label>
+                                    <input type="email" id="contact-email" name="email" required autocomplete="email" placeholder="{{modal_ph_email}}" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div>
+                                    <label for="contact-subject">{{modal_label_subject}}</label>
+                                    <input type="text" id="contact-subject" name="subject" required placeholder="{{modal_ph_subject}}" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div>
+                                    <label for="contact-message">{{modal_label_message}}</label>
+                                    <textarea id="contact-message" name="message" required rows="5" placeholder="{{modal_ph_message}}"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-honeypot" aria-hidden="true">
+                                <label for="contact-bot-field">{{modal_honeypot_label}}</label>
+                                <input type="text" id="contact-bot-field" name="_gotcha" tabindex="-1" autocomplete="off" />
+                            </div>
+
+                            <div class="form-actions">
+                                <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+                                <button type="submit" class="btn-modern">
+                                    <svg class="icon" aria-hidden="true"><use href="{{asset_prefix}}assets/icons.svg#icon-send"/></svg>
+                                    {{modal_submit}}
+                                </button>
+                            </div>
+
+                            <div class="form-success">
+                                <span class="success-icon" aria-hidden="true"><svg class="icon"><use href="{{asset_prefix}}assets/icons.svg#icon-check-circle"/></svg></span>
+                                <h3>{{modal_success_title}}</h3>
+                                <p>{{modal_success_text}}</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap 5.3.8 JS bundle -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+            defer></script>
+        <script src="{{asset_prefix}}js/scripts.js"></script>
+    </body>
+</html>

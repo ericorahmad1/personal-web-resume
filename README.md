@@ -20,36 +20,59 @@ Single-page personal resume website for **Erico Rahmad Darmanto** (QA / Security
 The site is fully static — open `index.html` in a browser, or:
 
 ```bash
-npm install     # one-time, dev dependencies for the build pipeline
-npm run build   # regenerate AVIF/WebP/icon-sprite/OG-card
-npm run serve   # http://localhost:8000
-npm run lint    # htmlhint + stylelint
+npm install        # one-time, dev dependencies for the build pipeline
+
+# Full build: regenerates AVIF/WebP, icon sprite, OG card, and HTML pages
+npm run build
+
+# Or run individual steps:
+npm run build:pages     # render index.html + id/index.html from template + JSON
+npm run build:images    # AVIF + WebP from erico.jpg
+npm run build:icons     # fetch icons from Simple Icons + Lucide → assets/icons.svg
+npm run build:og        # SVG → 1200×630 OG card
+
+npm run serve      # http://localhost:8000
+npm run lint       # htmlhint + stylelint
 ```
 
 ## Project structure
 
 ```
 .
-├── index.html              # English resume (canonical)
-├── id/index.html           # Indonesian resume (hreflang)
-├── resume.json             # Machine-readable (JSON Resume schema)
-├── css/styles.css          # Design tokens + components (~700 lines)
+├── index.html              # English page (GENERATED — edit data/site.en.json instead)
+├── id/index.html           # Indonesian page (GENERATED — edit data/site.id.json)
+├── data/
+│   ├── site.en.json        # English: UI strings, work, projects, awards, etc.
+│   └── site.id.json        # Indonesian: same shape, translated
+├── templates/page.mustache # Single template both pages render from
+├── resume.json             # Machine-readable (JSON Resume schema), separate artifact
+├── css/styles.css          # Design tokens + components (~900 lines)
 ├── js/scripts.js           # Theme toggle, carousels, contact form, ScrollSpy
 ├── assets/
 │   ├── icons.svg           # Local SVG sprite (34 icons)
 │   ├── fonts/inter-variable.woff2
 │   └── img/erico.{jpg,avif,webp}, og-image.png, favicon.ico
-├── scripts/build.mjs       # Build pipeline (sharp, fetch icon sprite)
+├── scripts/build.mjs       # Build pipeline (sharp, mustache, fetch)
 ├── sitemap.xml, robots.txt # SEO
-├── netlify.toml (optional) # Netlify config
 └── .github/workflows/ci.yml
 ```
 
 ## Editing content
 
-Edit visible content directly in **`index.html`** (English) and **`id/index.html`** (Indonesian). Keep `resume.json` in sync if you want the machine-readable artifact to stay accurate.
+> ⚠️ **Don't edit `index.html` or `id/index.html` directly** — they're generated.
+> Run `npm run build:pages` after editing data files to regenerate them.
 
-A future iteration may render HTML from `resume.json` via a Mustache template in `scripts/build.mjs` — see PLAN.md.
+- **English content**: edit `data/site.en.json`
+- **Indonesian content**: edit `data/site.id.json`
+- **Machine-readable resume**: edit `resume.json` (separate artifact for ATS / LinkedIn / AI agents — does not feed the HTML)
+- **Layout / styling**: edit `templates/page.mustache` (structure) or `css/styles.css` (visual)
+
+After any data change:
+```bash
+npm run build:pages
+git add . && git commit -m "content: ..."
+git push
+```
 
 ---
 
