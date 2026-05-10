@@ -1,7 +1,7 @@
 # Personal Web Resume — Analysis & Improvement Plan
 
 > Snapshot date: 2026-05-09 (initial)
-> Last updated: 2026-05-09 (session 1 — items #1–#5 completed; Phase 1 modernization started)
+> Last updated: 2026-05-10 (session 2 — Phase 1 commits 1-3 + build pipeline shipped)
 > Owner: Erico Rahmad Darmanto (`ericorahmad1@gmail.com`)
 > Repo: https://github.com/ericorahmad1/personal-web-resume
 
@@ -9,29 +9,39 @@
 
 Full plan stored at `~/.claude/plans/tingly-foraging-widget.md` with 16 commit-sized tasks.
 
-**Done so far this session (uncommitted in working tree):**
-- ✅ `robots.txt` — bots allowed; private/ blocked; AI training crawlers (GPTBot, ClaudeBot, CCBot, Google-Extended, PerplexityBot, anthropic-ai) opt-out
-- ✅ `sitemap.xml` — single URL with hreflang scaffold (will expand when `/id/` ships)
-- ✅ `index.html` — added `<meta name="robots">` with `max-image-preview:large`, `<meta name="color-scheme">`, sitemap alternate link
-- ✅ `css/styles.css` — print stylesheet (`@media print`) for clean A4 PDF export
+**Session 1 done (2026-05-09):**
+- ✅ `robots.txt` — bots allowed; private/ blocked; AI training crawlers opt-out
+- ✅ `sitemap.xml` — single URL with hreflang scaffold
+- ✅ `index.html` — `<meta name="robots">`, `color-scheme`, sitemap alternate link
+- ✅ `css/styles.css` — print stylesheet (`@media print`) for A4 PDF export
 
-**Stopped at:** end of Phase 1 SEO basics. Next 12 commits pending.
+**Session 2 done (2026-05-10):**
+- ✅ Commit `071086f` — proper `package.json` + `scripts/build.mjs` (sharp, htmlhint, stylelint); replaces orphan lockfile
+- ✅ Commit `5208826` — Bootstrap 5.1.3 → 5.3.8 (CDN + SRI); `css/styles.css` shrunk from 11,434 lines to 322 lines (97% smaller); `data-bs-theme` token wired
+- ✅ Commit `28845eb` — AVIF + WebP profile photo via `<picture>`; 85% smaller than JPEG
+- ✅ Commit `1429a85` — Font Awesome CDN replaced with local SVG sprite (26 icons from Simple Icons + Lucide); dropped `use.fontawesome.com` from CSP
 
-**Next session pickup order** (from full plan, recommended sequence):
-1. `chore(deps): bootstrap 5.1.3 → 5.3.8 + refresh SRI` (commit 1)
-2. `perf(images): AVIF/WebP profile photo via <picture>` (commit 2)
-3. `perf(icons): replace Font Awesome CDN with local SVG sprite` (commit 3)
-4. `feat(seo): custom OG card image` (commit 5)
-5. `feat(perf): self-host Inter Variable; drop Google Fonts` (commit 6)
-6. `chore: replace orphan package-lock with proper package.json + build script` (commit 8)
-7. `feat: extract content to resume.json (JSON Resume schema)` (commit 9)
-8. `feat(i18n): add Indonesian /id/ page with hreflang` (commit 10)
-9. `feat(theme): dark mode toggle` (commit 11)
-10. `feat(ux): IntersectionObserver section reveal` (commit 12)
-11. `feat(ux): variable font + fluid clamp() typography` (commit 13)
-12. `feat(nav): offcanvas mobile navigation` (commit 14)
-13. `feat(seo): richer Schema.org` (commit 15)
-14. `chore(ci): linting + Lighthouse CI` (commit 16)
+**Stopped at:** end of Phase 1 commits 1–3 (out of 7) + build pipeline scaffolding.
+
+**Next session pickup order** (remaining commits):
+1. `feat(seo): custom OG card image` (commit 5) — design 1200×630 branded card; update OG/Twitter meta
+2. `feat(perf): self-host Inter Variable; drop Google Fonts` (commit 6)
+3. `feat: extract content to resume.json (JSON Resume schema)` (commit 9)
+4. `feat(i18n): add Indonesian /id/ page with hreflang` (commit 10)
+5. `feat(theme): dark mode toggle` (commit 11) — Bootstrap 5.3 `data-bs-theme` already wired in commit `5208826`, just needs the toggle button + JS + localStorage
+6. `feat(ux): IntersectionObserver section reveal` (commit 12)
+7. `feat(ux): variable font + fluid clamp() typography` (commit 13) — pairs with commit 6
+8. `feat(nav): offcanvas mobile navigation` (commit 14)
+9. `feat(seo): richer Schema.org` (commit 15) — add WebSite, BreadcrumbList, per-job Role
+10. `chore(ci): linting + Lighthouse CI` (commit 16)
+
+**Run the build script** to regenerate icon sprite or images:
+```bash
+npm install         # one-time
+npm run build       # full build (images + icons)
+npm run build:images
+node scripts/build.mjs --icons-only
+```
 
 
 
