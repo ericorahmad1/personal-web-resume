@@ -6,8 +6,39 @@
  *
  * Refactored 2026-05-10:
  *   - Bootstrap (now 5.3.8) is loaded from CDN, no longer bundled here
- *   - File reduced from ~11,400 lines to ~270 lines (theme-only)
+ *   - Inter Variable is self-hosted; Google Fonts dropped
+ *   - Fluid typography via clamp(); Saira / Muli removed
  */
+
+/* ---------------------------------------------------------------------------
+   Inter Variable — single self-hosted woff2 covering all weights 100-900.
+   Source: https://www.npmjs.com/package/@fontsource-variable/inter (OFL).
+   --------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('../assets/fonts/inter-variable.woff2') format('woff2-variations');
+}
+
+/* ---------------------------------------------------------------------------
+   Typography tokens — system font stack with Inter Variable preferred
+   --------------------------------------------------------------------------- */
+:root {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+}
+
+/* Fluid typography — scales smoothly from 320px to ~1440px viewport */
+h1, .h1 { font-size: clamp(2.25rem, 4vw + 1.25rem, 4.5rem); }
+h2, .h2 { font-size: clamp(1.75rem, 2.5vw + 1rem, 2.75rem); }
+h3, .h3 { font-size: clamp(1.125rem, 1vw + 0.875rem, 1.5rem); }
+p.lead { font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem); }
 
 /* ---------------------------------------------------------------------------
    Theme variable overrides — replace Bootstrap defaults with the warm orange
@@ -82,19 +113,19 @@ h6, .h6 {
 }
 
 h1, .h1 {
-    line-height: 1;
+    line-height: 1.05;
 }
 
 p.lead {
-    font-size: 1.15rem;
     font-weight: 400;
 }
 
 .subheading {
-    font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--font-display);
     text-transform: uppercase;
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: clamp(1.125rem, 0.75vw + 1rem, 1.5rem);
 }
 
 /* ---------------------------------------------------------------------------

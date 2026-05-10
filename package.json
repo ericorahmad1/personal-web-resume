@@ -22,6 +22,7 @@
     "serve": "npx serve . -l 8000"
   },
   "devDependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
     "htmlhint": "^1.1.4",
     "sharp": "^0.33.5",
     "stylelint": "^16.10.0",
