@@ -77,28 +77,98 @@
         <!-- Theme overrides (this file no longer bundles Bootstrap; only ~270 lines) -->
         <link href="css/styles.css" rel="stylesheet" />
 
-        <!-- JSON-LD structured data -->
+        <!-- JSON-LD structured data — @graph with Person + WebSite + WebPage + BreadcrumbList -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Erico Rahmad Darmanto",
-            "jobTitle": "QA / Security Engineer",
-            "email": "mailto:ericorahmad1@gmail.com",
-            "url": "https://ericorahmad1.github.io/personal-web-resume/",
-            "image": "https://ericorahmad1.github.io/personal-web-resume/assets/img/erico.jpg",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Denpasar",
-                "addressRegion": "Bali",
-                "addressCountry": "ID"
-            },
-            "sameAs": [
-                "https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/",
-                "https://github.com/ericorahmad1",
-                "https://www.twitter.com/0xn0thing",
-                "https://instagram.com/ericorahmad",
-                "https://lynk.id/ericorahmad/page/portofolio"
+            "@graph": [
+                {
+                    "@type": "Person",
+                    "@id": "https://ericorahmad1.github.io/personal-web-resume/#person",
+                    "name": "Erico Rahmad Darmanto",
+                    "givenName": "Erico",
+                    "familyName": "Rahmad Darmanto",
+                    "jobTitle": "QA / Security Engineer",
+                    "description": "Quality Assurance Engineer and Cyber Security Specialist with a dual degree from Institut Teknologi & Bisnis STIKOM Bali and HELP University. Experience in penetration testing, VAPT, automation testing, and incident response.",
+                    "email": "mailto:ericorahmad1@gmail.com",
+                    "url": "https://ericorahmad1.github.io/personal-web-resume/",
+                    "image": "https://ericorahmad1.github.io/personal-web-resume/assets/img/og-image.png",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Denpasar",
+                        "addressRegion": "Bali",
+                        "addressCountry": "ID"
+                    },
+                    "alumniOf": [
+                        {
+                            "@type": "CollegeOrUniversity",
+                            "name": "Institut Teknologi dan Bisnis STIKOM Bali",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Denpasar", "addressCountry": "ID" }
+                        },
+                        {
+                            "@type": "CollegeOrUniversity",
+                            "name": "HELP University",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" }
+                        }
+                    ],
+                    "knowsAbout": [
+                        "Quality Assurance",
+                        "Software Testing",
+                        "Penetration Testing",
+                        "Vulnerability Assessment",
+                        "Cypress",
+                        "Selenium",
+                        "Playwright",
+                        "OWASP",
+                        "Cyber Security",
+                        "Network Security",
+                        "Incident Response"
+                    ],
+                    "knowsLanguage": [
+                        { "@type": "Language", "name": "English", "alternateName": "en" },
+                        { "@type": "Language", "name": "Indonesian", "alternateName": "id" }
+                    ],
+                    "hasCredential": [
+                        { "@type": "EducationalOccupationalCredential", "name": "Certified AppSec Practitioner (CAPv2)", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "The SecOps Group" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Google Cybersecurity Professional Certificate", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Google / Coursera" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Certified Network Security Practitioner (CNSP)", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "The SecOps Group" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Certified Network Defender (CND)", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "EC-Council" } },
+                        { "@type": "EducationalOccupationalCredential", "name": "Cisco CyberOps Associate", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Cisco" } }
+                    ],
+                    "sameAs": [
+                        "https://www.linkedin.com/in/erico-rahmad-darmanto-3aab01126/",
+                        "https://github.com/ericorahmad1",
+                        "https://www.twitter.com/0xn0thing",
+                        "https://instagram.com/ericorahmad",
+                        "https://lynk.id/ericorahmad/page/portofolio"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://ericorahmad1.github.io/personal-web-resume/#website",
+                    "url": "https://ericorahmad1.github.io/personal-web-resume/",
+                    "name": "Erico Rahmad Darmanto — Resume",
+                    "description": "Online resume of Erico Rahmad Darmanto — QA / Security Engineer based in Denpasar, Bali.",
+                    "inLanguage": "en",
+                    "publisher": { "@id": "https://ericorahmad1.github.io/personal-web-resume/#person" }
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": "https://ericorahmad1.github.io/personal-web-resume/#webpage",
+                    "url": "https://ericorahmad1.github.io/personal-web-resume/",
+                    "name": "Erico Rahmad Darmanto — QA / Security Engineer",
+                    "isPartOf": { "@id": "https://ericorahmad1.github.io/personal-web-resume/#website" },
+                    "about": { "@id": "https://ericorahmad1.github.io/personal-web-resume/#person" },
+                    "primaryImageOfPage": "https://ericorahmad1.github.io/personal-web-resume/assets/img/og-image.png",
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ericorahmad1.github.io/personal-web-resume/" },
+                        { "@type": "ListItem", "position": 2, "name": "Resume", "item": "https://ericorahmad1.github.io/personal-web-resume/#about" }
+                    ]
+                }
             ]
         }
         </script>
